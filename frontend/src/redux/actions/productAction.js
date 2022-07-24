@@ -5,7 +5,7 @@ export const getProduct=()=>{
     return  async function (dispatch){
         dispatch({type:ALL_PRODUCT_REQUEST});
         
-        axios.get("/api/products/62d3e40beddb5277795e61d1").then((result)=>{
+        axios.get("/api/products").then((result)=>{
             console.log(result);
             // dispatch({type:ALL_PRODUCT_SUCCESS,payload:result.data.data});
         }).catch((err)=>{

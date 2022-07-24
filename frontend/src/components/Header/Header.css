@@ -1,0 +1,39 @@
+.appbar{
+    margin: 0;
+}
+
+.searchBox{
+    border-radius: 5px;
+}
+
+.loginButton{
+    color: white;
+    text-decoration: none;
+}
+
+#logo{
+    font-family: 'Work Sans', sans-serif;
+}
+
+
+.categoryItem{
+    text-align: center;
+    width: 100px;
+    height:100px;
+    margin-left:1% ;
+    margin-right: 1%;
+}
+
+.categoryImage{
+    width: 60px;
+    height:60px;
+    border-radius: 50%;
+    padding: 0;
+    margin: 0;
+}
+
+.categoryText{
+    height:20px;
+    padding: 0;
+    margin: 0;
+}

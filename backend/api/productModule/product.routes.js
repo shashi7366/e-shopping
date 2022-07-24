@@ -1,6 +1,6 @@
 const router=require('express').Router();
 const dao=require('./product.dao');
-
+                                      
 router.post('/new',(req,res,next)=>{
     dao.insertProduct(req.body)
     .then((data)=>{
@@ -8,16 +8,19 @@ router.post('/new',(req,res,next)=>{
             message:"success",
             data
         })
+                                  
     }).catch((err)=>{
         // res.status(err.statusCode).send("error occured my ",err);
         console.log("error inserting data",err.message);
         next();
     })
 });
-
 router.route('/').get(dao.showProducts);
 
+                  
 router.route('/:id').put(dao.updateProduct).delete(dao.deleteProduct).get(dao.getIndividualProduct);
 
-
+                       
 module.exports=router;
+                            
+   

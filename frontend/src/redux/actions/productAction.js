@@ -6,11 +6,17 @@ export const getProduct=()=>{
         dispatch({type:ALL_PRODUCT_REQUEST});
         
         axios.get("/api/products").then((result)=>{
-            console.log(result);
-            // dispatch({type:ALL_PRODUCT_SUCCESS,payload:result.data.data});
+            
+            dispatch({type:ALL_PRODUCT_SUCCESS,payload:result.data.products});
         }).catch((err)=>{
+           if(err.response.data.message=='success'){
+            dispatch({type:ALL_PRODUCT_SUCCESS,payload:err.response.data.products});
+           }
+           else{
+            dispatch({type:ALL_PRODUCT_FAIL,payload:err})
+           }
             // dispatch({type:ALL_PRODUCT_FAIL,payload:err});
-            console.log(err);
+           
         })
     }
 }

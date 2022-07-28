@@ -8,7 +8,7 @@ import FaceIcon from '@mui/icons-material/Face'
 // import '../Component/LoginSignUp.css';
 
 import './loginSignUp.css'
-import Header from "../Header/Header";
+
 
 
 const LoginSignUp =()=>{
@@ -81,7 +81,7 @@ const LoginSignUp =()=>{
 
     return(
         <Fragment>
-            <Header />
+           
             <div className="LoginSignUpContainer">
                 <div className="LoginSignUpBox">
                     <div>

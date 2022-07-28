@@ -6,17 +6,29 @@ import store from './redux/store';
 import { BrowserRouter, Routes,Route } from 'react-router-dom';
 import LoginSignUp from './components/LoginSignUp/loginSignUp';
 import Home from './components/Home/Home';
+import Dashboard from './components/Admin/Dashboard';
+import AddProduct from './components/Admin/AddProduct';
+import DefaultBody from './components/Admin/DefaultBody';
+import EditProduct from './components/Admin/EditProduct'
 
 
 
 const root = ReactDOM.createRoot(document.getElementById('root'));
-root.render(<BrowserRouter>
+root.render(
+<BrowserRouter>
      <Provider store={store}>
           <Routes>
                <Route path='/' element={<App/>}>
                <Route path='/login' element={<LoginSignUp/>} />   
                <Route index element={<Home/>} />               
                </Route>
+               <Route path='admin' element={<Dashboard/>} >
+               <Route index element={<DefaultBody />} />
+               <Route path='addProduct' element={<AddProduct />} />
+               <Route path=':id' element={<EditProduct />} />
+               </Route>
+               
+               
           </Routes>
      </Provider>
 </BrowserRouter>

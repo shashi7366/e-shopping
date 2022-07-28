@@ -1,11 +1,13 @@
 const Product=require('./product.entity');
 
 const insertProduct=(product)=>{
-    return Product.create(product);
+
+
+    return product=  Product.create(product);
 }
 
 const showProducts=async (req,res,next)=>{
-   var products=await Product.find();
+   var products = await Product.find();
 
    if(!products){
     res.status(403).json({

@@ -1,8 +1,12 @@
 const router=require('express').Router();
+const { isAuthenticatedUser, authorizeRoles } = require('../../errorMiddleware/auth');
 const dao=require('./product.dao');
                                       
 router.post('/new',(req,res,next)=>{
-    dao.insertProduct(req.body)
+ 
+ 
+   isAuthenticatedUser, authorizeRoles("admin"), 
+   dao.insertProduct(req.body)
     .then((data)=>{
         res.status(200).json({
             message:"success",
@@ -18,7 +22,7 @@ router.post('/new',(req,res,next)=>{
 router.route('/').get(dao.showProducts);
 
                   
-router.route('/:id').put(dao.updateProduct).delete(dao.deleteProduct).get(dao.getIndividualProduct);
+router.route('/:id').put( isAuthenticatedUser, authorizeRoles("admin"), dao.updateProduct).delete(isAuthenticatedUser,authorizeRoles("admin"),  dao.deleteProduct).get( dao.getIndividualProduct);
 
                        
 module.exports=router;

@@ -18,13 +18,13 @@ function EditProduct() {
 
     var dispatch = useDispatch();
 
-    var { loading, product } = useSelector((state) => {
+    var { loaded, product } = useSelector((state) => {
         return state.individualProduct;
     });
 
     useEffect(() => {
         dispatch(getIndividualProduct(id));
-    }, [dispatch]);
+    }, [dispatch,id]);
 
     const schema = yup.object({
         name: yup.string("enter first name").required('name is required').min(1),
@@ -37,14 +37,14 @@ function EditProduct() {
 
     const formik = useFormik({
         initialValues: {
-            name: '',
-            description: '',
-            price: '',
-            imageUrl1: '',
+            name: (loaded?product.name:''),
+            description:(loaded?product.description:''),
+            price:(loaded?product.price:'') ,
+            imageUrl1: (loaded?product.images[0].url:''),
             imageUrl2: '',
             imageUrl3: '',
-            stock: '',
-            category: ''
+            stock: (loaded?product.stock:''),
+            category: (loaded?product.category:'')
         },
         validationSchema: schema,
         onSubmit: (values) => {
@@ -71,7 +71,8 @@ function EditProduct() {
 
 
 
-    return <div>{(!loading) && (<form onSubmit={formik.handleSubmit}><Paper elevation={2} sx={{ mx: '10%', px: '5%', py: '5%', margin: '2%' }}>
+    return <div>{(loaded) && (<form onSubmit={formik.handleSubmit}>
+    <Paper elevation={2} sx={{ mx: '10%', px: '5%', py: '5%', margin: '2%' }}>
         <Grid container spacing={2}>
             <Grid item xs={12} lg={12}>
                 <Typography variant="h3">Edit {product.name}</Typography>
@@ -100,15 +101,23 @@ function EditProduct() {
                     helperText={formik.touched.price && formik.errors.price} />
             </Grid>
 
-            <Grid item xs={6} lg={6}>
-                <TextField fullWidth name="imageUrl1" id="imageUrl1" label={product.images[0].url} variant="standard"
+            {/* <Grid item xs={6} lg={6}>
+                <TextField fullWidth name="imageUrl1" id="imageUrl1" placeholder={product.images[0].url} variant="standard"
+                    onChange={formik.handleChange}
+                    value={formik.values.imageUrl1}
+                    error={formik.touched.imageUrl1 && Boolean(formik.errors.imageUrl1)}
+                    helperText={formik.touched.imageUrl1 && formik.errors.imageUrl1} />
+            </Grid> */}
+          {product.images.map((i)=>{
+            return <Grid item xs={6} lg={6}>
+                <TextField fullWidth name="imageUrl1" id="imageUrl1" placeholder={i.url} variant="standard"
                     onChange={formik.handleChange}
                     value={formik.values.imageUrl1}
                     error={formik.touched.imageUrl1 && Boolean(formik.errors.imageUrl1)}
                     helperText={formik.touched.imageUrl1 && formik.errors.imageUrl1} />
             </Grid>
-
-            <Grid item xs={6} lg={6}>
+          })}
+            {/* <Grid item xs={6} lg={6}>
                 <TextField fullWidth name="imageUrl2" id="imageUrl2" label={product.imageUrl2} variant="standard"
                     onChange={formik.handleChange}
                     value={formik.values.imageUrl2}
@@ -122,7 +131,7 @@ function EditProduct() {
                     value={formik.values.imageUrl3}
                     error={formik.touched.imageUrl3 && Boolean(formik.errors.imageUrl3)}
                     helperText={formik.touched.imageUrl3 && formik.errors.imageUrl3} />
-            </Grid>
+            </Grid> */}
 
             <Grid item xs={6} lg={6}>
                 <TextField fullWidth name="stock" id="stock" label={product.stock} variant="standard"

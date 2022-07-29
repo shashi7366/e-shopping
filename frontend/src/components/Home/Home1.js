@@ -20,13 +20,8 @@ function Home1() {
 
     return <Grid container spacing={2}>
         {products.length > 0 && products.map((product) => {
-            return <Grid lg={3} md={4} xs={12} item className="productCard"><Card key={product.id} sx={{ maxWidth: 345 }}>
-                {/* <CardMedia
-                    component="img"
-                    // height="140"
-                    image={product.images[0].url}
-                    alt="product image"
-                /> */}
+            return <Grid item lg={3} md={4} xs={12} className="productCard"><Card key={product.id} sx={{ maxWidth: 345}}>
+                
                 <CardMedia sx={{textAlign:'center',minHeight:'200px'}}><img src={product.images[0].url} alt="product img" style={{height:'200px',width:'200px'}}></img></CardMedia>
                 <CardContent>
                     <Typography gutterBottom variant="h5" component="div">

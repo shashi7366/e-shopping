@@ -7,14 +7,12 @@
 }
 
 .productCard{
-    margin: 1vw;
+    margin: 5vw;
     
-    
+    display:block;
     width:20vw;
     height:20vw;
-    max-width: 20vw;
-    min-width: 20vw;
-    max-height: 20vw;
+   
 }
 .appbar{
     margin: 0;

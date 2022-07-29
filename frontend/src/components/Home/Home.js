@@ -7,7 +7,7 @@ import SearchIcon from '@mui/icons-material/Search';
 
 function Home() {
   return (
-    <div className='Appbar'>
+    <div>
 <Paper elevation={0} sx={{ display: 'flex', height: '100px', alignItems: 'center', justifyContent: 'center',paddingTop:'20px' }}>
                 <Paper elevation={0} className='categoryItem'>
                 <img className="categoryImage" src='./images/electronics.jpg' alt="alt-desc"/>

@@ -5,7 +5,7 @@ const dao=require('./product.dao');
 router.post('/new',(req,res,next)=>{
  
  
-   isAuthenticatedUser, authorizeRoles("admin"), 
+//    isAuthenticatedUser, authorizeRoles("admin"), 
    dao.insertProduct(req.body)
     .then((data)=>{
         res.status(200).json({
@@ -22,8 +22,8 @@ router.post('/new',(req,res,next)=>{
 router.route('/').get(dao.showProducts);
 
                   
-router.route('/:id').put( isAuthenticatedUser, authorizeRoles("admin"), dao.updateProduct).delete(isAuthenticatedUser,authorizeRoles("admin"),  dao.deleteProduct).get( dao.getIndividualProduct);
-
+// router.route('/:id').put( isAuthenticatedUser, authorizeRoles("admin"), dao.updateProduct).delete(isAuthenticatedUser,authorizeRoles("admin"),  dao.deleteProduct).get( dao.getIndividualProduct);
+router.route('/:id').put(dao.updateProduct).delete(dao.deleteProduct).get( dao.getIndividualProduct);
                        
 module.exports=router;
                             

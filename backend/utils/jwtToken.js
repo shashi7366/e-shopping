@@ -9,7 +9,7 @@ const sendToken = (user, statusCode, res) => {
     // options for cookie
         const options = {
      // expires: new Date(
-        expiresIn: process.env.JWT_EXPIRE="5d" * 24 * 60 * 1000,
+        maxAge:5*24*60*60*1000,
 
        // Date.now() + process.env.COOKIE_EXPIRE= //* 24 * 60 * 60 * 1000 
 

@@ -31,23 +31,23 @@ export const productsReducer = (state = { loading:false,products: [],error:'' },
     }
   };
 
-  export const individualProductsReducer = (state = { loading:false,product: [],error:'' }, action) => {
+  export const individualProductsReducer = (state = { loaded:false,product: [],error:'' }, action) => {
     switch (action.type) {
       case PRODUCT_REQUEST:
         return {
           ...state,
-          loading: true,
+          loaded: false,
         };
       case PRODUCT_SUCCESS:
         return {
           ...state,
-          loading: false,
+          loaded: true,
           product: action.payload,
         };
       case PRODUCT_FAIL:
         return {
           ...state,
-          loading: false,
+          loaded: false,
           error: action.payload,
         };
       default:

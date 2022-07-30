@@ -1,4 +1,5 @@
-import {ALL_PRODUCT_REQUEST,ALL_PRODUCT_SUCCESS,ALL_PRODUCT_FAIL,PRODUCT_FAIL,PRODUCT_REQUEST,PRODUCT_SUCCESS} from '../constants/productConstants';
+import {ALL_PRODUCT_REQUEST,ALL_PRODUCT_SUCCESS,ALL_PRODUCT_FAIL,PRODUCT_FAIL,PRODUCT_REQUEST,PRODUCT_SUCCESS,
+SEARCH_PRODUCT_FAIL,SEARCH_PRODUCT_REQUEST,SEARCH_PRODUCT_SUCCESS} from '../constants/productConstants';
 import axios from 'axios';
 
 export const getProduct=()=>{
@@ -41,3 +42,23 @@ export const getIndividualProduct=(id)=>{
     }
 }
 
+export const getSearchProduct=(link)=>{
+    return  async function (dispatch){
+        dispatch({type:SEARCH_PRODUCT_REQUEST});
+        
+        axios.get(link).then((result)=>{
+           console.log(result);
+            dispatch({type:SEARCH_PRODUCT_SUCCESS,payload:result.data.data});
+            console.log(result.data.data);
+        }).catch((err)=>{
+           if(err.response.data.message=='success'){
+            dispatch({type:SEARCH_PRODUCT_SUCCESS,payload:err.response.data.product});
+           }
+           else{
+            dispatch({type:SEARCH_PRODUCT_FAIL,payload:err})
+           }
+            // dispatch({type:ALL_PRODUCT_FAIL,payload:err});
+          
+        })
+    }
+}

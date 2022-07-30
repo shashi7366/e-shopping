@@ -1,11 +1,22 @@
-import React from 'react';
+import React,{useState} from 'react';
 import CarouselComponent from '../Carousel';
 import Home1 from './Home1';
 import './Home1.css';
 import { Button, IconButton, Typography, Paper, TextField } from '@mui/material';
 import SearchIcon from '@mui/icons-material/Search';
+import {useNavigate} from 'react-router-dom'
+
 
 function Home() {
+    const navigate=useNavigate();
+    var [keyword,setKeyword]=useState('');
+
+const callAction=()=>{
+    var link=`/api/products/searchProduct?keyword=${keyword}`;
+    console.log(link);
+navigate(`search/${keyword}`);
+}
+
   return (
     <div>
 <Paper elevation={0} sx={{ display: 'flex', height: '100px', alignItems: 'center', justifyContent: 'center',paddingTop:'20px' }}>
@@ -48,12 +59,16 @@ function Home() {
 
             <Paper elevation={0} sx={{ display: 'flex', height: '40px', alignItems: 'center', justifyContent: 'center', margin: '3%'}}>
                 <TextField
+                value={keyword}
                 label="search here..."
                     id="outlined-size-small"
                     defaultValue=""
                     size="small"
                     sx={{width:'50%'}}
-                /><IconButton><SearchIcon fontSize='large' /></IconButton>
+                    onChange={(e)=>{
+                        setKeyword(e.target.value);
+                    }}
+                /><IconButton onClick={callAction}><SearchIcon fontSize='large' /></IconButton>
             </Paper>
             <CarouselComponent />
             <h1 style={{textAlign:'center'}}>featured products</h1>

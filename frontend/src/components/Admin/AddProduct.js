@@ -121,7 +121,7 @@ const AddValidation=(AddProduct)=>{
             }
 
             if(values.imageUrl3){
-                imgArr.push(values.imageUrl3)
+                imgArr.push({url:values.imageUrl3})
             }
 
             axios.post('/api/products/new',{

@@ -1,5 +1,6 @@
 .appbar{
     margin: 0;
+    position: fixed;
 }
 
 .searchBox{

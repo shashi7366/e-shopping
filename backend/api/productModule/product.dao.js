@@ -1,4 +1,5 @@
 const Product=require('./product.entity');
+const ApiFeatures=require('../../utils/apiFeatures');
 
 const insertProduct=(product)=>{
 
@@ -75,4 +76,28 @@ const getIndividualProduct=async (req,res,next)=>{
 }
 
 
-module.exports={insertProduct,showProducts,updateProduct,deleteProduct,getIndividualProduct}
+const showSearchProducts=async (req,res,next)=>{
+   
+  
+    var apiFeatures=new ApiFeatures(Product.find(),req.query);
+    
+
+    apiFeatures.search().then((result)=>{
+        console.log('search called');
+        return result.filter();
+    }).then(async (result2)=>{
+        console.log('filter called');
+       let data=(await result2.query);
+        res.status(200).json({
+            message:"success",
+            data
+        });
+    });
+    
+
+
+   
+}
+
+
+module.exports={insertProduct,showProducts,updateProduct,deleteProduct,getIndividualProduct,showSearchProducts}

@@ -1,11 +1,12 @@
 import { createStore, combineReducers, applyMiddleware } from "redux";
 import thunk from "redux-thunk";
 
-import {productsReducer,individualProductsReducer} from './reducers/productReducer';
+import {productsReducer,individualProductsReducer,searchProductsReducer} from './reducers/productReducer';
 
 const reducer = combineReducers({
     products: productsReducer,
-    individualProduct:individualProductsReducer
+    individualProduct:individualProductsReducer,
+    searchProduct:searchProductsReducer
 });
 
 // const initialState={

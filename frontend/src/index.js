@@ -12,6 +12,7 @@ import DefaultBody from './components/Admin/DefaultBody';
 import EditProduct from './components/Admin/EditProduct'
 import ProductDetails from './components/ProductDetails/ProductDetails';
 import SearchResult from './components/SearchResult/SearchResult'
+import Cart from './components/Cart/Cart';
 
 
 const root = ReactDOM.createRoot(document.getElementById('root'));
@@ -21,6 +22,7 @@ root.render(
           <Routes>
                <Route path='/' element={<App/>}>
                <Route path='/login' element={<LoginSignUp/>} />   
+               <Route path='/cart' element={<Cart />} />   
                <Route index element={<Home/>} />
                <Route path=':id' element={<ProductDetails/>} />
                <Route path='search/:keyword' element={<SearchResult />} />             

@@ -1,0 +1,61 @@
+.profileImage{
+    border-radius: 50%;
+    height: 10vmax;
+    width: 10vmax;
+    margin:4%;
+}
+
+.profileParentDiv{
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.profileImageDiv{
+    width: 50%;
+    text-align: center;
+    display: flex;
+    flex-direction: column;
+    padding: 5%;
+    align-items: center;
+    justify-content: space-between;
+}
+
+.profileDetailDiv{
+    width: 50%;
+    text-align: center;
+    padding: 5%;
+    justify-content: space-between;
+}
+
+.profileActionDiv{
+    display: flex;
+    justify-content: space-around;
+    padding: 5%;
+}
+
+@media screen and (max-width:1000px){
+    .profileParentDiv{
+        display: flex;
+        flex-direction: column;
+        justify-content: space-between;
+    }
+
+    .profileImageDiv{
+        width: 100%;
+        text-align: center;
+        display: flex;
+        flex-direction: column;
+        padding: 5%;
+        align-items: center;
+        justify-content: space-between;
+    }
+
+    .profileDetailDiv{
+        width: 100%;
+        text-align: center;
+        padding: 5%;
+        justify-content: space-between;
+    }
+}

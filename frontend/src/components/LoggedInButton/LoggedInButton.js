@@ -43,10 +43,12 @@ import PersonIcon from '@mui/icons-material/Person';
 import { logout } from '../../redux/actions/userAction';
 import { useSelector,useDispatch } from 'react-redux';
 import ShoppingCartIcon from '@mui/icons-material/ShoppingCart';
+import {useNavigate} from 'react-router-dom'
 
 
 
 export default function LoggedInButton() {
+  const navigate=useNavigate();
   const dispatch=useDispatch();
   
   const logoutDispatcher=()=>{
@@ -57,11 +59,19 @@ export default function LoggedInButton() {
    console.log("dummy got called");
   }
 
+  const goToCart=()=>{
+    navigate('cart');
+  }
+
+  const goToProfile=()=>{
+    navigate('profile');
+  }
+
   const actions = [
     { icon: <HistoryIcon />, name: 'My order',func:dummy},
-    { icon: <AccountCircleIcon />, name: 'Profile',func:dummy },
+    { icon: <AccountCircleIcon />, name: 'Profile',func:goToProfile },
     { icon: <LogoutIcon />, name: 'Logout',func:logoutDispatcher },
-    { icon: <ShoppingCartIcon />, name: 'Cart',func:dummy },
+    { icon: <ShoppingCartIcon />, name: 'Cart',func:goToCart },
   ];
   return (
     

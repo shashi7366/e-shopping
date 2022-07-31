@@ -1,16 +1,16 @@
 .cartPage{
-    padding: 5vmax;
+    padding: 0;
 }
 
 .cartHeader{
-    background-color: tomato;
-    width: 90%;
+    background-color: rgb(18, 17, 17);
+    width: 100%;
     box-sizing: border-box;
     margin: auto;
     color: white;
     display: grid;
     grid-template-columns: 4fr 1fr 1fr;
-    font: 300 0.7vmax "Roboto";
+    font-size: 1.5vmax;
 }
 
 .cartHeader > p{

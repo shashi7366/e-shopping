@@ -1,11 +1,17 @@
+import React from 'react';
 import CartItem from "./CartItem";
 import "./Cart.css";
-import { Fragment } from "react";
+import { Fragment, useEffect } from "react";
 import { useSelector, useDispatch } from "react-redux";
+import { addItemsToCart } from '../../redux/actions/cartAction';
 
 const Cart = ()=> {
     const dispatch = useDispatch();
-    const cartItems = useSelector((state)=>state.cart);
+    const {cartItems} = useSelector((state)=>state.cart);
+
+    useEffect(()=>{
+dispatch(addItemsToCart())
+    },[dispatch]);
 
     const item={
         product:"ProductId",
@@ -22,7 +28,7 @@ const Cart = ()=> {
                     <p>Subtotal</p>
                 </div>
 
-                {/* {cartItems && cartItems.map((item)=>( */}
+                 {cartItems.length>0 && cartItems.map((item)=>( 
                     <div className="cartContainer">
                     <CartItem item={item} />
                     <div className="cartInput">
@@ -32,7 +38,7 @@ const Cart = ()=> {
                     </div>
                     <p className="cartSubtotal">{`${item.price*item.quantity}`}</p>
                 </div>
-                {/* // ))} */}
+               ))} 
 
                 <div className="cartContainer">
                     <CartItem item={item} />

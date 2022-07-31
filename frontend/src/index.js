@@ -14,6 +14,8 @@ import EditProduct from './components/Admin/EditProduct'
 import ProductDetails from './components/ProductDetails/ProductDetails';
 import SearchResult from './components/SearchResult/SearchResult'
 import Cart from './components/Cart/Cart';
+import Profile from './components/Profile/Profile';
+import ProtectedRoute from './components/Route/ProtectedRoute';
 
 
 const root = ReactDOM.createRoot(document.getElementById('root'));
@@ -24,10 +26,12 @@ root.render(
           <Routes>
                <Route path='/' element={<App/>}>
                <Route path='/login' element={<LoginSignUp/>} />   
-               <Route path='/cart' element={<Cart />} />   
+               <Route path='cart' element={<Cart />} />
+               {/* <ProtectedRoute path='profile' element={<Profile />} /> */}
+                <Route path='profile' element={<Profile />} />   
                <Route index element={<Home/>} />
                <Route path=':id' element={<ProductDetails/>} />
-               <Route path='search/:keyword' element={<SearchResult />} />             
+               <Route path='search/:keyword' element={<SearchResult />} />        
                </Route>
                <Route path='admin' element={<Dashboard/>} >
                <Route index element={<DefaultBody />} />

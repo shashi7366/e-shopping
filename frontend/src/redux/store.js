@@ -1,5 +1,6 @@
 import { createStore, combineReducers, applyMiddleware } from "redux";
 import thunk from "redux-thunk";
+import { CartReducer } from "./reducers/cartReducer";
 
 import {productsReducer,individualProductsReducer,searchProductsReducer} from './reducers/productReducer';
 import {userReducer} from './reducers/userReducer';
@@ -8,14 +9,17 @@ const reducer = combineReducers({
     products: productsReducer,
     individualProduct:individualProductsReducer,
     searchProduct:searchProductsReducer,
-    user:userReducer
+    user:userReducer,
+    cart:CartReducer
 });
 
-// const initialState={
-//     loading:false,
-//     products:[],
-//     error:''
-// };
+const initialState={
+    cart: {
+        cartItems: localStorage.getItem("cartItems")
+        ? JSON.parse(localStorage.getItem("cartItems"))
+        : [],
+    },
+};
 
 const store=createStore(reducer,applyMiddleware(thunk));
 console.log("state created",store.getState());

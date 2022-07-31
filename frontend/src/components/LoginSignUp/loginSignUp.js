@@ -3,7 +3,10 @@ import { Link } from "react-router-dom";
 // import MailOutlineIcon from "@material-ui/icons/MailOutline";
 import MailOutlineIcon from '@mui/icons-material/MailOutline'
 import LockOpenIcon from '@mui/icons-material/LockOpen'
-import FaceIcon from '@mui/icons-material/Face'
+import FaceIcon from '@mui/icons-material/Face';
+import {getUser,registerUser} from '../../redux/actions/userAction';
+import {useDispatch} from 'react-redux';
+import {useNavigate} from 'react-router-dom'
 
 // import '../Component/LoginSignUp.css';
 
@@ -15,6 +18,10 @@ const LoginSignUp =()=>{
     const loginTab = useRef(null);
     const registerTab = useRef(null);
     const switcherTab = useRef(null);
+
+    const dispatch=useDispatch();
+
+    const navigate=useNavigate();
 
     const [loginEmail,setLoginEmail] = useState("");
     const [loginPassword,setLoginPassword] = useState("");
@@ -29,7 +36,10 @@ const LoginSignUp =()=>{
     const [avatar,setAvatar] = useState();
     const [avatarPreview,setAvatarPreview] = useState("/Profile.png");
 
-    const loginSubmit = ()=>{
+    const loginSubmit = (e)=>{
+        e.preventDefault();
+        dispatch(getUser(loginEmail,loginPassword));
+        navigate('/');
         console.log("Login Form Submitted");
     };
 
@@ -42,7 +52,9 @@ const LoginSignUp =()=>{
         myForm.set("email",email);
         myForm.set("password",password);
         myForm.set("avatar",avatar);
-        console.log(myForm);
+        console.log("submitted");
+        console.log(name,email,password);
+dispatch(registerUser(name,email,password));
     }
 
     const registerDataChange = (e) =>{

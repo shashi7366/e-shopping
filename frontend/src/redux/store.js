@@ -2,11 +2,13 @@ import { createStore, combineReducers, applyMiddleware } from "redux";
 import thunk from "redux-thunk";
 
 import {productsReducer,individualProductsReducer,searchProductsReducer} from './reducers/productReducer';
+import {userReducer} from './reducers/userReducer';
 
 const reducer = combineReducers({
     products: productsReducer,
     individualProduct:individualProductsReducer,
-    searchProduct:searchProductsReducer
+    searchProduct:searchProductsReducer,
+    user:userReducer
 });
 
 // const initialState={

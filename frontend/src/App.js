@@ -1,17 +1,21 @@
-import React from 'react';
+import React,{useEffect} from 'react';
 // import './App.css';
 
-import CarouselComponent from './components/Carousel';
+
 
 
 import {Outlet} from 'react-router-dom';
 import Header from './components/Header/Header';
-
+import {getUserDetail} from './redux/actions/userAction';
+import {useDispatch} from 'react-redux'
 
 
 function App() {
-
-    
+const dispatch=useDispatch();
+    useEffect(()=>{
+        console.log('hi');
+        dispatch(getUserDetail());
+    },[dispatch]);
 
    
     

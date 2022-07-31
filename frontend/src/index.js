@@ -2,6 +2,7 @@ import React from 'react';
 import ReactDOM from 'react-dom';
 import App from './App';
 import { Provider } from 'react-redux';
+import { CookiesProvider } from "react-cookie";
 import store from './redux/store';
 import { BrowserRouter, Routes,Route } from 'react-router-dom';
 import LoginSignUp from './components/LoginSignUp/loginSignUp';
@@ -11,13 +12,14 @@ import AddProduct from './components/Admin/AddProduct';
 import DefaultBody from './components/Admin/DefaultBody';
 import EditProduct from './components/Admin/EditProduct'
 import ProductDetails from './components/ProductDetails/ProductDetails';
-import SearchResult from './components/SearchResult/SearchResult'
+import SearchResult from './components/SearchResult/SearchResult';
 
 
 const root = ReactDOM.createRoot(document.getElementById('root'));
 root.render(
 <BrowserRouter>
      <Provider store={store}>
+     <CookiesProvider>
           <Routes>
                <Route path='/' element={<App/>}>
                <Route path='/login' element={<LoginSignUp/>} />   
@@ -33,6 +35,7 @@ root.render(
                
                
           </Routes>
+          </CookiesProvider>
      </Provider>
 </BrowserRouter>
 );

@@ -16,6 +16,7 @@ import SearchResult from './components/SearchResult/SearchResult'
 import Cart from './components/Cart/Cart';
 import Profile from './components/Profile/Profile';
 import ProtectedRoute from './components/Route/ProtectedRoute';
+import UpdateProfile from './components/UpdateProfile/UpdateProfile';
 
 
 const root = ReactDOM.createRoot(document.getElementById('root'));
@@ -28,7 +29,8 @@ root.render(
                <Route path='/login' element={<LoginSignUp/>} />   
                <Route path='cart' element={<Cart />} />
                {/* <ProtectedRoute path='profile' element={<Profile />} /> */}
-                <Route path='profile' element={<Profile />} />   
+                <Route path='profile' element={<Profile />} />
+                <Route path='updateProfile' element={<UpdateProfile />} />   
                <Route index element={<Home/>} />
                <Route path=':id' element={<ProductDetails/>} />
                <Route path='search/:keyword' element={<SearchResult />} />        

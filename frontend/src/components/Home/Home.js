@@ -19,7 +19,7 @@ navigate(`search/${keyword}`);
 
   return (
     <div>
-<Paper elevation={0} sx={{ display: 'flex', height: '100px', alignItems: 'center', justifyContent: 'center',paddingTop:'20px' }}>
+<Paper elevation={0} sx={{ display: 'flex', height: '100px', alignItems: 'center', justifyContent: 'center',paddingTop:'20px',overflow:'auto',overflowY:'hidden'}}>
                 <Paper elevation={0} className='categoryItem'>
                 <img className="categoryImage" src='./images/electronics.jpg' alt="alt-desc"/>
                     <Typography className="categoryText" variant='body1'>electronics</Typography>

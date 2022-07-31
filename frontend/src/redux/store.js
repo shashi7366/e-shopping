@@ -3,14 +3,15 @@ import thunk from "redux-thunk";
 import { CartReducer } from "./reducers/cartReducer";
 
 import {productsReducer,individualProductsReducer,searchProductsReducer} from './reducers/productReducer';
-import {userReducer} from './reducers/userReducer';
+import {userReducer,updateProfileReducer} from './reducers/userReducer';
 
 const reducer = combineReducers({
     products: productsReducer,
     individualProduct:individualProductsReducer,
     searchProduct:searchProductsReducer,
     user:userReducer,
-    cart:CartReducer
+    cart:CartReducer,
+    profile:updateProfileReducer
 });
 
 const initialState={

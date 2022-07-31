@@ -31,7 +31,8 @@
 
 .profileActionDiv{
     display: flex;
-    justify-content: space-around;
+    flex-direction: column;
+    justify-content: space-between;
     padding: 5%;
 }
 

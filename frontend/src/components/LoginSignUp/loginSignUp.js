@@ -42,7 +42,7 @@ const LoginSignUp =()=>{
         myForm.set("email",email);
         myForm.set("password",password);
         myForm.set("avatar",avatar);
-        console.log("Sign Up Form Submitted");
+        console.log(myForm);
     }
 
     const registerDataChange = (e) =>{

@@ -7,6 +7,7 @@ import './ProductDetails.css';
 import ReactStars from "react-rating-stars-component";
 import { Button } from '@mui/material';
 import ReviewItem from './ReviewItem.js';
+import { addItemsToCart } from '../../redux/actions/cartAction';
 
 function ProductDetails() {
     const params=useParams();
@@ -15,6 +16,12 @@ function ProductDetails() {
     var {loaded,product}=useSelector((state)=>{
         return state.individualProduct;
     })
+
+    const cartHandler = () => {
+        dispatch(addItemsToCart(params.id));
+        alert.success("Item Added to Cart");
+    }
+
     useEffect(()=>{
         dispatch(getIndividualProduct(id));
     },[dispatch,id]);
@@ -48,7 +55,7 @@ function ProductDetails() {
         {product.stock?<b style={{color:'green'}}>in stock</b>:<b style={{color:'red'}}>out of stock</b>}
         <br />
         <br />
-        <Button variant='outlined'>Add to Cart</Button>
+        <Button variant='outlined' onClick={cartHandler}>Add to Cart</Button>
     </div>
     </div>}
     {loaded && <div className='reviews'>

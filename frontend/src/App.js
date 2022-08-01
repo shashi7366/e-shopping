@@ -8,6 +8,7 @@ import {Outlet} from 'react-router-dom';
 import Header from './components/Header/Header';
 import {getUserDetail} from './redux/actions/userAction';
 import {useDispatch} from 'react-redux'
+import Footer from './components/Footer/Footer';
 
 
 function App() {
@@ -23,6 +24,7 @@ const dispatch=useDispatch();
         <>
         <Header />
           <Outlet />
+          <Footer />
          </>
     )
 }

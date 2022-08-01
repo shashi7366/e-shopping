@@ -1,0 +1,20 @@
+.footerMainDiv{
+    margin-top: 4vmax;
+    width:100%;
+    height:10vmax;
+    background-color: black;
+    display: flex;
+    
+}
+
+.leftFooterDiv{
+    width:40%;
+    padding: 2%;
+    text-align: center;
+}
+
+.rightFooterDiv{
+    width: 40%;
+    text-align:end;
+    padding: 2%;
+}

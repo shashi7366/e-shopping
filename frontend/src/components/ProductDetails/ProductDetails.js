@@ -10,7 +10,7 @@ import ReviewItem from './ReviewItem.js';
 import { addItemsToCart } from '../../redux/actions/cartAction';
 
 function ProductDetails() {
-    var [quantity,setQuantity]=useState(0);
+    var [quantity,setQuantity]=useState(1);
     const setOrderQuantity=(e)=>{
         setQuantity(e.target.value);
         if(quantity>product.stock){

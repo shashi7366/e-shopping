@@ -4,7 +4,7 @@ import App from './App';
 import { Provider } from 'react-redux';
 import { CookiesProvider } from "react-cookie";
 import store from './redux/store';
-import { BrowserRouter, Routes,Route } from 'react-router-dom';
+import { BrowserRouter, Routes, Route } from 'react-router-dom';
 import LoginSignUp from './components/LoginSignUp/loginSignUp';
 import Home from './components/Home/Home';
 import Dashboard from './components/Admin/Dashboard';
@@ -21,35 +21,42 @@ import UpdateProfile from './components/UpdateProfile/UpdateProfile';
 
 const root = ReactDOM.createRoot(document.getElementById('root'));
 root.render(
-<BrowserRouter>
-     <Provider store={store}>
-     <CookiesProvider>
-          <Routes>
-               <Route path='/' element={<App/>}>
-               <Route path='/login' element={<LoginSignUp/>} />   
-               <Route path='cart' element={<Cart />} />
-               
-               <Route path="profile" element={<ProtectedRoute isAdmin={false}><Profile /> </ProtectedRoute>}/>
-               <Route path="updateProfile" element={<ProtectedRoute isAdmin={false}><UpdateProfile /></ProtectedRoute>}/>
-           
+     <BrowserRouter>
+          <Provider store={store}>
+               <CookiesProvider>
+                    <Routes>
+                         <Route path='/' element={<App />}>
+                              <Route path='/login' element={<LoginSignUp />} />
+                              <Route path='cart' element={<Cart />} />
+
+                              <Route path="profile" element={<ProtectedRoute isAdmin={false}><Profile /> </ProtectedRoute>} />
+                              <Route path="updateProfile" element={<ProtectedRoute isAdmin={false}><UpdateProfile /></ProtectedRoute>} />
+
+                              <Route path='admin' element={<ProtectedRoute isAdmin={true}><Dashboard /></ProtectedRoute>}>
+                                   <Route index element={<ProtectedRoute isAdmin={true}><DefaultBody /> </ProtectedRoute>} />
+                                   <Route path='addProduct' element={<ProtectedRoute isAdmin={true}><AddProduct /> </ProtectedRoute>} />
+                                   <Route path=':id' element={<ProtectedRoute isAdmin={true}><EditProduct /></ProtectedRoute>} />
+                              </Route>
 
 
 
-               
-                {/* <Route path='updateProfile' element={<UpdateProfile />} />    */}
-               <Route index element={<Home/>} />
-               <Route path=':id' element={<ProductDetails/>} />
-               <Route path='search/:keyword' element={<SearchResult />} />        
-               </Route>
-               <Route path='admin' element={<Dashboard/>} >
-               <Route index element={<DefaultBody />} />
-               <Route path='addProduct' element={<AddProduct />} />
-               <Route path=':id' element={<EditProduct />} />
-               </Route>
-               
-               
-          </Routes>
-          </CookiesProvider>
-     </Provider>
-</BrowserRouter>
+                              <Route index element={<Home />} />
+                              <Route path=':id' element={<ProductDetails />} />
+                              <Route path='search/:keyword' element={<SearchResult />} />
+                         </Route>
+
+                         {/* <Route path='admin' element={<ProtectedRoute isAdmin={true}><Dashboard/></ProtectedRoute>}>
+                         <Route index element={<ProtectedRoute isAdmin={true}><DefaultBody /> </ProtectedRoute>} />
+                         <Route path='addProduct' element={<ProtectedRoute isAdmin={true}><AddProduct /> </ProtectedRoute>} />
+                         <Route path=':id' element={<ProtectedRoute isAdmin={true}><EditProduct /></ProtectedRoute>} />
+                        
+                         </Route> */}
+
+
+
+
+                    </Routes>
+               </CookiesProvider>
+          </Provider>
+     </BrowserRouter>
 );

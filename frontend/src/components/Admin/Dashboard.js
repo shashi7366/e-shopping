@@ -6,15 +6,28 @@ import { Link, Outlet } from 'react-router-dom';
 import EditIcon from '@mui/icons-material/Edit';
 import DeleteIcon from '@mui/icons-material/Delete';
 import AdminHeader from './AdminHeader';
+import LoggedInAdmin from './LoggedInAdmin';
+
+import {getUserDetail} from "../../redux/actions/userAction";
+import Footer from '../Footer/Footer';
 
 function Dashboard() {
 
+    const dispatch=useDispatch();
+    var {loaded}=useSelector((state)=>{
+        return state.user;
+    });
+    
+
     return (
-        <div>
-            <AdminHeader />
-            <Outlet />
+        <div>{loaded &&<>
+        <Outlet />
+        <LoggedInAdmin />
+        </>}
+            
         </div>
     )
 }
 
-export default Dashboard
+export default Dashboard;
+{/* <AdminHeader /> */}

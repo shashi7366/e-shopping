@@ -4,9 +4,9 @@ import "./CartItem.css";
 const CartItem = ({item, deleteCartItems})=> {
     return(
         <div className="CartItem">
-            <img src="https://i.gadgets360cdn.com/products/large/1528369557_635_xiaomi_redmi_y2.jpg" />
+            <img src={item.image} />
             <div>
-                <Link to={`/product/${item.product}`}>{item.name}</Link>
+                <Link to={`/${item.product}`}>{item.name}</Link>
                 <span>{`Price : ${item.price}`}</span>
                 <p onClick={() => deleteCartItems(item.product)}>Remove</p>
             </div>

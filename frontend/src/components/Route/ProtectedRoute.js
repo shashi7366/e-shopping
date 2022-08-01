@@ -1,31 +1,27 @@
-import React, { Fragment } from "react";
+import React from "react";
 import { useSelector } from "react-redux";
-import { useNavigate, Route } from "react-router-dom";
-import LoginSignUp from "../LoginSignUp/loginSignUp";
+import { Navigate } from "react-router-dom";
 
-const ProtectedRoute = ({ isAdmin, element: element, ...rest }) => {
-  const { loading, isAuthenticated, user } = useSelector((state) => state.user);
-const navigate=useNavigate();
-  return (
-    <Fragment>
-      {loading === false && (
-        <Route
-          {...rest}
-          render={(props) => {
-            if (isAuthenticated === false) {
-              return <Route path='login' element={<LoginSignUp />} />;
-            }
 
-            if (isAdmin === true && user.role !== "admin") {
-              return ;
-            }
+const ProtectedRoute = ({ isAdmin,children}) => {
+  const { loaded, isAuthenticated, user } = useSelector((state) => state.user);
 
-            return <Route path='login' element={<LoginSignUp />} />;
-          }}
-        />
-      )}
-    </Fragment>
-  );
+//   if(loaded){
+  //   if(!isAuthenticated){
+  //     console.log("authentication failed");
+  // return <Navigate to='/login' replace />
+  //   }else if (isAdmin === true && user.role !== "admin") {
+  //     return <Navigate to='/login' replace/>;
+  //   }
+  //   return children;
+
+//   }
+// else{
+//   return <Navigate to='/login' replace />
+// }
+return <div>{loaded?(!isAuthenticated?<Navigate to='/login' replace />:((user.role!='admin'&&isAdmin==true)?<Navigate to='/login' replace />:children)):<h1>loading</h1>}</div>
+  
+    
 };
 
 export default ProtectedRoute;

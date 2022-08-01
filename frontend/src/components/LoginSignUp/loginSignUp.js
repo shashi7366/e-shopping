@@ -11,6 +11,7 @@ import {useNavigate} from 'react-router-dom'
 // import '../Component/LoginSignUp.css';
 
 import './loginSignUp.css'
+import { Paper } from "@mui/material";
 
 
 
@@ -95,7 +96,7 @@ dispatch(registerUser(name,email,password));
         <Fragment>
            
             <div className="LoginSignUpContainer">
-                <div className="LoginSignUpBox">
+                <Paper className="LoginSignUpBox">
                     <div>
                         <div className="login_signUp_toggle">
                             <p onClick={(e)=>switchTabs(e,"login")}>LOGIN</p>
@@ -177,7 +178,7 @@ dispatch(registerUser(name,email,password));
                         </div>
                         <input type="submit" value="Register" className="signUpBtn" />
                     </form>
-                </div>
+                </Paper>
             </div>
         </Fragment>
     );

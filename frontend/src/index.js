@@ -28,9 +28,15 @@ root.render(
                <Route path='/' element={<App/>}>
                <Route path='/login' element={<LoginSignUp/>} />   
                <Route path='cart' element={<Cart />} />
-               {/* <ProtectedRoute path='profile' element={<Profile />} /> */}
-                <Route path='profile' element={<Profile />} />
-                <Route path='updateProfile' element={<UpdateProfile />} />   
+               
+               <Route path="profile" element={<ProtectedRoute isAdmin={false}><Profile /> </ProtectedRoute>}/>
+               <Route path="updateProfile" element={<ProtectedRoute isAdmin={false}><UpdateProfile /></ProtectedRoute>}/>
+           
+
+
+
+               
+                {/* <Route path='updateProfile' element={<UpdateProfile />} />    */}
                <Route index element={<Home/>} />
                <Route path=':id' element={<ProductDetails/>} />
                <Route path='search/:keyword' element={<SearchResult />} />        

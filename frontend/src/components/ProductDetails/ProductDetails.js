@@ -1,16 +1,26 @@
-import React,{useEffect}from 'react';
+import React,{useEffect, useState}from 'react';
 import Carousel from 'react-material-ui-carousel';
 import {useDispatch,useSelector} from 'react-redux';
 import {useParams} from 'react-router-dom';
 import { getIndividualProduct } from '../../redux/actions/productAction';
 import './ProductDetails.css';
 import ReactStars from "react-rating-stars-component";
-import { Button } from '@mui/material';
+import { Button, TextField, Typography } from '@mui/material';
 import ReviewItem from './ReviewItem.js';
 import { addItemsToCart } from '../../redux/actions/cartAction';
 
 function ProductDetails() {
-    const params=useParams();
+    var [quantity,setQuantity]=useState(0);
+    const setOrderQuantity=(e)=>{
+        setQuantity(e.target.value);
+        if(quantity>product.stock){
+            setQuantity(product.stock);
+        }
+        if(quantity<1){
+            setQuantity(1);
+        }
+    }
+    var params=useParams();
     var id=params.id;
     const dispatch=useDispatch();
     var {loaded,product}=useSelector((state)=>{
@@ -18,8 +28,8 @@ function ProductDetails() {
     })
 
     const cartHandler = () => {
-        dispatch(addItemsToCart(params.id));
-        alert.success("Item Added to Cart");
+        dispatch(addItemsToCart(id,quantity));
+        // alert.success("Item Added to Cart");
     }
 
     useEffect(()=>{
@@ -55,6 +65,8 @@ function ProductDetails() {
         {product.stock?<b style={{color:'green'}}>in stock</b>:<b style={{color:'red'}}>out of stock</b>}
         <br />
         <br />
+        <Typography>Quantity</Typography>
+        <TextField size='small' value={quantity} onChange={setOrderQuantity} />
         <Button variant='outlined' onClick={cartHandler}>Add to Cart</Button>
     </div>
     </div>}

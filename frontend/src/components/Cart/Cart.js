@@ -4,7 +4,7 @@ import "./Cart.css";
 import { Fragment, useEffect } from "react";
 import { useSelector, useDispatch } from "react-redux";
 import { addItemsToCart, removeItemsFromCart } from '../../redux/actions/cartAction';
-import { Typography } from "@material-ui/core";
+import { Button, Paper, Typography } from '@mui/material';
 import RemoveShoppingCartIcon from "@mui/icons-material/RemoveShoppingCart";
 import { Link } from "react-router-dom";
 
@@ -12,9 +12,9 @@ const Cart = ()=> {
     const dispatch = useDispatch();
     const {cartItems} = useSelector((state)=>state.cart);
 
-    useEffect(()=>{
-dispatch(addItemsToCart())
-    },[dispatch]);
+//     useEffect(()=>{
+// dispatch(addItemsToCart())
+//     },[dispatch]);
 
     const increaseQuantity = (id, quantity, stock) => {
         const newQty = quantity + 1;
@@ -61,8 +61,8 @@ dispatch(addItemsToCart())
                     <p>Subtotal</p>
                 </div>
 
-                 {cartItems.length>0 && cartItems.map((item)=>( 
-                    <div className="cartContainer" key={item.product}>
+                 {cartItems.length>0 && cartItems.map((item)=>{
+                    {/* <div className="cartContainer" key={item.product}>
                     <CartItem item={item} deleteCartItems={removeItemsFromCart} />
                     <div className="cartInput">
                         <button>-</button>
@@ -70,10 +70,34 @@ dispatch(addItemsToCart())
                         <button>+</button>
                     </div>
                     <p className="cartSubtotal">{`${item.price*item.quantity}`}</p>
-                </div>
-               ))} 
+                </div> */}
+                return <Paper className="cartContainer">
+                    {/* <CartItem item={item} /> */}
+                    <div className='leftDisplayDiv'>
+                      <img className="displayImage" src={item.image} alt="image not available" />
+                      <div className='detailsDiv'>
+                        <Typography variant='h6'>{item.name}</Typography>
+                        <Button variant='contained' onClick={()=>{deleteCartItems(item.product)}}>Remove</Button>
+                      </div>
+                    </div>
+                    <div className="cartInput">
+                        <button onClick={() =>
+                        decreaseQuantity(item.product, item.quantity)
+                      }>-</button>
+                        <input type="number" value={item.quantity} readOnly />
+                        <button onClick={() =>
+                        increaseQuantity(
+                          item.product,
+                          item.quantity,
+                          item.stock
+                        )
+                      }>+</button>
+                    </div>
+                    <p className="cartSubtotal">{`${item.price*item.quantity}`}</p>
+                </Paper>
+               })}
 
-                <div className="cartContainer">
+                {/* <div className="cartContainer">
                     <CartItem item={item} />
                     <div className="cartInput">
                         <button onClick={() =>
@@ -89,7 +113,7 @@ dispatch(addItemsToCart())
                       }>+</button>
                     </div>
                     <p className="cartSubtotal">{`${item.price*item.quantity}`}</p>
-                </div>
+                </div>*/}
 
                 <div className="cartGrossProfit">
                     <div></div>
@@ -104,7 +128,7 @@ dispatch(addItemsToCart())
                     <div className="checkOutBtn">
                         <button>Check Out</button>
                     </div>
-                </div>
+                </div> 
             </div>
         </Fragment>
     )

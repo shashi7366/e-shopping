@@ -6,7 +6,7 @@
     display: flex;
     justify-content: center;
     align-items: center;
-    background-color: rgb(231, 231, 231);
+    background-color: white;
     /* position: fixed;
     top: 0%;
     left: 0%; */
@@ -134,7 +134,7 @@
 .loginBtn,
 .signUpBtn{
     border: none;
-    background-color: tomato;
+    background-color:#3AB4F2;
     color: white;
     font: 300 0.9vmax "Roboto";
     width: 100%;

@@ -7,7 +7,7 @@ import { saveShippingInfo } from "../../redux/actions/cartAction";
 import { Country, State } from "country-state-city";
 // import { Alert}   from "@mui/material";
 import CheckoutSteps from "./CheckoutSteps";
-import { Button, MenuItem, Paper, TextField, Typography } from "@mui/material";
+import { Button, MenuItem, Paper, TextField } from "@mui/material";
  
 const Shipping = ({ history }) => {
   const dispatch = useDispatch();

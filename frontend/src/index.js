@@ -18,6 +18,7 @@ import Profile from './components/Profile/Profile';
 import ProtectedRoute from './components/Route/ProtectedRoute';
 import UpdateProfile from './components/UpdateProfile/UpdateProfile';
 import Shipping from './components/Cart/Shipping';
+import ConfirmOrder from './components/Cart/ConfirmOrder';
 
 const root = ReactDOM.createRoot(document.getElementById('root'));
 root.render(
@@ -53,7 +54,7 @@ root.render(
                          </Route> */}
 
 <Route path='shipping' element={<Shipping/>}/>
-
+<Route path='order/confirm'element={<ConfirmOrder/>}/>
 
                     </Routes>
                </CookiesProvider>

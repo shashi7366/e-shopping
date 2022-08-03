@@ -2,7 +2,7 @@
 
 const validator = require("validator");
 const mongoose = require('../../db').getConnection();
-const bcrypt =require("bcryptjs");
+const bcrypt = require("bcryptjs");
 const jwt = require("jsonwebtoken");
 const crypto =require("crypto");    // no need for installation it is present by default
 

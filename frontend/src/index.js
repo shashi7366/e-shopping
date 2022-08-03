@@ -17,7 +17,7 @@ import Cart from './components/Cart/Cart';
 import Profile from './components/Profile/Profile';
 import ProtectedRoute from './components/Route/ProtectedRoute';
 import UpdateProfile from './components/UpdateProfile/UpdateProfile';
-
+import Shipping from './components/Cart/Shipping';
 
 const root = ReactDOM.createRoot(document.getElementById('root'));
 root.render(
@@ -52,7 +52,7 @@ root.render(
                         
                          </Route> */}
 
-
+<Route path='shipping' element={<Shipping />}/>
 
 
                     </Routes>

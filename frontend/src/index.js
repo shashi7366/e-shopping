@@ -52,7 +52,7 @@ root.render(
                         
                          </Route> */}
 
-<Route path='shipping' element={<Shipping />}/>
+<Route path='shipping' element={<Shipping/>}/>
 
 
                     </Routes>

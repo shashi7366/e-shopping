@@ -6,7 +6,7 @@ import { saveShippingInfo } from "../../redux/actions/cartAction";
 
 import { Country, State } from "country-state-city";
 // import { Alert}   from "@mui/material";
-
+import CheckoutSteps from "./CheckoutSteps";
 import { Button, MenuItem, Paper, TextField, Typography } from "@mui/material";
  
 const Shipping = ({ history }) => {
@@ -40,7 +40,7 @@ const Shipping = ({ history }) => {
     <Fragment>
       {/* <MetaData title="Shipping Details" /> */}
 
-      {/* <CheckoutSteps activeStep={0} /> */}
+      <CheckoutSteps activeStep={0} />
 
       <div>
         <Paper sx={{textAlign:'center',padding:'3vmax'}}>

@@ -1,20 +1,18 @@
 import React, { Fragment, useState } from "react";
-//import "./Shipping.css";
+
 import { useSelector, useDispatch } from "react-redux";
 import { saveShippingInfo } from "../../redux/actions/cartAction";
-// import MetaData from "../../redux/MetaData";
+
 
 import { Country, State } from "country-state-city";
-// import { Alert}   from "@mui/material";
-<<<<<<< HEAD
 
 import { Button, MenuItem, Paper, TextField, Typography } from "@mui/material";
-=======
 import CheckoutSteps from "./CheckoutSteps";
-import { Button, MenuItem, Paper, TextField } from "@mui/material";
->>>>>>> 59691fb5e265d8319635f0dfa2d26fc1409136e6
+import {useNavigate} from 'react-router-dom'
+
  
 const Shipping = ({ history }) => {
+  const navigate=useNavigate();
   const dispatch = useDispatch();
   // const alert = Alert();
   const { shippingInfo } = useSelector((state) => state.cart);
@@ -38,7 +36,7 @@ const Shipping = ({ history }) => {
     dispatch(
       saveShippingInfo({ address, city, state, country, pinCode, phoneNo })
     );
-    history.push("/order/confirm");
+    navigate('/order/confirm');
   };
 
   return (
@@ -119,10 +117,7 @@ const Shipping = ({ history }) => {
 
             {country && (
               <div style={{marginTop:'2vmax'}}>
-<<<<<<< HEAD
 
-=======
->>>>>>> 59691fb5e265d8319635f0dfa2d26fc1409136e6
                 <TextField
                 fullWidth
                 select
@@ -155,8 +150,4 @@ const Shipping = ({ history }) => {
   );
 };
 
-<<<<<<< HEAD
 export default Shipping;
-=======
-export default Shipping;
->>>>>>> 59691fb5e265d8319635f0dfa2d26fc1409136e6

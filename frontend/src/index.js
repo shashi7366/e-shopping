@@ -18,14 +18,12 @@ import Profile from './components/Profile/Profile';
 import ProtectedRoute from './components/Route/ProtectedRoute';
 import UpdateProfile from './components/UpdateProfile/UpdateProfile';
 import Shipping from './components/Cart/Shipping';
-<<<<<<< HEAD
-=======
 import ConfirmOrder from './components/Cart/ConfirmOrder';
-// import Payment from './components/Cart/Payment';
-// import { Elements } from "@stripe/react-stripe-js";
-// import { loadStripe } from "@stripe/stripe-js";
+import Payment from './components/Cart/Payment';
+import PaymentWrapper from './components/Cart/PaymentWrapper';
+import OrderSuccess from './components/Cart/OrderSuccess';
 
->>>>>>> 59691fb5e265d8319635f0dfa2d26fc1409136e6
+
 
 
 const root = ReactDOM.createRoot(document.getElementById('root'));
@@ -47,9 +45,10 @@ root.render(
                                    <Route path='addProduct' element={<ProtectedRoute isAdmin={true}><AddProduct /> </ProtectedRoute>} />
                                    <Route path=':id' element={<ProtectedRoute isAdmin={true}><EditProduct /></ProtectedRoute>} />
                               </Route>
-
+                              <Route path='success' element={<OrderSuccess/>}/>
                               <Route path='shipping' element={<ProtectedRoute isAdmin={false}><Shipping /></ProtectedRoute>}/>
-
+                              <Route path='order/confirm' element={<ConfirmOrder/>}/>
+                              <Route path='process/payment' element={<PaymentWrapper/>}/>
                               <Route index element={<Home />} />
                               <Route path=':id' element={<ProductDetails />} />
                               <Route path='search/:keyword' element={<SearchResult />} />
@@ -62,8 +61,8 @@ root.render(
                         
                          </Route> */}
 
-<Route path='shipping' element={<Shipping/>}/>
-<Route path='order/confirm'element={<ConfirmOrder/>}/>
+{/* <Route path='shipping' element={<Shipping/>}/> */}
+
 {/* <Elements stripe={loadStripe(stripeApiKey)}> <Route path= 'process/payment'element={<Payment/>}/> </Elements> */}
 
                     </Routes>

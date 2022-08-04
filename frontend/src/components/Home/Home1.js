@@ -38,7 +38,7 @@ function Home1() {
         return<Link to={`${product._id}`}><Paper spacing={2} className='productItem' key={i}>
         <img 
         className='productItemImage'
-            // src={product.images[0].url}
+            src={product.images[0].url}
             alt="image not available"
         />
         <Typography>{product.name}</Typography>

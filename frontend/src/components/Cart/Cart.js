@@ -6,9 +6,10 @@ import { useSelector, useDispatch } from "react-redux";
 import { addItemsToCart, removeItemsFromCart } from '../../redux/actions/cartAction';
 import { Button, Paper, Typography } from '@mui/material';
 import RemoveShoppingCartIcon from "@mui/icons-material/RemoveShoppingCart";
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 
 const Cart = ()=> {
+  const navigate=useNavigate();
     const dispatch = useDispatch();
     const {cartItems} = useSelector((state)=>state.cart);
 
@@ -126,7 +127,9 @@ const Cart = ()=> {
                     </div>
                     <div></div>
                     <div className="checkOutBtn">
-                        <button>Check Out</button>
+                        <button onClick={()=>{
+                          navigate('/shipping');
+                        }}>Check Out</button>
                     </div>
                 </div> 
             </div>

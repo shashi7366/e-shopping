@@ -7,7 +7,7 @@ const {processPayment, sendStripeApiKey} = require('./payment.dao');
 const router = express.Router();
 const { isAuthenticatedUser } = require("../../errorMiddleware/auth");
 
-router.route("/payment/process").post(isAuthenticatedUser, dao.processPayment);
+router.route("/process").post(isAuthenticatedUser, dao.processPayment);
 
 router.route("/stripeapikey").get(isAuthenticatedUser, dao.sendStripeApiKey);
 

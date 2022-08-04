@@ -23,6 +23,7 @@ import Payment from './components/Cart/Payment';
 import PaymentWrapper from './components/Cart/PaymentWrapper';
 import OrderSuccess from './components/Cart/OrderSuccess';
 import ViewOrders from './components/Admin/ViewOrders';
+import OrderDetails from './components/Admin/OrderDetails';
 
 
 
@@ -46,6 +47,7 @@ root.render(
                                    <Route path='addProduct' element={<ProtectedRoute isAdmin={true}><AddProduct /> </ProtectedRoute>} />
                                    <Route path=':id' element={<ProtectedRoute isAdmin={true}><EditProduct /></ProtectedRoute>} />
                                    <Route path='orders' element={<ProtectedRoute isAdmin={true}><ViewOrders /></ProtectedRoute>} />
+                                   <Route path='orders/order/:id' element={<ProtectedRoute isAdmin={true}><OrderDetails/></ProtectedRoute>} />
                               </Route>
                               <Route path='success' element={<OrderSuccess/>}/>
                               <Route path='shipping' element={<ProtectedRoute isAdmin={false}><Shipping /></ProtectedRoute>}/>

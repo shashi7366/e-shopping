@@ -9,6 +9,7 @@ import PersonIcon from '@mui/icons-material/Person';
 import { logout } from '../../redux/actions/userAction';
 import { useSelector,useDispatch } from 'react-redux';
 import ShoppingCartIcon from '@mui/icons-material/ShoppingCart';
+import LocalShippingIcon from '@mui/icons-material/LocalShipping';
 import {useNavigate} from 'react-router-dom';
 import AddIcon from '@mui/icons-material/Add';
 
@@ -26,12 +27,16 @@ export default function LoggedInAdmin() {
     navigate('addProduct');
   }
 
+  const callViewOrders=()=>{
+    navigate('orders');
+  }
   
 
   const actions = [
     
     { icon: <LogoutIcon />, name: 'Logout',func:logoutDispatcher },
-    { icon: <AddIcon />, name: 'Add product',func:callAddProduct }
+    { icon: <AddIcon />, name: 'Add product',func:callAddProduct },
+    { icon: <LocalShippingIcon />, name: 'Orders',func:callViewOrders }
     
   ];
   return (

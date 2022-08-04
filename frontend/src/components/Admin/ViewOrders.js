@@ -35,8 +35,11 @@ function ViewOrders() {
           </TableRow>
         </TableHead>
         <TableBody>
-          {loaded && orders.map((row) => (
-            <TableRow
+          {loaded && orders.filter((row)=>{
+            return row.orderStatus!="Delivered" && row.orderStatus!="delivered";
+          }).map((row) => {
+            
+           return <TableRow
               key={row._id}
               sx={{ '&:last-child td, &:last-child th': { border: 0 } }}
             >
@@ -45,10 +48,10 @@ function ViewOrders() {
               </TableCell>
               <TableCell align="right">{row.createdAt.substring(0,10)}</TableCell>
               <TableCell align="right">{row.orderStatus}</TableCell>
-              <TableCell align="right"><Button onClick={()=>{navigate(`${row._id}`)}}>View Details</Button></TableCell>
+              <TableCell align="right"><Button onClick={()=>{navigate(`order/${row._id}`)}}>View Details</Button></TableCell>
               
             </TableRow>
-          ))}
+          })}
         </TableBody>
       </Table>
     </TableContainer>

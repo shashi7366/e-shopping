@@ -22,8 +22,7 @@ const initialState={
         shippingInfo: localStorage.getItem("shippingInfo")
         ?JSON.parse(localStorage.getItem("shippingInfo"))
         :{},
-    }
-   
+    },
 };
 
 const store=createStore(reducer,initialState,applyMiddleware(thunk));

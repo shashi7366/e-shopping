@@ -1,5 +1,5 @@
 import {LOGIN_REQUEST,LOGIN_SUCCESS,LOGIN_FAIL,REGISTER_REQUEST,REGISTER_SUCCESS,REGISTER_FAIL,LOGOUT_REQUEST,LOGOUT_SUCCESS,LOGOUT_FAIL
-,UPDATE_PROFILE_REQUEST,UPDATE_PROFILE_SUCCESS,UPDATE_PROFILE_FAIL} from '../constants/userConstants';
+,UPDATE_PROFILE_REQUEST,UPDATE_PROFILE_SUCCESS,UPDATE_PROFILE_FAIL,LOAD_USER_REQUEST,LOAD_USER_SUCCESS,LOAD_USER_FAIL} from '../constants/userConstants';
 import axios from 'axios';
 
 export const getUser=(mail,pass)=>{
@@ -51,6 +51,18 @@ export const getUserDetail=()=>{
 
     }
 }
+//Load User 
+export const loadUser = () => async (dispatch) => {
+    try {
+      dispatch({ type: LOAD_USER_REQUEST });
+  
+      const { data } = await axios.get(`/api/users/me`);
+  
+      dispatch({ type: LOAD_USER_SUCCESS, payload: data.user });
+    } catch (error) {
+      dispatch({ type: LOAD_USER_FAIL, payload: error.response.data.message });
+    }
+  };
 
 export const logout=()=>{
     return (dispatch)=>{

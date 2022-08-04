@@ -6,8 +6,13 @@ import { saveShippingInfo } from "../../redux/actions/cartAction";
 
 import { Country, State } from "country-state-city";
 // import { Alert}   from "@mui/material";
+<<<<<<< HEAD
 
 import { Button, MenuItem, Paper, TextField, Typography } from "@mui/material";
+=======
+import CheckoutSteps from "./CheckoutSteps";
+import { Button, MenuItem, Paper, TextField } from "@mui/material";
+>>>>>>> 59691fb5e265d8319635f0dfa2d26fc1409136e6
  
 const Shipping = ({ history }) => {
   const dispatch = useDispatch();
@@ -40,7 +45,7 @@ const Shipping = ({ history }) => {
     <Fragment>
       {/* <MetaData title="Shipping Details" /> */}
 
-      {/* <CheckoutSteps activeStep={0} /> */}
+      <CheckoutSteps activeStep={0} />
 
       <div>
         <Paper sx={{textAlign:'center',padding:'3vmax'}}>
@@ -114,7 +119,10 @@ const Shipping = ({ history }) => {
 
             {country && (
               <div style={{marginTop:'2vmax'}}>
+<<<<<<< HEAD
 
+=======
+>>>>>>> 59691fb5e265d8319635f0dfa2d26fc1409136e6
                 <TextField
                 fullWidth
                 select
@@ -147,4 +155,8 @@ const Shipping = ({ history }) => {
   );
 };
 
+<<<<<<< HEAD
 export default Shipping;
+=======
+export default Shipping;
+>>>>>>> 59691fb5e265d8319635f0dfa2d26fc1409136e6

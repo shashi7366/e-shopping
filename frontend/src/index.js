@@ -18,6 +18,14 @@ import Profile from './components/Profile/Profile';
 import ProtectedRoute from './components/Route/ProtectedRoute';
 import UpdateProfile from './components/UpdateProfile/UpdateProfile';
 import Shipping from './components/Cart/Shipping';
+<<<<<<< HEAD
+=======
+import ConfirmOrder from './components/Cart/ConfirmOrder';
+// import Payment from './components/Cart/Payment';
+// import { Elements } from "@stripe/react-stripe-js";
+// import { loadStripe } from "@stripe/stripe-js";
+
+>>>>>>> 59691fb5e265d8319635f0dfa2d26fc1409136e6
 
 
 const root = ReactDOM.createRoot(document.getElementById('root'));
@@ -26,6 +34,7 @@ root.render(
           <Provider store={store}>
                <CookiesProvider>
                     <Routes>
+                         
                          <Route path='/' element={<App />}>
                               <Route path='/login' element={<LoginSignUp />} />
                               <Route path='cart' element={<Cart />} />
@@ -53,8 +62,9 @@ root.render(
                         
                          </Route> */}
 
-{/* <Route path='shipping' element={<Shipping />}/> */}
-
+<Route path='shipping' element={<Shipping/>}/>
+<Route path='order/confirm'element={<ConfirmOrder/>}/>
+{/* <Elements stripe={loadStripe(stripeApiKey)}> <Route path= 'process/payment'element={<Payment/>}/> </Elements> */}
 
                     </Routes>
                </CookiesProvider>

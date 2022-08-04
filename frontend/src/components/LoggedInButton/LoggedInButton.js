@@ -53,6 +53,7 @@ export default function LoggedInButton() {
   
   const logoutDispatcher=()=>{
     dispatch(logout());
+    navigate('/');
   }
 
   const dummy=()=>{

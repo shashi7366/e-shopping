@@ -56,6 +56,7 @@ const LoginSignUp =()=>{
         console.log("submitted");
         console.log(name,email,password);
 dispatch(registerUser(name,email,password));
+navigate('/');
     }
 
     const registerDataChange = (e) =>{

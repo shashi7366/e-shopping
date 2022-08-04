@@ -7,20 +7,33 @@
 .ProductCarousel{
 padding: 4%;
  min-height: 30vw;
- width:30vw;
-
+ width:40%;
+ height: 100%;
+ /* border: 1px solid black; */
+ display: inline-block;
+padding-top:6% ;
 }
 
 .detailDiv{
+
     padding: 4%;
+    padding-top:0;
+    width:60%;
+    /* border: 1px solid black; */
+    display: inline-block;
 }
 
 .ProductContainer{
     
     display: flex;
+    flex-direction: row;
     padding: 2%;
-    justify-content: space-between;
-    flex-wrap: wrap;
+    justify-content: space-around;
+    /* flex-wrap: wrap; */
+    /* border: 1px solid black; */
+    /* display: inline; */
+    align-items: center;
+    
 }
 
 .reviews{
@@ -31,6 +44,8 @@ padding: 4%;
     .ProductContainer{
         display:flex;
         flex-direction: column;
+        text-align: center;
+
     }
 
     .ProductCarousel{
@@ -39,5 +54,9 @@ padding: 4%;
 
     .CarouselImage{
         height:40vmax;
+    }
+
+    .detailDiv{
+        width: 100%;
     }
 }

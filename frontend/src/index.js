@@ -17,6 +17,7 @@ import Cart from './components/Cart/Cart';
 import Profile from './components/Profile/Profile';
 import ProtectedRoute from './components/Route/ProtectedRoute';
 import UpdateProfile from './components/UpdateProfile/UpdateProfile';
+import Shipping from './components/Cart/Shipping';
 
 
 const root = ReactDOM.createRoot(document.getElementById('root'));
@@ -38,7 +39,7 @@ root.render(
                                    <Route path=':id' element={<ProtectedRoute isAdmin={true}><EditProduct /></ProtectedRoute>} />
                               </Route>
 
-
+                              <Route path='shipping' element={<ProtectedRoute isAdmin={false}><Shipping /></ProtectedRoute>}/>
 
                               <Route index element={<Home />} />
                               <Route path=':id' element={<ProductDetails />} />
@@ -52,7 +53,7 @@ root.render(
                         
                          </Route> */}
 
-
+{/* <Route path='shipping' element={<Shipping />}/> */}
 
 
                     </Routes>

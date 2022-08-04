@@ -3,7 +3,10 @@ import
     CREATE_ORDER_REQUEST,
     CREATE_ORDER_SUCCESS,
     CREATE_ORDER_FAIL,
-    CLEAR_ERRORS
+    CLEAR_ERRORS,
+    ALL_ORDER_REQUEST,
+    ALL_ORDER_SUCCESS,
+    ALL_ORDER_FAIL
 } from '../constants/orderConstants';
 
 import axios from 'axios';
@@ -30,4 +33,16 @@ export const createOrder = (order) => async (dispatch) => {
 export const clearErrors = () => async (dispatch) => {
     dispatch({ type: CLEAR_ERRORS });
   };
+
+
+  export const getAllOrders=()=>{
+    return (dispatch)=>{
+      dispatch({type:ALL_ORDER_REQUEST});
+      axios.get('/api/orders/admin/orders').then(({data})=>{
+        dispatch({type:ALL_ORDER_SUCCESS,payload:data.orders})
+      }).catch((err)=>{
+        dispatch({type:ALL_ORDER_FAIL,payload:err});
+      })
+    }
+  }
   

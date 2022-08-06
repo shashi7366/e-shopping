@@ -55,7 +55,7 @@ const Cart = ()=> {
         ) : (
         
         <Fragment>
-            <div className="cartPage">
+            <div className="cartPage" style={{minHeight:'60vmax'}}>
                 <div className="cartHeader">
                     <p>Product</p>
                     <p>Quantity</p>
@@ -78,14 +78,14 @@ const Cart = ()=> {
                       <img className="displayImage" src={item.image} alt="image not available" />
                       <div className='detailsDiv'>
                         <Typography variant='h6'>{item.name}</Typography>
-                        <Button variant='contained' onClick={()=>{deleteCartItems(item.product)}}>Remove</Button>
+                        <Button className='removeButtom' variant='contained' onClick={()=>{deleteCartItems(item.product)}}>Remove</Button>
                       </div>
                     </div>
                     <div className="cartInput">
                         <button onClick={() =>
                         decreaseQuantity(item.product, item.quantity)
                       }>-</button>
-                        <input type="number" value={item.quantity} readOnly />
+                        <input type="text" value={item.quantity} readOnly />
                         <button onClick={() =>
                         increaseQuantity(
                           item.product,

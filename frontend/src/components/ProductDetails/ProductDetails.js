@@ -8,9 +8,16 @@ import ReactStars from "react-rating-stars-component";
 import { Button, TextField, Typography } from '@mui/material';
 import ReviewItem from './ReviewItem.js';
 import { addItemsToCart } from '../../redux/actions/cartAction';
+// import {useSelector} from "react-redux";
+import Alert from '@mui/material/Alert';
+import {toast,ToastContainer} from 'react-toastify';
+import 'react-toastify/dist/ReactToastify.css';
 
 function ProductDetails() {
     var [quantity,setQuantity]=useState(1);
+    var {user}=useSelector((state)=>{
+        return state.user;
+    });
     const setOrderQuantity=(e)=>{
         setQuantity(e.target.value);
         if(quantity>product.stock){
@@ -28,7 +35,13 @@ function ProductDetails() {
     })
 
     const cartHandler = () => {
+        if(user.role!='admin'){
         dispatch(addItemsToCart(id,quantity));
+        toast.success("item added to cart",{position:toast.POSITION.TOP_CENTER})
+    }else{
+        
+        toast.error("admin can't add product",{position:toast.POSITION.TOP_CENTER})
+    }
         // alert.success("Item Added to Cart");
     }
 
@@ -70,6 +83,7 @@ function ProductDetails() {
         <Button variant='outlined' onClick={cartHandler}>Add to Cart</Button>
     </div>
     </div>}
+    <ToastContainer/>
     {loaded && <div className='reviews'>
     <h3>Reviews</h3>
 {product.reviews.length>0?<div className='ReviewBox'>{product.reviews.map((review,i)=>{

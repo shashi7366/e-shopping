@@ -1,6 +1,6 @@
 import React,{useEffect, useState} from 'react';
 import {useDispatch,useSelector} from 'react-redux';
-import { useParams,Link } from 'react-router-dom';
+import { useParams,Link, useSearchParams } from 'react-router-dom';
 import { getSearchProduct } from '../../redux/actions/productAction';
 import ReactStars from 'react-rating-stars-component';
 import {Paper,Typography,TextField,MenuItem} from "@mui/material";
@@ -10,7 +10,7 @@ import './SearchResult.css';
 function SearchResult({products}) {
   var [price,setPrice]=useState([0,200000]);
   var [category,setCategory]=useState('');
-
+  var [searchParams,setSearchParams]=useSearchParams();
 const handleChange=(e)=>{
 setPrice(e.target.value);
 }
@@ -18,7 +18,10 @@ setPrice(e.target.value);
 var link;
 
 const handleChangeCategory=(e)=>{
-  setCategory(e.target.value);
+  
+    setCategory(e.target.value)
+ 
+  
   }
 
   const params=useParams();
@@ -26,17 +29,16 @@ const handleChangeCategory=(e)=>{
     var { products,loaded } = useSelector(state => state.searchProduct);
 
     useEffect(() => {
-
       if(category){
-        link=`/api/products/searchProduct?keyword=${params.keyword}&price[gte]=${price[0]}&price[lte]=${price[1]}&category=${category}`
+        link=`/api/products/searchProduct?keyword=${searchParams.get('keyword')}&price[gte]=${price[0]}&price[lte]=${price[1]}&category=${category}`
       }
       else{
-        link=`/api/products/searchProduct?keyword=${params.keyword}&price[gte]=${price[0]}&price[lte]=${price[1]}`
+        link=`/api/products/searchProduct?keyword=${searchParams.get('keyword')}&price[gte]=${price[0]}&price[lte]=${price[1]}`
       }
         dispatch(getSearchProduct(link));
     }, [dispatch,params,price,category,link]);
 console.log(products);
-  return <div>
+  return <div style={{ minHeight: '80vmax'}}>
   <Paper className='filterBox'>
     <div className='priceFilter'>
       <Typography>Price Range</Typography>

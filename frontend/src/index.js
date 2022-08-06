@@ -24,6 +24,7 @@ import PaymentWrapper from './components/Cart/PaymentWrapper';
 import OrderSuccess from './components/Cart/OrderSuccess';
 import ViewOrders from './components/Admin/ViewOrders';
 import OrderDetails from './components/Admin/OrderDetails';
+import CategorySearch from './components/CategorySearch/CategorySearch';
 
 
 
@@ -55,7 +56,8 @@ root.render(
                               <Route path='process/payment' element={<PaymentWrapper/>}/>
                               <Route index element={<Home />} />
                               <Route path=':id' element={<ProductDetails />} />
-                              <Route path='search/:keyword' element={<SearchResult />} />
+                              <Route path='search' element={<SearchResult />} />
+                              <Route path='categorySearch' element={<CategorySearch />} />
                          </Route>
 
                          {/* <Route path='admin' element={<ProtectedRoute isAdmin={true}><Dashboard/></ProtectedRoute>}>

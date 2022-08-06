@@ -4,7 +4,7 @@ import { useSelector } from "react-redux";
 //import MetaData from "../layout/MetaData";
 import "./ConfirmOrder.css";
 import { Link, useNavigate } from "react-router-dom";
-import { Typography } from "@mui/material";
+import { Paper, Typography,Button } from "@mui/material";
 
 const ConfirmOrder = () => {
   const navigate=useNavigate();
@@ -39,82 +39,49 @@ const ConfirmOrder = () => {
   };
 
   return (
-    <Fragment>
+    <div style={{marginTop:'2%'}}>
       {/* <MetaData title="Confirm Order" /> */}
       <CheckoutSteps activeStep={1} />
-      <div className="confirmOrderPage">
-        <div>
-          <div className="confirmshippingArea">
-            <Typography>Shipping Info</Typography>
-            <div className="confirmshippingAreaBox">
-              <div>
-                <p>Name:</p>
-                <span>{user.name}</span>
-              </div>
-              <div>
-                <p>Phone:</p>
-                <span>{shippingInfo.phoneNo}</span>
-              </div>
-              <div>
-                <p>Address:</p>
-                <span>{address}</span>
-              </div>
-              <div>
-                <p>Pin Code:</p>
-                <span>{shippingInfo.pinCode}</span>
-              </div>
-            </div>
-          </div>
-          <div className="confirmCartItems">
-            <Typography>Your Cart Items:</Typography>
-            <div className="confirmCartItemsContainer">
-              {cartItems &&
+      
+
+      <Paper className="containerPaper" sx={{display:"flex",justifyContent:"space-between"}}>
+        <Paper className="childPaper" >
+        <Typography variant="h5">Shipping Address</Typography>
+        <hr style={{width:"60%",paddingLeft:"5%",height:'1vmax'}}/>
+        <div style={{display:'flex'}}><Typography><b>Name: </b></Typography><Typography>{user.name}</Typography></div>
+        <div style={{display:'flex'}}><Typography><b>Phone: </b></Typography><Typography>{shippingInfo.phoneNo}</Typography></div>
+        <div style={{display:'flex'}}><Typography><b>Address: </b></Typography><Typography>{address}</Typography></div>
+        <div style={{display:'flex'}}><Typography><b>PIN: </b></Typography><Typography>{shippingInfo.pinCode}</Typography></div>
+        </Paper>
+        <Paper className="childPaper" >
+        <Typography variant="h5">Orders</Typography>
+        <hr style={{width:"60%",paddingLeft:"5%",height:'1vmax'}}/>
+        {cartItems &&
                 cartItems.map((item) => (
-                  <div key={item.product}>
-                    <img src={item.image} alt="Product" />
-                    <Link to={`/product/${item.product}`}>
-                      {item.name}
-                    </Link>{" "}
+                  <Paper className="orderItemPaper" key={item.product} style={{display:"flex",justifyContent:"space-between",padding:"2%",margin:"2%"}}>
+                    <img src={item.image} alt="Product" style={{width:'8vmax',height:'8vmax',borderRadius:'50%'}}/>
+                    
+                      <b>{item.name}</b>
+                    
                     <span>
                       {item.quantity} X ₹{item.price} ={" "}
                       <b>₹{item.price * item.quantity}</b>
                     </span>
-                  </div>
+                  </Paper>
                 ))}
-            </div>
-          </div>
-        </div>
-        {/*  */}
-        <div>
-          <div className="orderSummary">
-            <Typography>Order Summery</Typography>
-            <div>
-              <div>
-                <p>Subtotal:</p>
-                <span>₹{subtotal}</span>
-              </div>
-              <div>
-                <p>Shipping Charges:</p>
-                <span>₹{shippingCharges}</span>
-              </div>
-              <div>
-                <p>GST:</p>
-                <span>₹{tax}</span>
-              </div>
-            </div>
-
-            <div className="orderSummaryTotal">
-              <p>
-                <b>Total:</b>
-              </p>
-              <span>₹{totalPrice}</span>
-            </div>
-
-            <button onClick={proceedToPayment}>Proceed To Payment</button>
-          </div>
-        </div>
-      </div>
-    </Fragment>
+        </Paper>
+      </Paper>
+      <Paper sx={{padding:"2%"}}>
+        <Typography variant="h5">Amount to be paid</Typography>
+        <hr style={{width:"60%",paddingLeft:"5%",height:'1vmax'}}/>
+        <div style={{display:'flex'}}><Typography><b>Subtotal: </b></Typography><Typography>₹{subtotal}</Typography></div>
+        <div style={{display:'flex'}}><Typography><b>Shipping Charges: </b></Typography><Typography>₹{shippingCharges}</Typography></div>
+        <div style={{display:'flex'}}><Typography><b>GST: </b></Typography><Typography>₹{tax}</Typography></div>
+        <div style={{display:'flex'}}><Typography><b>Total: </b></Typography><Typography>₹{totalPrice}</Typography></div>
+        <br />
+        <Button variant="contained" onClick={proceedToPayment} sx={{width:'8vmax'}}>Proceed</Button>
+      </Paper>
+    </div>
   );
 };
 

@@ -43,9 +43,10 @@ const Shipping = ({ history }) => {
     <Fragment>
       {/* <MetaData title="Shipping Details" /> */}
 
-      <CheckoutSteps activeStep={0} />
+      
 
-      <div>
+      <div style={{marginTop:'2%'}}>
+      <CheckoutSteps activeStep={0} />
         <Paper sx={{textAlign:'center',padding:'3vmax'}}>
           <h2 className="shippingHeading">Shipping Details</h2>
 

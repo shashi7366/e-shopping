@@ -1,21 +1,23 @@
-import React, { Fragment, useRef, useState } from "react";
+import React, { Fragment, useRef, useState,useEffect } from "react";
 import { Link } from "react-router-dom";
 // import MailOutlineIcon from "@material-ui/icons/MailOutline";
 import MailOutlineIcon from '@mui/icons-material/MailOutline'
 import LockOpenIcon from '@mui/icons-material/LockOpen'
 import FaceIcon from '@mui/icons-material/Face';
 import {getUser,registerUser} from '../../redux/actions/userAction';
-import {useDispatch} from 'react-redux';
+import {useDispatch,useSelector} from 'react-redux';
 import {useNavigate} from 'react-router-dom'
 
 // import '../Component/LoginSignUp.css';
 
 import './loginSignUp.css'
 import { Paper } from "@mui/material";
+import { toast,ToastContainer } from "react-toastify";
 
 
 
 const LoginSignUp =()=>{
+    
     const loginTab = useRef(null);
     const registerTab = useRef(null);
     const switcherTab = useRef(null);
@@ -23,6 +25,7 @@ const LoginSignUp =()=>{
     const dispatch=useDispatch();
 
     const navigate=useNavigate();
+    
 
     const [loginEmail,setLoginEmail] = useState("");
     const [loginPassword,setLoginPassword] = useState("");
@@ -32,6 +35,9 @@ const LoginSignUp =()=>{
         email:"",
         password:"",
     });
+
+   
+       
 
     const {name,email,password} = user;
     const [avatar,setAvatar] = useState();
@@ -95,7 +101,7 @@ navigate('/');
 
     return(
         <Fragment>
-           
+           <ToastContainer/>
             <div className="LoginSignUpContainer">
                 <Paper className="LoginSignUpBox">
                     <div>

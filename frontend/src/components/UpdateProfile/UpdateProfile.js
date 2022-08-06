@@ -49,24 +49,24 @@ function UpdateProfile() {
 
 
 
-    return <div><form onSubmit={formik.handleSubmit}>
-    <Paper elevation={2} sx={{ mx: '10%', px: '5%', py: '5%', margin: '2%' }}>
+    return <div style={{minHeight:'60vmax'}}><form  onSubmit={formik.handleSubmit}>
+    <Paper elevation={2} sx={{ mx: '10%', px: '5%', py: '5%', margin: '2%', minHeight:'40vmax'}}>
         <Grid container spacing={2}>
             <Grid item xs={12} lg={12}>
                 <Typography variant="h3">Edit Profile</Typography>
             </Grid>
-            <Grid item xs={6} lg={6}>
+            <Grid item xs={12} lg={12}>
             <Typography variant="h6">Name</Typography>
-                <TextField fullWidth name="name" id="name" label={user.name} variant="standard"
+                <TextField fullWidth name="name" id="name"  variant="standard"
                     onChange={formik.handleChange}
                     value={formik.values.name}
                     error={formik.touched.name && Boolean(formik.errors.name)}
                     helperText={formik.touched.name && formik.errors.name}
                 />
             </Grid>
-            <Grid item xs={6} lg={6}>
+            <Grid item xs={12} lg={12}>
             <Typography variant="h6">Email</Typography>
-                <TextField fullWidth name="email" id="email" label={user.email} variant="standard"
+                <TextField fullWidth name="email" id="email"  variant="standard"
                     onChange={formik.handleChange}
                     value={formik.values.email}
                     error={formik.touched.description && Boolean(formik.errors.description)}

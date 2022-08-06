@@ -43,13 +43,17 @@ import PersonIcon from '@mui/icons-material/Person';
 import { logout } from '../../redux/actions/userAction';
 import { useSelector,useDispatch } from 'react-redux';
 import ShoppingCartIcon from '@mui/icons-material/ShoppingCart';
-import {useNavigate} from 'react-router-dom'
+import {useNavigate} from 'react-router-dom';
+import {toast,ToastContainer} from 'react-toastify';
 
 
 
 export default function LoggedInButton() {
   const navigate=useNavigate();
   const dispatch=useDispatch();
+  var {user}=useSelector((state)=>{
+    return state.user;
+  })
   
   const logoutDispatcher=()=>{
     dispatch(logout());
@@ -61,7 +65,10 @@ export default function LoggedInButton() {
   }
 
   const goToCart=()=>{
-    navigate('cart');
+    if(user.role=='admin'){
+      toast.error("admin dont have access to cart",{position:toast.POSITION.TOP_CENTER});
+    }else{navigate('cart');}
+    
   }
 
   const goToProfile=()=>{
@@ -81,6 +88,7 @@ export default function LoggedInButton() {
         sx={{ position: 'fixed', bottom: 16, right: 16 }}
         icon={<PersonIcon />}
       >
+      <ToastContainer/>
         {actions.map((action) => (
           <SpeedDialAction
             key={action.name}

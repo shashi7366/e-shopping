@@ -14,9 +14,9 @@
     padding-bottom: 0%;
   }
   
-  .confirmshippingArea > p {
+  /* .confirmshippingArea > p {
     font: 400 1.8vmax "Roboto";
-  }
+  } */
   
   .confirmshippingAreaBox,
   .confirmCartItemsContainer {
@@ -124,6 +124,13 @@
     background-color: rgb(192, 71, 50);
   }
   
+.childPaper{
+  display:flex;
+  flex-direction:column;width:50%;
+  margin:2%;
+  padding:2%;
+}
+
   @media screen and (max-width: 600px) {
     .confirmOrderPage {
       grid-template-columns: 1fr;
@@ -199,6 +206,24 @@
       padding: 4vw;
       margin: 4vw auto;
       font: 400 4vw "Roboto";
+    }
+
+    .orderItemPaper{
+      display:flex;
+      flex-direction: column;
+      justify-content: center;
+    }
+
+    .containerPaper{
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      width:100%;
+    }
+
+    .childPaper{
+      width:100%;
+      margin: 0;
     }
   }
   

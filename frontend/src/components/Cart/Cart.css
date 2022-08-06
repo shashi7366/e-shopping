@@ -77,10 +77,10 @@
   .cartInput > input {
     border: none;
     padding: 0.5vmax;
-    width: 1vmax;
+    width: 3vmax;
     text-align: center;
     outline: none;
-    font: 400 0.8vmax "Roboto";
+    /* font: 400 0.8vmax "Roboto"; */
     color: rgba(0, 0, 0, 0.74);
   }
   
@@ -90,7 +90,7 @@
     height: 8vmax;
     align-items: center;
     box-sizing: border-box;
-    font: 300 1vmax cursive;
+    
     justify-content: flex-end;
     color: rgba(0, 0, 0, 0.753);
   }
@@ -191,8 +191,8 @@
 
   .displayImage{
     border-radius: 50%;
-    height:15vmax;
-    width:15vmax;
+    height:9vmax;
+    width:9vmax;
   }
 
   .detailsDiv{
@@ -200,4 +200,7 @@
     flex-direction: column;
     justify-content: space-evenly;
     padding-left:2% ;
+  }
+  .removeButtom{
+    width:5vmax;
   }

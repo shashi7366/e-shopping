@@ -4,72 +4,57 @@ import Home1 from './Home1';
 import './Home1.css';
 import { Button, IconButton, Typography, Paper, TextField } from '@mui/material';
 import SearchIcon from '@mui/icons-material/Search';
-import {useNavigate} from 'react-router-dom'
+import {Link, useNavigate,useSearchParams,createSearchParams} from 'react-router-dom'
 
 
 function Home() {
-    const navigate=useNavigate();
-    var [keyword,setKeyword]=useState('');
+    
+   
+    
 
-const callAction=()=>{
-    var link=`/api/products/searchProduct?keyword=${keyword}`;
-    console.log(link);
-navigate(`search/${keyword}`);
-}
+
 
   return (
     <div>
-<Paper elevation={0} sx={{ display: 'flex', height: '100px', alignItems: 'center', justifyContent: 'center',paddingTop:'20px',overflow:'auto',overflowY:'hidden'}}>
+<Paper elevation={0} sx={{ display: 'flex', height: '100px', alignItems: 'center', justifyContent: 'center',paddingTop:'20px',overflow:'auto',overflowY:'hidden',margin:'1%'}}>
                 <Paper elevation={0} className='categoryItem'>
                 <img className="categoryImage" src='./images/electronics.jpg' alt="alt-desc"/>
-                    <Typography className="categoryText" variant='body1'>electronics</Typography>
+                    <Typography className="categoryText" variant='body1'><Link to='categorySearch?category=electronics' style={{textDecoration:"none",color:'black'}}>electronics</Link></Typography>
                 </Paper>
 
                 <Paper elevation={0} className='categoryItem'>
                 <img className="categoryImage" src='./images/fashion.webp' alt="alt-desc"/>
-                    <Typography className="categoryText" variant='body1'>fashion</Typography>
+                    <Typography className="categoryText" variant='body1'><Link to='categorySearch?category=fashion' style={{textDecoration:"none",color:'black'}}>fashion</Link></Typography>
                 </Paper>
 
                 <Paper elevation={0} className='categoryItem'>
                 <img className="categoryImage" src='./images/grocery.webp' alt="alt-desc"/>
-                    <Typography className="categoryText" variant='body1'>grocery</Typography>
+                    <Typography className="categoryText" variant='body1'><Link to='categorySearch?category=grocery' style={{textDecoration:"none",color:'black'}}>grocery</Link></Typography>
                 </Paper>
 
                 <Paper elevation={0} className='categoryItem'>
                 <img className="categoryImage" src='./images/travel.jpg' alt="alt-desc"/>
-                    <Typography className="categoryText" variant='body1'>travel</Typography>
+                    <Typography className="categoryText" variant='body1'><Link to='categorySearch?category=travel' style={{textDecoration:"none",color:'black'}}>travel</Link></Typography>
                 </Paper>
 
                 <Paper elevation={0} className='categoryItem'>
                 <img className="categoryImage" src='./images/mobiles.webp' alt="alt-desc"/>
-                    <Typography className="categoryText" variant='body1'>mobiles</Typography>
+                    <Typography className="categoryText" variant='body1'><Link to='categorySearch?category=mobiles' style={{textDecoration:"none",color:'black'}}>mobiles</Link></Typography>
                 </Paper>
 
                 <Paper elevation={0} className='categoryItem'>
                 <img className="categoryImage" src='./images/furnitures.jpg' alt="alt-desc"/>
-                    <Typography className="categoryText" variant='body1'>furniture</Typography>
+                    <Typography className="categoryText" variant='body1'><Link to='categorySearch?category=furniture' style={{textDecoration:"none",color:'black'}}>furniture</Link></Typography>
                 </Paper>
 
                 <Paper elevation={0} className='categoryItem'>
                 <img className="categoryImage" src='./images/beauty.jpg' alt="alt-desc"/>
-                    <Typography className="categoryText" variant='body1'>beauty</Typography>
+                    <Typography className="categoryText" variant='body1'><Link to='categorySearch?category=beauty' style={{textDecoration:"none",color:'black'}}>beauty</Link></Typography>
                 </Paper>
 
             </Paper>
 
-            <Paper elevation={0} sx={{ display: 'flex', height: '40px', alignItems: 'center', justifyContent: 'center', margin: '3%'}}>
-                <TextField
-                value={keyword}
-                label="search here..."
-                    id="outlined-size-small"
-                    defaultValue=""
-                    size="small"
-                    sx={{width:'50%'}}
-                    onChange={(e)=>{
-                        setKeyword(e.target.value);
-                    }}
-                /><IconButton onClick={callAction}><SearchIcon fontSize='large' /></IconButton>
-            </Paper>
+           
             <CarouselComponent />
             <h1 style={{textAlign:'center'}}>featured products</h1>
             <Home1 />

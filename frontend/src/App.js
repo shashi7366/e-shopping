@@ -1,20 +1,21 @@
 import React,{useEffect} from 'react';
 // import './App.css';
 
-import WebFont from "webfontloader";
-import store from 'storejs';
-import { loadUser } from "./redux/actions/userAction";
-import { useState } from 'react';
+
 import {Outlet} from 'react-router-dom';
 import Header from './components/Header/Header';
 import {getUserDetail} from './redux/actions/userAction';
-import {useDispatch} from 'react-redux'
+import {useDispatch,useSelector} from 'react-redux'
 import Footer from './components/Footer/Footer';
-import axios from 'axios';
 
+import {toast,ToastContainer} from 'react-toastify'
+import 'react-toastify/dist/ReactToastify.css'
 
+// toast.configure();
 function App() {
-
+    var {isAuthenticated,error}=useSelector((state)=>{
+        return state.user;
+    });
   
 //     const [stripeApiKey, setStripeApiKey] = useState("");
 
@@ -40,6 +41,9 @@ function App() {
 const dispatch=useDispatch();
     useEffect(()=>{
         console.log('hi');
+if(!isAuthenticated){
+    toast.error("login failed",{position:toast.POSITION.TOP_CENTER});
+}
         dispatch(getUserDetail());
     },[dispatch]);
 
@@ -47,6 +51,7 @@ const dispatch=useDispatch();
     
     return (
         <>
+        <ToastContainer />
         <Header />
           <Outlet />
 

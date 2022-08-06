@@ -113,7 +113,7 @@ const Payment = ({ history }) => {
   // }, [dispatch, error, alert]);
 
   return (
-    <Fragment>
+    <div style={{marginTop:'2%'}}>
   {/* //    <MetaData title="Payment" /> */}
       <CheckoutSteps activeStep={2} />
       <div className="paymentContainer">
@@ -140,7 +140,7 @@ const Payment = ({ history }) => {
           />
         </form>
       </div>
-    </Fragment>
+    </div>
   );
 };
 

@@ -3,21 +3,27 @@ import { Typography, Stepper, StepLabel, Step } from "@mui/material";
 import LocalShippingIcon from "@mui/icons-material/LocalShipping";
 import LibraryAddCheckIcon from "@mui/icons-material/LibraryAddCheck";
 import AccountBalanceIcon from "@mui/icons-material/AccountBalance";
+import CheckBoxOutlineBlankIcon from '@mui/icons-material/CheckBoxOutlineBlank';
+import RadioButtonCheckedIcon from '@mui/icons-material/RadioButtonChecked';
+import RadioButtonUncheckedIcon from '@mui/icons-material/RadioButtonUnchecked';
 import "./CheckoutSteps.css";
 
 const CheckoutSteps = ({ activeStep }) => {
   const steps = [
     {
       label: <Typography>Shipping Details</Typography>,
-      icon: <LocalShippingIcon />,
+      icon: <RadioButtonCheckedIcon />,
+      altIcon:<RadioButtonUncheckedIcon/>
     },
     {
       label: <Typography>Confirm Order</Typography>,
-      icon: <LibraryAddCheckIcon />,
+      icon: <RadioButtonCheckedIcon />,
+      altIcon:<RadioButtonUncheckedIcon/>
     },
     {
       label: <Typography>Payment</Typography>,
-      icon: <AccountBalanceIcon />,
+      icon: <RadioButtonCheckedIcon />,
+      altIcon:<RadioButtonUncheckedIcon/>
     },
   ];
 
@@ -36,9 +42,9 @@ const CheckoutSteps = ({ activeStep }) => {
           >
             <StepLabel
               style={{
-                color: activeStep >= index ? "tomato" : "rgba(0, 0, 0, 0.649)",
+                color: activeStep >= index ? "green" : "rgba(0, 0, 0, 0.649)",
               }}
-              icon={item.icon}
+              icon={activeStep >= index?item.icon:item.altIcon}
             >
               {item.label}
             </StepLabel>

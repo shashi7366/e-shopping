@@ -25,6 +25,7 @@ import OrderSuccess from './components/Cart/OrderSuccess';
 import ViewOrders from './components/Admin/ViewOrders';
 import OrderDetails from './components/Admin/OrderDetails';
 import CategorySearch from './components/CategorySearch/CategorySearch';
+import MyOrder from './components/Order/MyOrder';
 
 
 
@@ -51,6 +52,8 @@ root.render(
                                    <Route path='orders/order/:id' element={<ProtectedRoute isAdmin={true}><OrderDetails/></ProtectedRoute>} />
                               </Route>
                               <Route path='success' element={<OrderSuccess/>}/>
+                              <Route path='orders' element={<MyOrder/>}/>
+                              <Route path='order/:id' element={<MyOrder/>}/>
                               <Route path='shipping' element={<ProtectedRoute isAdmin={false}><Shipping /></ProtectedRoute>}/>
                               <Route path='order/confirm' element={<ConfirmOrder/>}/>
                               <Route path='process/payment' element={<PaymentWrapper/>}/>

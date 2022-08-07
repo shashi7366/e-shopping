@@ -1,11 +1,12 @@
-import React,{useEffect, useState}from 'react';
+import React,{Fragment, useEffect, useState}from 'react';
 import Carousel from 'react-material-ui-carousel';
 import {useDispatch,useSelector} from 'react-redux';
 import {useParams} from 'react-router-dom';
-import { getIndividualProduct } from '../../redux/actions/productAction';
+import { getIndividualProduct, clearErrors, newReview } from '../../redux/actions/productAction';
 import './ProductDetails.css';
 import ReactStars from "react-rating-stars-component";
-import { Button, TextField, Typography } from '@mui/material';
+import Rating from '@mui/material/Rating';
+import { Dialog, DialogActions, DialogContent,DialogTitle,Button, TextField, Typography } from '@mui/material';
 import ReviewItem from './ReviewItem.js';
 import { addItemsToCart } from '../../redux/actions/cartAction';
 // import {useSelector} from "react-redux";

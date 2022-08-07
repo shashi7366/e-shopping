@@ -3,11 +3,10 @@ import { DataGrid } from "@mui/x-data-grid";
 import "./MyOrder.css";
 import { useSelector, useDispatch } from "react-redux";
 import { clearErrors, myOrders } from "../../actions/orderAction";
-import Loader from "../layout/Loader/Loader";
 import { Link } from "react-router-dom";
 import { useAlert } from "react-alert";
 import Typography from "@mui/material/Typography";
-import MetaData from "../layout/MetaData";
+// import MetaData from "../layout/MetaData";
 import LaunchIcon from "@mui/icons-material/Launch";
 
 const MyOrder=()=>{
@@ -87,11 +86,9 @@ const MyOrder=()=>{
     return(
         <>
         <Fragment>
-      <MetaData title={`${user.name} - Orders`} />
+        {/* <MetaData title={`${user.name} - Orders`} /> */}
+        <h1>{`${user.name} - Orders`}</h1>
 
-      {loading ? (
-        <Loader />
-      ) : (
         <div className="myOrdersPage">
           <DataGrid
             rows={rows}
@@ -104,7 +101,7 @@ const MyOrder=()=>{
 
           <Typography id="myOrdersHeading">{user.name}'s Orders</Typography>
         </div>
-      )}
+      
     </Fragment>
         </>
     )

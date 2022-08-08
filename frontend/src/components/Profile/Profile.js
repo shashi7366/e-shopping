@@ -31,7 +31,7 @@ function Profile() {
             <p>{user.email}</p>
         </div> 
         <div className='profileActionDiv'>
-        <Button variant='contained'>My Orders</Button>
+        <Button variant='contained' onClick={()=>{navigate('/orders')}}>My Orders</Button>
         <br/>
         <br/>
         <Button variant='contained' onClick={()=>{navigate('/password/update')}}>Change Password</Button>

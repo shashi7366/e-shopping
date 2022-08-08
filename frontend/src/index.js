@@ -25,9 +25,14 @@ import OrderSuccess from './components/Cart/OrderSuccess';
 import ViewOrders from './components/Admin/ViewOrders';
 import OrderDetails from './components/Admin/OrderDetails';
 import CategorySearch from './components/CategorySearch/CategorySearch';
+
 import ForgotPassword from './components/ForgotPassword/ForgotPassword';
 import ResetPassword from './components/ForgotPassword/ResetPassword';
 import ChangePassword from './components/ForgotPassword/ChangePassword';
+
+import MyOrder from './components/Order/MyOrder';
+import OrderDetailsUser from './components/Order/OrderDetailsUser';
+
 
 
 
@@ -54,8 +59,14 @@ root.render(
                                    <Route path='orders/order/:id' element={<ProtectedRoute isAdmin={true}><OrderDetails/></ProtectedRoute>} />
                               </Route>
                               <Route path='success' element={<OrderSuccess/>}/>
-                              <Route path='shipping' element={<ProtectedRoute isAdmin={false}><Shipping /></ProtectedRoute>}/>
+          //myorders route
+                              <Route path='orders' element={<MyOrder/>}/>
+                              {/* <Routes> */}
+          //orderDetails user
+                              <Route path='order/:id' element={<OrderDetailsUser/>}/>
                               <Route path='order/confirm' element={<ConfirmOrder/>}/>
+                              {/* </Routes>                          */}
+                              <Route path='shipping' element={<ProtectedRoute isAdmin={false}><Shipping /></ProtectedRoute>}/>
                               <Route path='process/payment' element={<PaymentWrapper/>}/>
                               <Route index element={<Home />} />
                               <Route path=':id' element={<ProductDetails />} />

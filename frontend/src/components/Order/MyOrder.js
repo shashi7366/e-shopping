@@ -2,7 +2,7 @@ import React, { Fragment, useEffect } from "react";
 import { DataGrid } from "@mui/x-data-grid";
 import "./MyOrder.css";
 import { useSelector, useDispatch } from "react-redux";
-import { clearErrors, myOrders } from "../../actions/orderAction";
+import { clearErrors, myOrders } from "../../redux/actions/orderAction";
 import { Link } from "react-router-dom";
 import { useAlert } from "react-alert";
 import Typography from "@mui/material/Typography";

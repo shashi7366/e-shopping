@@ -54,10 +54,10 @@ root.render(
                               </Route>
                               <Route path='success' element={<OrderSuccess/>}/>
                               <Route path='orders' element={<MyOrder/>}/>
-                              <Routes>
+                              {/* <Routes> */}
                               <Route path='order/:id' element={<OrderDetailsUser/>}/>
                               <Route path='order/confirm' element={<ConfirmOrder/>}/>
-                              </Routes>                         
+                              {/* </Routes>                          */}
                               <Route path='shipping' element={<ProtectedRoute isAdmin={false}><Shipping /></ProtectedRoute>}/>
                               <Route path='process/payment' element={<PaymentWrapper/>}/>
                               <Route index element={<Home />} />

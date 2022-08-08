@@ -4,7 +4,7 @@ import React,{useEffect} from 'react';
 
 import {Outlet} from 'react-router-dom';
 import Header from './components/Header/Header';
-import {getUserDetail} from './redux/actions/userAction';
+import {clearError, getUserDetail} from './redux/actions/userAction';
 import {useDispatch,useSelector} from 'react-redux'
 import Footer from './components/Footer/Footer';
 
@@ -40,11 +40,8 @@ function App() {
 
 const dispatch=useDispatch();
     useEffect(()=>{
-        console.log('hi');
-if(!isAuthenticated){
-    toast.error("login failed",{position:toast.POSITION.TOP_CENTER});
-}
         dispatch(getUserDetail());
+        // dispatch(clearError);
     },[dispatch]);
 
    
@@ -53,7 +50,7 @@ if(!isAuthenticated){
         <>
         <ToastContainer />
         <Header />
-          <Outlet />
+          <Outlet  />
 
           <Footer />
          </>

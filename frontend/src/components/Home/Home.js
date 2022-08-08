@@ -56,7 +56,9 @@ function Home() {
 
            
             <CarouselComponent />
+            <hr style={{width:"60%",paddingLeft:"5%",height:'1vmax',marginLeft:'20%'}}/>
             <h1 style={{textAlign:'center'}}>featured products</h1>
+            <hr style={{width:"60%",paddingLeft:"5%",height:'1vmax',marginLeft:'20%'}}/>
             <Home1 />
     </div>
   )

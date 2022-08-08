@@ -15,7 +15,7 @@ function CategorySearch() {
         dispatch(getSearchProduct(link));
     }, [dispatch]);
 console.log(products);
-  return (<div className='ProductContainer'>
+  return (<div className='ProductContainerCategorySearch'>
   {loaded && products.length>0?products.map((product,i)=>{
       return<Link to={`/${product._id}`} key={i}><Paper spacing={2} className='productCard' >
       <img 

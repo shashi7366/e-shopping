@@ -1,16 +1,18 @@
 import {LOGIN_REQUEST,LOGIN_SUCCESS,LOGIN_FAIL,REGISTER_REQUEST,REGISTER_SUCCESS,REGISTER_FAIL
-,LOGOUT_REQUEST,LOGOUT_SUCCESS,LOGOUT_FAIL,UPDATE_PROFILE_REQUEST,UPDATE_PROFILE_SUCCESS,UPDATE_PROFILE_FAIL} from '../constants/userConstants';
+,LOGOUT_REQUEST,LOGOUT_SUCCESS,LOGOUT_FAIL,UPDATE_PROFILE_REQUEST,UPDATE_PROFILE_SUCCESS,UPDATE_PROFILE_FAIL, CLEAR_ERROR,RESET_PASSWORD_REQUEST,RESET_PASSWORD_SUCCESS,RESET_PASSWORD_FAIL} from '../constants/userConstants';
 
 export const userReducer = (state = { loaded:false,user:'',error:'',isAuthenticated:false }, action) => {
     switch (action.type) {
       case LOGIN_REQUEST:
       case REGISTER_REQUEST:
+      case RESET_PASSWORD_REQUEST:
         return {
           ...state,
           loaded: false,
         };
       case LOGIN_SUCCESS:
-        case REGISTER_SUCCESS:
+      case REGISTER_SUCCESS:
+      case RESET_PASSWORD_SUCCESS:
         return {
           ...state,
           loaded: true,
@@ -19,6 +21,7 @@ export const userReducer = (state = { loaded:false,user:'',error:'',isAuthentica
         };
       case LOGIN_FAIL:
       case REGISTER_FAIL:
+      case RESET_PASSWORD_FAIL:
         return {
           ...state,
           loaded: false,
@@ -42,6 +45,12 @@ export const userReducer = (state = { loaded:false,user:'',error:'',isAuthentica
               ...state,
               loaded: false,
               error:action.payload
+            };
+            case CLEAR_ERROR:
+            return {
+              ...state,
+              loaded: false,
+              error:''
             };
 
 
@@ -70,6 +79,7 @@ export const userReducer = (state = { loaded:false,user:'',error:'',isAuthentica
           loaded: false,
           error: action.payload,
         };
+        
         
       default:
         return state;

@@ -34,7 +34,7 @@ function Profile() {
         <Button variant='contained'>My Orders</Button>
         <br/>
         <br/>
-        <Button variant='contained'>Change Password</Button>
+        <Button variant='contained' onClick={()=>{navigate('/password/update')}}>Change Password</Button>
         </div>  
         </div>
     </div>

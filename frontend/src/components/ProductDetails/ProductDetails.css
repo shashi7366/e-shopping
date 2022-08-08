@@ -1,38 +1,28 @@
 .CarouselImage{
    padding: 0;
    width:100%;
-   height: 18vw;
+   height: 23vw;
 }
 
 .ProductCarousel{
-padding: 4%;
- min-height: 30vw;
- width:40%;
- height: 100%;
- /* border: 1px solid black; */
- display: inline-block;
-padding-top:6% ;
+    
+    width: 40%;
 }
 
 .detailDiv{
-
-    padding: 4%;
-    padding-top:0;
-    width:60%;
-    /* border: 1px solid black; */
-    display: inline-block;
+   width: 40%;
+    margin: 2%;
+    padding: 2%;
+    
+   
 }
 
-.ProductContainer{
-    
+.ProductContainerProductDetails{
     display: flex;
-    flex-direction: row;
-    padding: 2%;
-    justify-content: space-around;
-    /* flex-wrap: wrap; */
-    /* border: 1px solid black; */
-    /* display: inline; */
-    align-items: center;
+    justify-content: center;
+   
+    padding-top: 2%;;
+  
     
 }
 
@@ -40,8 +30,12 @@ padding-top:6% ;
     margin:2%;
 }
 
+.react-stars-wrapper{
+    text-align:center;
+}
+
 @media screen and (max-width:1000px) {
-    .ProductContainer{
+    .ProductContainerProductDetails{
         display:flex;
         flex-direction: column;
         text-align: center;
@@ -58,5 +52,8 @@ padding-top:6% ;
 
     .detailDiv{
         width: 100%;
+    }
+    .stars{
+        padding-left:40%;
     }
 }

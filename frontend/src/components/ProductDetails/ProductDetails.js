@@ -50,7 +50,7 @@ function ProductDetails() {
     },[dispatch,id]);
   return (
     <div>
-    {loaded && <div className='ProductContainer'><Carousel className='ProductCarousel'>
+    {loaded && <div className='ProductContainerProductDetails'><Carousel className='ProductCarousel'>
         {product.images.map((item,i)=>{
             return <img 
             className='CarouselImage'
@@ -63,6 +63,8 @@ function ProductDetails() {
     <div className='detailDiv'>
         <h1>{product.name}</h1>
         <h5>{product._id}</h5>
+        
+        <div className='stars'>
         <ReactStars
         edit={false}
         count={5}
@@ -70,8 +72,9 @@ function ProductDetails() {
         value={product.rating}
         color="gray"
         activeColor="yellow"
-        size="20px"
-         />
+        size={20}
+         /></div>
+         
         <p style={{width:'80%'}}>{product.description}</p>
         <h4>${product.price}</h4>
         <br></br>

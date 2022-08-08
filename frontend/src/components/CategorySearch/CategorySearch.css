@@ -6,7 +6,7 @@
     flex-wrap: wrap;
 }
 
-.ProductContainer{
+.ProductContainerCategorySearch{
     margin:2vmax;
     min-height: 80vmax;
     display: block;

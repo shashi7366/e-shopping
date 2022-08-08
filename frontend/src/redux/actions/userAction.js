@@ -1,5 +1,5 @@
 import {LOGIN_REQUEST,LOGIN_SUCCESS,LOGIN_FAIL,REGISTER_REQUEST,REGISTER_SUCCESS,REGISTER_FAIL,LOGOUT_REQUEST,LOGOUT_SUCCESS,LOGOUT_FAIL
-,UPDATE_PROFILE_REQUEST,UPDATE_PROFILE_SUCCESS,UPDATE_PROFILE_FAIL,LOAD_USER_REQUEST,LOAD_USER_SUCCESS,LOAD_USER_FAIL} from '../constants/userConstants';
+,UPDATE_PROFILE_REQUEST,UPDATE_PROFILE_SUCCESS,UPDATE_PROFILE_FAIL,LOAD_USER_REQUEST,LOAD_USER_SUCCESS,LOAD_USER_FAIL, CLEAR_ERROR,RESET_PASSWORD_REQUEST,RESET_PASSWORD_SUCCESS,RESET_PASSWORD_FAIL} from '../constants/userConstants';
 import axios from 'axios';
 
 export const getUser=(mail,pass)=>{
@@ -92,6 +92,30 @@ export const updateProfile=(nam,mail)=>{
         }).catch((err)=>{
             dispatch({type:UPDATE_PROFILE_FAIL,payload:err});
            
+        })
+
+    }
+}
+
+export const clearError=()=>{
+    return (dispatch)=>{
+        dispatch({type:CLEAR_ERROR});
+    }
+}
+
+export const resetPassword=(password,confirmPassword,token)=>{
+    return (dispatch)=>{
+        dispatch({type:RESET_PASSWORD_REQUEST});
+
+        axios.put(`/api/users/password/reset/${token}`,{
+            password:password,
+            confirmPassword:confirmPassword
+        }).then((result)=>{
+            dispatch({type:RESET_PASSWORD_SUCCESS,payload:result.data.user});
+        console.log(result);
+        }).catch((err)=>{
+            dispatch({type:RESET_PASSWORD_FAIL,payload:err});
+           console.log(err);
         })
 
     }

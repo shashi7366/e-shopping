@@ -76,6 +76,7 @@ const logout = async (req,res,next)=>
 
 const forgotPassword = async(req,res,next)=>
 {
+  console.log(req.body.email);
      const user = await User.findOne({email:req.body.email});
    
      if(!user)
@@ -89,8 +90,8 @@ const forgotPassword = async(req,res,next)=>
 
      await user.save({validateBeforeSave: false});
 
-     const resetPasswordUrl = `${req.protocol}://${req.get("host")}/api/users/password/reset/${resetToken}`;  // 'http://localhost/api/password/reset/${resetToken}'
-
+    //  const resetPasswordUrl = `${req.protocol}://${req.get("host")}/api/users/password/reset/${resetToken}`;  // 'http://localhost/api/password/reset/${resetToken}'
+     const resetPasswordUrl = `${req.protocol}://localhost:3000/password/reset/${resetToken}`;
       const message = ` Your Password reset token is :- \n\n ${resetPasswordUrl} \n\n if you have not requested for this email please ignore it.`;
 
       try

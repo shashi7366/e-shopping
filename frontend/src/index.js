@@ -25,6 +25,9 @@ import OrderSuccess from './components/Cart/OrderSuccess';
 import ViewOrders from './components/Admin/ViewOrders';
 import OrderDetails from './components/Admin/OrderDetails';
 import CategorySearch from './components/CategorySearch/CategorySearch';
+import ForgotPassword from './components/ForgotPassword/ForgotPassword';
+import ResetPassword from './components/ForgotPassword/ResetPassword';
+import ChangePassword from './components/ForgotPassword/ChangePassword';
 
 
 
@@ -58,6 +61,9 @@ root.render(
                               <Route path=':id' element={<ProductDetails />} />
                               <Route path='search' element={<SearchResult />} />
                               <Route path='categorySearch' element={<CategorySearch />} />
+                              <Route path='password/forgot' element={<ForgotPassword/>}/>
+                              <Route path='password/reset/:token' element={<ResetPassword/>}/>
+                              <Route path='password/update' element={<ChangePassword/>}/>
                          </Route>
 
                          {/* <Route path='admin' element={<ProtectedRoute isAdmin={true}><Dashboard/></ProtectedRoute>}>

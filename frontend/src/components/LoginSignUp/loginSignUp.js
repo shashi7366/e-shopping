@@ -4,7 +4,7 @@ import { Link } from "react-router-dom";
 import MailOutlineIcon from '@mui/icons-material/MailOutline'
 import LockOpenIcon from '@mui/icons-material/LockOpen'
 import FaceIcon from '@mui/icons-material/Face';
-import {getUser,registerUser} from '../../redux/actions/userAction';
+import {clearError, getUser,registerUser} from '../../redux/actions/userAction';
 import {useDispatch,useSelector} from 'react-redux';
 import {useNavigate} from 'react-router-dom'
 
@@ -36,7 +36,9 @@ const LoginSignUp =()=>{
         password:"",
     });
 
-   
+   var loggedInUser=useSelector((state)=>{
+    return state.user;
+   });
        
 
     const {name,email,password} = user;
@@ -47,7 +49,7 @@ const LoginSignUp =()=>{
         e.preventDefault();
         dispatch(getUser(loginEmail,loginPassword));
         navigate('/');
-        console.log("Login Form Submitted");
+        // console.log("Login Form Submitted");
     };
 
     const registerSubmit = (e)=>{
@@ -99,6 +101,16 @@ navigate('/');
         }
     };
 
+    // useEffect(()=>{
+    //     if(loggedInUser.error!=''){
+    //         toast.error("wrong email or password!",{position:toast.POSITION.TOP_CENTER});
+          
+    //     }
+    //     if(loggedInUser.isAuthenticated){
+    //         navigate('/');
+    //     }
+    // },[])
+    // dispatch(clearError);
     return(
         <Fragment>
            <ToastContainer/>
@@ -122,6 +134,7 @@ navigate('/');
                             onChange={(e)=>setLoginEmail(e.target.value)}
                             />
                         </div>
+                        
                         <div className="loginPassword">
                             <LockOpenIcon />
                             <input
@@ -132,7 +145,7 @@ navigate('/');
                             onChange={(e)=>setLoginPassword(e.target.value)}
                             />
                         </div>
-                        {/* <Link to="/password/forgot">Forgot Password ?</Link> */}
+                         <Link to="/password/forgot">Forgot Password ?</Link>
                         <input type="submit" value="Login" className="loginBtn" />
                     </form>
                     <form

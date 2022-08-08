@@ -1,0 +1,24 @@
+.reviewPaper{
+    display:flex;
+    flex-direction: column;
+    padding: 2%;
+    justify-content: center;
+}
+
+.reviewRating{
+    display:flex;
+    justify-content: center;
+}
+
+.reviewComment{
+    display: flex;
+    flex-direction: column;
+}
+
+.reviewDiv{
+    padding:10%
+}
+
+.comment{
+    height:20vmax;
+}

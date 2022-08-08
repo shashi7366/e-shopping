@@ -32,6 +32,7 @@ import ChangePassword from './components/ForgotPassword/ChangePassword';
 
 import MyOrder from './components/Order/MyOrder';
 import OrderDetailsUser from './components/Order/OrderDetailsUser';
+import AddReview from './components/AddReview/AddReview';
 
 
 
@@ -75,6 +76,7 @@ root.render(
                               <Route path='password/forgot' element={<ForgotPassword/>}/>
                               <Route path='password/reset/:token' element={<ResetPassword/>}/>
                               <Route path='password/update' element={<ChangePassword/>}/>
+                              <Route path='addReview/:id' element={<AddReview/>}/>
                          </Route>
 
                          {/* <Route path='admin' element={<ProtectedRoute isAdmin={true}><Dashboard/></ProtectedRoute>}>

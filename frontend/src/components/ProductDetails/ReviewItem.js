@@ -1,5 +1,6 @@
 import React from 'react'
 import Rating from '@mui/material/Rating';
+import './ReviewItem.css'
 
 function ReviewItem({review}) {
   const options = {

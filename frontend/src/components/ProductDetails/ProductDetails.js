@@ -91,7 +91,8 @@ function ProductDetails() {
     {loaded && <div className='reviews'>
     <h3>Reviews</h3>
 {product.reviews.length>0?<div className='ReviewBox'>{product.reviews.map((review,i)=>{
-    <ReviewItem review={review} />
+   return <ReviewItem review={review} />
+    
 })}</div>:<p style={{textAlign:'center'}}>No reviews yet</p>}
     </div>}
     </div>

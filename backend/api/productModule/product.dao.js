@@ -93,11 +93,32 @@ const showSearchProducts=async (req,res,next)=>{
             data
         });
     });
-    
-
-
-   
 }
 
 
-module.exports={insertProduct,showProducts,updateProduct,deleteProduct,getIndividualProduct,showSearchProducts}
+const addReview=async (req,res,next)=>{
+   
+  
+    var product=await Product.find({_id:req.params.id});
+    
+    var oldReviewArray=product[0].reviews;
+    var oldRating=product[0].rating;
+    var oldNumberofRatings=product[0].noOfRatings;
+    var newNumberOfRatings=oldNumberofRatings+1;
+    var newRating=(oldRating+req.body.review.rating)/newNumberOfRatings;
+    
+    var newReviewArray=[...oldReviewArray,req.body.review];
+    
+    await Product.findByIdAndUpdate(req.params.id,{$set:{reviews:newReviewArray,rating:newRating,noOfRatings:newNumberOfRatings}});
+    var product1=await Product.find({_id:req.params.id});
+
+    res.status(200).json({
+        message:"success",
+        product:product1
+    });
+}
+
+
+
+
+module.exports={insertProduct,showProducts,updateProduct,deleteProduct,getIndividualProduct,showSearchProducts,addReview}

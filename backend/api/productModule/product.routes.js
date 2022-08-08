@@ -21,6 +21,7 @@ router.post('/new',(req,res,next)=>{
 });
 router.route('/').get(dao.showProducts);
 router.route('/searchProduct').get(dao.showSearchProducts)
+router.route('/addReview/:id').put(dao.addReview);
 
                   
 router.route('/:id').put( isAuthenticatedUser, authorizeRoles("admin"), dao.updateProduct).delete(isAuthenticatedUser,authorizeRoles("admin"),  dao.deleteProduct).get( dao.getIndividualProduct);

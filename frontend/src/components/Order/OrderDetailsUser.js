@@ -2,26 +2,24 @@ import React, { Fragment, useEffect } from "react";
 import "./OrderDetailsUser.css";
 import { useSelector, useDispatch } from "react-redux";
 // import MetaData from "../layout/MetaData";
-import { Link,useParams } from "react-router-dom";
+import { Link,useNavigate,useParams } from "react-router-dom";
 import { Button, Paper, Typography } from "@mui/material";
 import { getOrderDetails, clearErrors } from "../../redux/actions/orderAction";
 // import Loader from "../layout/Loader/Loader";
 // import { useAlert } from "react-alert";
 
 const OrderDetailsUser=()=>{
+  var navigate=useNavigate();
   var params=useParams();
 
-    const { order, error, loading } = useSelector((state) => state.orderDetails);
+    const { order, error} = useSelector((state) => state.orderDetails);
 
     const dispatch = useDispatch();
     // const alert = useAlert();
 
     useEffect(() => {
-        if (error) {
-        // alert.error(error);
-        dispatch(clearErrors());
-        }
-
+       
+console.log(params.id);
         dispatch(getOrderDetails(params.id));
     }, [dispatch, alert, error, params]);
 
@@ -86,13 +84,17 @@ const OrderDetailsUser=()=>{
             </div> */}
 <Typography variant="h5">OrderItems: </Typography>
             <div style={{display:'flex',paddingLeft:'2%',flexWrap:'wrap'}}>
-            {order.orderItems.map((item,i)=>{
+            {order.orderItems&&(order.orderItems).map((item,i)=>{
                 return<Paper key={i} sx={{height:'20vmax',width:'20vmax',padding:'2%',margin:'1%',textAlign:'center'}}>
                 <img src={item.image} style={{height:'10vmax',width:'15vamx'}}/>
                     <Typography>{item.name}</Typography>
-                    {order.orderStatus=="Delivered" || order.orderStatus=="delivered"?<Button variant="contained">Add review</Button>:<Button variant="contained">view</Button>}
+                    {order.orderStatus=="Delivered" || order.orderStatus=="delivered"?<Button variant="contained" onClick={()=>{navigate(`/addReview/${item.product}`)}}>Add review</Button>:<Button variant="contained">view</Button>}
                 </Paper>
             })}</div>
+
+            {/* {(order.orderItems).map((item,i)=>{
+              return <h1>{item.name}</h1>
+            })} */}
           
         </Paper>}
         </>

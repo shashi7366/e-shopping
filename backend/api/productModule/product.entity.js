@@ -18,60 +18,65 @@ const productSchema = new mongoose.Schema({
         type: Number,
         default: 0
     },
-    images:[
+    images: [
         {
-        public_id:{
-            type:String,
-            default:"image not available"
-        },
-        url:{
-            type:String,
-            required:true
+            public_id: {
+                type: String,
+                default: "image not available"
+            },
+            url: {
+                type: String,
+                required: true
+            }
         }
-    }
-],
-noOfRatings:{
-    type:Number,
-    default:0
-},
-stock:{
-    type:Number,
-    required:[true,"please enter stock"],
-    maxLength:[4,"cant have more than 1000 items"],
-    default:1
-},
-category:{
-    type:String,
-    required:[true,"please enter category of product"]
-},
-reviews:[
+    ],
+    noOfRatings: {
+        type: Number,
+        default: 0
+    },
+    stock: {
+        type: Number,
+        required: [true, "please enter stock"],
+        maxLength: [4, "cant have more than 1000 items"],
+        default: 1
+    },
+    category: {
+        type: String,
+        required: [true, "please enter category of product"]
+    },
+    reviews: [
+        {
+            name: {
+                type: String,
+                required: [true, "enter name of reviewer"]
+            },
+            rating: {
+                type: Number,
+                required: [true, "please enter rating value"]
+            },
+            comment: {
+                type: String,
+                required: [true, "please enter a comment"]
+            },
+            user: {
+                type: mongoose.Schema.ObjectId,
+                ref: "User",
+                required: true,
+            }
+        }
+    ],
+
+    /*user:
     {
-        name:{
-            type:String,
-            required:[true,"enter name of reviewer"]
-        },
-        rating:{
-            type:Number,
-            required:[true,"please enter rating value"]
-        },
-        comment:{
-            type:String,
-            required:[true,"please enter a comment"]
-        }
+       type:mongoose.Schema.ObjectId,
+        ref:"User",
+        required:true,
+    },*/
+
+    createdAt: {
+        type: Date,
+        default: Date.now
     }
-],
-
-/*user:
-{
-   type:mongoose.Schema.ObjectId,
-    ref:"User",
-    required:true,
-},*/
-
-createdAt:{
-    type:Date,
-    default:Date.now
-}
 });
 
-module.exports=mongoose.model("Product",productSchema);
+module.exports = mongoose.model("Product", productSchema);

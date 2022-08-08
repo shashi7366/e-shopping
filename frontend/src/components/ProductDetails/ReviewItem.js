@@ -1,6 +1,7 @@
 import React from 'react'
 import Rating from '@mui/material/Rating';
 import './ReviewItem.css'
+import { Paper } from '@mui/material';
 
 function ReviewItem({review}) {
   const options = {
@@ -11,12 +12,12 @@ function ReviewItem({review}) {
 
   return (
     <>
-    <div className="reviewCard">
+    <Paper className="reviewCard">
       {/* <img src={profilePng} alt="User" /> */}
-      <p>{review.name}</p>
-      <Rating {...options} />
+      <p><b>{review.name}</b></p>
+      <div className='ratingStarsReviewItem'><Rating {...options} /></div>
       <span className="reviewCardComment">{review.comment}</span>
-    </div>
+    </Paper>
     </>
   )
 }

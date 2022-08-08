@@ -34,6 +34,13 @@
     text-align:center;
 }
 
+.ReviewBox{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    padding-left:20%;
+}
+
 @media screen and (max-width:1000px) {
     .ProductContainerProductDetails{
         display:flex;

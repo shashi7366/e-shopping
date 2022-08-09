@@ -32,8 +32,8 @@
 // export default LoggedInButton
 
 
-import * as React from 'react';
-
+import React,{useState} from 'react';
+import {Paper,Typography,TextField,MenuItem} from "@mui/material";
 import SpeedDial from '@mui/material/SpeedDial';
 import HistoryIcon from '@mui/icons-material/History';
 import SpeedDialAction from '@mui/material/SpeedDialAction';
@@ -51,6 +51,7 @@ import {toast,ToastContainer} from 'react-toastify';
 export default function LoggedInButton() {
   const navigate=useNavigate();
   const dispatch=useDispatch();
+  var [option,setOption]=useState('');
   var {user}=useSelector((state)=>{
     return state.user;
   })
@@ -75,29 +76,79 @@ export default function LoggedInButton() {
     navigate('profile');
   }
 
+
+  const goToMyCart=()=>{
+    navigate('/orders');
+  }
+
+const handleChange=(e)=>{
+  setOption(e.target.value);
+  if(option=="orders"){
+    navigate('/orders');
+  }
+  else if(option=="cart"){
+    if(user.role=='admin'){
+      toast.error("admin dont have access to cart",{position:toast.POSITION.TOP_CENTER});
+    }else{navigate('cart');}
+  }
+
+  else if(option=="logout"){
+    dispatch(logout());
+    navigate('/');
+  }
+  else{
+    navigate('profile');
+  }
+}
+
   const actions = [
-    { icon: <HistoryIcon />, name: 'My order',func:dummy},
+    { icon: <HistoryIcon />, name: 'My order',func:goToMyCart},
     { icon: <AccountCircleIcon />, name: 'Profile',func:goToProfile },
     { icon: <LogoutIcon />, name: 'Logout',func:logoutDispatcher },
     { icon: <ShoppingCartIcon />, name: 'Cart',func:goToCart },
   ];
   return (
     
-      <SpeedDial
-        ariaLabel="SpeedDial basic example"
-        sx={{ position: 'fixed', bottom: 16, right: 16 }}
-        icon={<PersonIcon />}
-      >
-      <ToastContainer/>
-        {actions.map((action) => (
-          <SpeedDialAction
-            key={action.name}
-            icon={action.icon}
-            tooltipTitle={action.name}
-            onClick={action.func}
-          />
-        ))}
-      </SpeedDial>
-   
+      // <SpeedDial
+      //   ariaLabel="SpeedDial basic example"
+      //   sx={{ position: 'static' }}
+      //   icon={<PersonIcon />}
+       
+      // >
+      // <ToastContainer/>
+      //   {actions.map((action) => (
+      //     <SpeedDialAction
+      //       key={action.name}
+      //       icon={action.icon}
+      //       tooltipTitle={action.name}
+      //       onClick={action.func}
+      //     />
+      //   ))}
+      // </SpeedDial>
+      <TextField
+      select
+      label={<PersonIcon/>}
+      value={option}
+      onChange={handleChange}
+     
+    >
+        <MenuItem key="electronics" value="orders">
+          orders
+        </MenuItem>
+
+        <MenuItem key="clothing" value="logout">
+        logout
+        </MenuItem>
+
+        <MenuItem key="profile" value="profile">
+        my profile
+        </MenuItem>
+
+        <MenuItem key="cart" value="cart">
+        cart
+        </MenuItem>
+
+     
+    </TextField>
   );
 }

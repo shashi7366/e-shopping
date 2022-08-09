@@ -1,17 +1,25 @@
-import React,{useState} from 'react';
+import React,{useState,useEffect} from 'react';
 import axios from 'axios';
 import { Paper,TextField, Typography,Button } from "@mui/material";
 import './AddReview.css';
 import {toast,ToastContainer} from 'react-toastify';
 import {useParams} from 'react-router-dom';
-import {useSelector} from 'react-redux';
+import {useSelector,useDispatch} from 'react-redux';
+import ReactStars from "react-rating-stars-component";
+
 
 
 function AddReview() {
     const params=useParams();
+    var dispatch=useDispatch();
     var {user}=useSelector((state)=>{
         return state.user;
-    })
+    });
+
+useEffect(()=>{
+
+},[dis])
+
 var [rating,setRating]=useState(5);
 var [review,setReview]=useState('');
 
@@ -50,10 +58,12 @@ const submitReview=()=>{
   return (
     <div className='reviewDiv'>
     <ToastContainer />
+    <Paper></Paper>
         <Paper className="reviewPaper">
+        
             <div className='reviewRating'>
-                <Typography><b>Rating: </b></Typography>
-                <TextField size='small' value={rating} onChange={handleRating} />
+            <Typography>Your rating out of 5</Typography>
+                <ReactStars value={rating} onChange={handleRating} isHalf={true} size={30}/>
             </div>
 
             <div className='reviewComment'>

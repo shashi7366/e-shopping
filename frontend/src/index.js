@@ -33,6 +33,7 @@ import ChangePassword from './components/ForgotPassword/ChangePassword';
 import MyOrder from './components/Order/MyOrder';
 import OrderDetailsUser from './components/Order/OrderDetailsUser';
 import AddReview from './components/AddReview/AddReview';
+import SimpleDialogDemo from './components/navbar/navbar';
 
 
 
@@ -89,7 +90,7 @@ root.render(
 {/* <Route path='shipping' element={<Shipping/>}/> */}
 
 {/* <Elements stripe={loadStripe(stripeApiKey)}> <Route path= 'process/payment'element={<Payment/>}/> </Elements> */}
-
+<Route path="navbar" element={<SimpleDialogDemo/>}/>
                     </Routes>
                </CookiesProvider>
           </Provider>

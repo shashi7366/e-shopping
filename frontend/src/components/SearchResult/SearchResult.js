@@ -38,9 +38,57 @@ const handleChangeCategory=(e)=>{
         dispatch(getSearchProduct(link));
     }, [dispatch,params,price,category,link]);
 console.log(products);
-  return <div style={{ minHeight: '80vmax'}}>
+  return <div className='searchResultContainer' style={{ minHeight: '80vmax'}}>
   <Paper className='filterBox'>
-    <div className='priceFilter'>
+  <div className='searchResultFilterBoxSecondaryDiv'>
+  <Typography>Price Range</Typography>
+  <div style={{width:"100%"}}>
+  <Slider
+        value={price}
+        onChange={handleChange}
+        valueLabelDisplay="auto"
+        min={0}
+        max={200000}
+      />
+  </div>
+  <div style={{width:"100%",textAlign:'center'}}>
+  <TextField
+          select
+          label="Select Category"
+          value={category}
+          onChange={handleChangeCategory}
+          helperText="Please select category"
+        >
+            <MenuItem key="electronics" value="electronics">
+              Electronics
+            </MenuItem>
+
+            <MenuItem key="clothing" value="fashion">
+            fashion
+            </MenuItem>
+
+            <MenuItem key="furnitures" value="grocery">
+            grocery
+            </MenuItem>
+
+            <MenuItem key="Personal Computer" value="mobile">
+            mobile
+            </MenuItem>
+
+            <MenuItem key="Personal Computer" value="furnitures">
+            furnitures
+            </MenuItem>
+
+            <MenuItem key="Personal Computer" value="beauty">
+            beauty
+            </MenuItem>
+
+            <MenuItem key="Personal Computer" value="travel">
+            travel
+            </MenuItem>
+         
+        </TextField></div></div>
+    {/* <div className='priceFilter'>
       <Typography>Price Range</Typography>
       <Slider
         value={price}
@@ -64,31 +112,43 @@ console.log(products);
               Electronics
             </MenuItem>
 
-            <MenuItem key="clothing" value="clothing">
-            Clothing
+            <MenuItem key="clothing" value="fashion">
+            fashion
             </MenuItem>
 
-            <MenuItem key="furnitures" value="furnitures">
-            Furnitures
+            <MenuItem key="furnitures" value="grocery">
+            grocery
             </MenuItem>
 
-            <MenuItem key="Personal Computer" value="personal computer">
-            Personal Computer
+            <MenuItem key="Personal Computer" value="mobile">
+            mobile
+            </MenuItem>
+
+            <MenuItem key="Personal Computer" value="furnitures">
+            furnitures
+            </MenuItem>
+
+            <MenuItem key="Personal Computer" value="beauty">
+            beauty
+            </MenuItem>
+
+            <MenuItem key="Personal Computer" value="travel">
+            travel
             </MenuItem>
          
         </TextField>
-    </div>
+    </div> */}
   </Paper>
-  <div className='ProductContainer'>
+  <div className='searchResultProductContainer'>
     {loaded && products.map((product,i)=>{
-        return<Link to={`/${product._id}`} key={i}><Paper spacing={2} className='productCard' >
+        return<Link to={`/${product._id}`} key={i}><Paper spacing={2} className='searchResultProductCard' >
         <img 
         className='productItemImage'
             src={product.images[0].url}
             alt="image not available"
         />
-        <div className='productDetails'>
-        <Typography variant='h5'>{product.name}</Typography>
+        <div className='searchResultProductDetails'>
+        <Typography variant='h5' sx={{textDecoration:"none"}}>{product.name}</Typography>
         <ReactStars
         edit={false}
         count={5}
@@ -98,8 +158,13 @@ console.log(products);
         activeColor="yellow"
         size={20}
          />
-         <Typography variant='h6'>${product.price}</Typography>
+         <p style={{color:"green"}}>({product.noOfRatings} ratings)</p>
+         <p style={{textDecoration:"none"}}>{product.description}</p>
         </div>
+        <div className='searchResultThirdDiv'>
+         <Typography variant='h5'>₹{product.price}</Typography>
+         {product.price>1000?<p style={{color:"green"}}>free delivery</p>:<p>delivery charges apply</p>}
+         </div>
        
         </Paper></Link>
     })}

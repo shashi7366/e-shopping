@@ -105,7 +105,7 @@ const addReview=async (req,res,next)=>{
     var oldRating=product[0].rating;
     var oldNumberofRatings=product[0].noOfRatings;
     var newNumberOfRatings=oldNumberofRatings+1;
-    var newRating=(oldRating+req.body.review.rating)/newNumberOfRatings;
+    var newRating=((oldRating*oldNumberofRatings)+req.body.review.rating)/newNumberOfRatings;
     
     var newReviewArray=[...oldReviewArray,req.body.review];
     

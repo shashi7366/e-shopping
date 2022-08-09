@@ -187,7 +187,7 @@ navigate('/');
                             onChange={registerDataChange}
                             />
                         </div>
-                        <div id="registerImage">
+                        {/* <div id="registerImage">
                             <img src={avatarPreview} alt="Avatar Preview" />
                             <input
                             type="file"
@@ -195,7 +195,7 @@ navigate('/');
                             accept="image/"
                             onChange={registerDataChange}
                             />
-                        </div>
+                        </div> */}
                         <input type="submit" value="Register" className="signUpBtn" />
                     </form>
                 </Paper>

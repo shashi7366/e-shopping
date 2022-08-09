@@ -10,6 +10,7 @@ import Footer from './components/Footer/Footer';
 
 import {toast,ToastContainer} from 'react-toastify'
 import 'react-toastify/dist/ReactToastify.css'
+import Navbar from './components/navbar/navbar';
 
 // toast.configure();
 function App() {
@@ -49,7 +50,8 @@ const dispatch=useDispatch();
     return (
         <>
         <ToastContainer />
-        <Header />
+        {/* <Header /> */}
+        <Navbar />
           <Outlet  />
 
           <Footer />

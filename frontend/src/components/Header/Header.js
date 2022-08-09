@@ -34,11 +34,8 @@ function Header() {
 
     <Paper className="navbar" elevation={2} sx={{backgroundColor:"#3B9AE1"}}>
 
-      <div className='logoAndLogin'>
+      {/* <div className='logoAndLogin'>
       <Typography className="iconAndName" variant='h5' component='div' sx={{ flexGrow: 1, margin: '2%' }} onClick={() => { navigate('/') }}><ShoppingBagIcon />e-Shopping</Typography>
-      {user ? <LoggedInButton user={user} /> : <Link to={'/login'}><Typography variant='body1' sx={{ color: "white", marginRight: '3vmax' }}>LOGIN</Typography></Link>}
-      </div>
-      
       {pattern.test(location.pathname)?<div></div>:<div className='searchBarAndIcon'>
       <TextField
       className="searchBar"
@@ -53,6 +50,33 @@ function Header() {
         }}
 
       /><IconButton className="searchIcon" onClick={callAction}><SearchIcon fontSize='large' /></IconButton></div>}
+      {user ? <LoggedInButton user={user} /> : <Link to={'/login'}><Typography variant='body1' sx={{ color: "white", marginRight: '3vmax' }}>LOGIN</Typography></Link>}
+      </div> */}
+
+      <div>
+      <Typography className="iconAndName" ><ShoppingBagIcon/><Link to="/" style={{textDecoration:"none",color:"black"}}><b>e-Shopping</b></Link></Typography>
+      </div>
+
+      <div>
+      {pattern.test(location.pathname)?<div></div>:<div className='searchBarAndIcon'>
+      <input
+      className="searchBar"
+        value={keyword}
+        label="search here..."
+        id="outlined-size-small"
+        defaultValue=""
+        size="small"
+        placeholder='search here..'
+        // sx={{width:'50%'}}
+        onChange={(e) => {
+          setKeyword(e.target.value);
+        }}/><IconButton className="searchIcon" onClick={callAction}><SearchIcon fontSize='large' /></IconButton></div>}
+      </div>
+
+
+      <div>{user ? <LoggedInButton user={user} /> : <Link to={'/login'}><Typography variant='body1' sx={{ color: "white", marginRight: '3vmax' }}>LOGIN</Typography></Link>}</div>
+      
+      
       
      
 

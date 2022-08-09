@@ -1,41 +1,68 @@
+.searchResultContainer{
+    background-color: rgb(224, 221, 221);
+    display:flex;
+}
 .filterBox{
+    width:25%;
     display: flex;
-    padding: 2vmax;
+    flex-direction: column;
+    padding: 1vmax;
     align-items: center;
-    justify-content: space-between;
-    flex-wrap: wrap;
+    
 }
 
-.ProductContainer{
-    margin:2vmax;
-    
+.searchResultProductContainer{
+   width:100%;
     display: block;
     
 }
 
+.searchResultFilterBoxSecondaryDiv{
+    width:100%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
 .priceFilter{
-    width:30%;
-   
+   width:100%;
+   border: 1px solid black;
 }
 
 .categoryFilter{
-    width:30%;
-   
+    width:100%;
+    border: 1px solid black;
 }
 
-.productCard{
+.searchResultProductCard{
     display: flex;
     flex-direction: row;
     width: 100%;
+    margin-top: 1vmax;
+    margin-left: 1vmax;
+    margin-right: 1vmax;
 }
 
-.productDetails{
+.searchResultProductDetails{
+    padding:2%;
     display: flex;
     flex-direction: column;
     align-items: flex-start;
-    padding-left: 5vmax;
+    width:40%;
+    
 }
 
 .productItemImage{
     width:20vmax;
+}
+
+.searchResultThirdDiv{
+    padding:2%;
+
+    display: flex;
+    flex-direction: column;
+}
+
+a{
+    text-decoration: none;
 }

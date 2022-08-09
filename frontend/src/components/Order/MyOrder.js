@@ -84,22 +84,24 @@ const MyOrder=()=>{
     return(
         <div className="myOrdersContainerDiv">
         <Typography variant="h5">My Orders</Typography>
-       {loaded && orders.length>0?orders.map((order,i)=>{
-        return <Paper key={i} sx={{display:'flex',flexDirection:'column',marginBottom:'2%'}}>
+
+       
+       {loaded && orders.length>0?<div className="orderDetailsDiv">{orders.map((order,i)=>{
+        return <Paper className="orderDetails" key={i}>
             <Typography>{order._id}</Typography>
             <p><b>{order.orderStatus}</b></p>
             <div style={{display:'flex',flexWrap:'wrap'}}>
             {order.orderItems.map((item,i)=>{
-                return<Paper key={i} sx={{height:'14vmax',width:'12vmax',padding:'2%',margin:'1%'}}>
-                <img src={item.image} style={{height:'6vmax',width:'12vamx'}}/>
-                    <Typography>{item.name}</Typography>
+                return<Paper className="smallerProductCart" key={i}>
+                <img src={item.image} />
+                    <Typography variant="h5">{item.name}</Typography>
                 </Paper>
             })}</div>
             <Button onClick={()=>{
                 navigate(`/order/${order._id}`);
             }}>VIEW DETAIL</Button>
         </Paper>
-       }):<div><h1>No Orders yet</h1></div>}
+       })}</div>:<div><h1>No Orders yet</h1></div>}
         </div>
     )
 }

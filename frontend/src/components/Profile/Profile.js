@@ -1,4 +1,4 @@
-import { Button } from '@mui/material'
+import { Button,Paper} from '@mui/material'
 import React from 'react';
 import { useSelector } from 'react-redux';
 import { useNavigate } from 'react-router-dom';
@@ -11,7 +11,8 @@ function Profile() {
         return state.user;
     })
   return (
-    <div className='profileParentDiv'>
+<div style={{backgroundColor:"whitesmoke",display:"flex",justifyContent:"center",paddingTop:"4%",paddingBottom:"4%"}}>
+<Paper elevation={4} sx={{width:"50%",display:"flex",flexDirection:"column",alignItems:"center",justifyContent:"center"}}>
         <div className='profileImageDiv'>
         <img
         className='profileImage'
@@ -37,7 +38,8 @@ function Profile() {
         <Button variant='contained' onClick={()=>{navigate('/password/update')}}>Change Password</Button>
         </div>  
         </div>
-    </div>
+    </Paper>
+</div>
   )
 }
 

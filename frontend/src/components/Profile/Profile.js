@@ -12,7 +12,7 @@ function Profile() {
     })
   return (
 <div style={{backgroundColor:"whitesmoke",display:"flex",justifyContent:"center",paddingTop:"4%",paddingBottom:"4%"}}>
-<Paper elevation={4} sx={{width:"50%",display:"flex",flexDirection:"column",alignItems:"center",justifyContent:"center"}}>
+<Paper elevation={10} sx={{width:"50%",display:"flex",flexDirection:"column",alignItems:"center",justifyContent:"center",paddingBottom:"4%"}}>
         <div className='profileImageDiv'>
         <img
         className='profileImage'
@@ -24,17 +24,15 @@ function Profile() {
         <div className='profileDetailDiv'>
         <div className='profileUsernameDiv'>
         <h2>username:</h2>
-            <p>{user.name}</p>
+            <p style={{fontSize:"20px"}}>{user.name}</p>
         </div>
 
         <div className='profileEmailDiv'>
         <h2>email:</h2>
-            <p>{user.email}</p>
+            <p style={{fontSize:"20px"}}>{user.email}</p>
         </div> 
-        <div className='profileActionDiv'>
-        <Button variant='contained' onClick={()=>{navigate('/orders')}}>My Orders</Button>
-        <br/>
-        <br/>
+        <div style={{display:"flex",alignItems:"center",justifyContent:"space-between",width:"100%"}}>
+        <Button variant='contained' onClick={()=>{navigate('/orders')}}>My Orders</Button>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
         <Button variant='contained' onClick={()=>{navigate('/password/update')}}>Change Password</Button>
         </div>  
         </div>

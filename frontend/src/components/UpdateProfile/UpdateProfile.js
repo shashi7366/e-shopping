@@ -49,11 +49,11 @@ function UpdateProfile() {
 
 
 
-    return <div style={{minHeight:'60vmax'}}><form  onSubmit={formik.handleSubmit}>
-    <Paper elevation={2} sx={{ mx: '10%', px: '5%', py: '5%', margin: '2%', minHeight:'40vmax'}}>
+    return <div style={{backgroundColor:"whitesmoke",display:"flex",justifyContent:"center",alignItems:"center",paddingTop:"5%",paddingBottom:"5%"}}><form  onSubmit={formik.handleSubmit}>
+    <Paper elevation={10} sx={{margin: '2%',padding:"2%",height:"25vmax"}}>
         <Grid container spacing={2}>
             <Grid item xs={12} lg={12}>
-                <Typography variant="h3">Edit Profile</Typography>
+                <div style={{textAlign:"center",width:"100%"}}><Typography variant="h3">Edit Profile</Typography></div>
             </Grid>
             <Grid item xs={12} lg={12}>
             <Typography variant="h6">Name</Typography>
@@ -64,6 +64,8 @@ function UpdateProfile() {
                     helperText={formik.touched.name && formik.errors.name}
                 />
             </Grid>
+            <br/>
+            <br/><br/>
             <Grid item xs={12} lg={12}>
             <Typography variant="h6">Email</Typography>
                 <TextField fullWidth name="email" id="email"  variant="standard"
@@ -73,10 +75,10 @@ function UpdateProfile() {
                     helperText={formik.touched.description && formik.errors.description} />
             </Grid>
 
-            <Grid item xs={2} lg={2}>
-                <Button variant="contained" type='submit'>
-                    Update
-                </Button>
+            <Grid item xs={2} lg={12}>
+                <div style={{textAlign:"center",width:"100%"}}><br/><br/><Button variant="contained" type='submit'>
+                    Update Profile
+                </Button></div>
             </Grid>
         </Grid>
     </Paper>

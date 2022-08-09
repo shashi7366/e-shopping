@@ -87,7 +87,7 @@ const MyOrder=()=>{
 
        
        {loaded && orders.length>0?<div className="orderDetailsDiv">{orders.map((order,i)=>{
-        return <Paper sx={{display:"flex",flexDirection:"column",alignItems:"center",padding:"3%"}} className="orderDetails" key={i}>
+        return <Paper elevation={10} sx={{display:"flex",flexDirection:"column",alignItems:"center",padding:"3%"}} className="orderDetails" key={i}>
             <Typography>{order._id}</Typography>
             <p><b>{order.orderStatus}</b></p>
             <div style={{display:'flex',flexWrap:'wrap'}}>

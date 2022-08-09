@@ -14,7 +14,7 @@ import axios from 'axios';
 function ChangePassword() {
 var navigate=useNavigate();
 const CustomToast=({closeToast})=>{
-    return <div style={{padding:'5%'}}><Paper sx={{display:'flex',flexDirection:'column'}}>
+    return <div style={{padding:'5%'}}><Paper elevation={5} sx={{display:'flex',flexDirection:'column',}}>
         <Typography>Password reset successful!</Typography>
         <br/>
         <Button variant="contained" onClick={()=>{
@@ -52,33 +52,36 @@ var {user}=useSelector((state)=>{
 
 
   return (
-    <div className='forgotPasswordContainerDiv'>
+    <div style={{backgroundColor:"whitesmoke",padding:"10%",paddingTop:"5%",display:"flex",justifyContent:"center"}}>
     
-    <Paper className='forgotPasswordContainer'>
-    <Typography variant="h5">change Password</Typography>
+    <Paper elevation={4} sx={{display:"flex",flexDirection:"column",alignItems:"flex-start",padding:"3%",width:"40%"}}>
+    <div style={{display:"flex",justifyContent:"center",width:"100%"}}><Typography variant="h5">Change Password</Typography></div>
     <br/>
     <br/>
     <div className='emailContainer'>
-    <Typography>old password  :</Typography>
+    <Typography>Old password  :</Typography>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
     <TextField
     type="password"
+    label="your current password"
     size="small"
     value={oldPassword}
     onChange={handleChange} />
     </div>
     <br />
     <div className='emailContainer'>
-    <Typography>new Password  :</Typography>
+    <Typography>New Password  :</Typography>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
     <TextField
     type="password"
+    label="new password...."
     size="small"
     value={newPassword}
     onChange={handleChange1} />
     </div>
     <br/>
     <div className='emailContainer'>
-    <Typography>Confirm Password  :</Typography>
+    <Typography>Confirm Password  :</Typography>&nbsp;&nbsp;
     <TextField
+    label="confirm new password...."
     type="password"
     size="small"
     value={confirmPassword}
@@ -87,7 +90,7 @@ var {user}=useSelector((state)=>{
 <ToastContainer/>
     
     <br/>
-    <Button  variant="outlined" onClick={()=>{
+    <div style={{display:"flex",justifyContent:"center",width:"100%"}}><Button  variant="outlined" onClick={()=>{
         if(newPassword.length<8){
 
             toast.error("password must be 8 characters long",{position:toast.POSITION.TOP_CENTER});
@@ -108,7 +111,7 @@ var {user}=useSelector((state)=>{
             })
         }
         
-    }}>Change Password</Button>
+    }}>Change Password</Button></div>
     </Paper>
     </div>
   )

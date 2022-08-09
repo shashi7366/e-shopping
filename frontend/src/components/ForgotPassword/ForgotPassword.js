@@ -11,22 +11,23 @@ const handleChange=(e)=>{
     setEmail(e.target.value);
 }
   return (
-    <div className='forgotPasswordContainerDiv'>
+    <div style={{padding:"5%",display:'flex',flexDirection:"column",alignItems:"center",backgroundColor:"whitesmoke"}}>
     
-    <Paper className='forgotPasswordContainer'>
+    <Paper elevation={5} sx={{width:"40%",display:"flex",flexDirection:"column",alignItems:"center",padding:"3%",height:"18vmax"}}>
     <Typography variant="h5">Forgot Password</Typography>
     <br/>
     <br/>
-    <div className='emailContainer'>
-    <Typography>Enter your email  :</Typography>
+    <div style={{display:'flex',alignItems:"center"}}>
+    <Typography variant="h6" >Enter your email  :</Typography>
     <TextField
+label="your registered email ..."
     size="small"
     value={email}
     onChange={handleChange} />
 <ToastContainer/>
     </div>
     <br/>
-    <Button variant="outlined" onClick={()=>{
+    <Button variant="contained" onClick={()=>{
         axios.post('/api/users/password/forgot',{email:email}).then((result)=>{
           toast.success("reset token successfully sent to your email",{position:toast.POSITION.TOP_CENTER});
         }).catch((err)=>{

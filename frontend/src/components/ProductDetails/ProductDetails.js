@@ -13,6 +13,7 @@ import { addItemsToCart } from '../../redux/actions/cartAction';
 import Alert from '@mui/material/Alert';
 import {toast,ToastContainer} from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
+import {Paper} from '@mui/material'
 
 function ProductDetails() {
     var [quantity,setQuantity]=useState(1);
@@ -50,18 +51,19 @@ function ProductDetails() {
         dispatch(getIndividualProduct(id));
     },[dispatch,id]);
   return (
-    <div>
-    {loaded && <div className='ProductContainerProductDetails'><Carousel className='ProductCarousel'>
+    <div style={{backgroundColor:'whitesmoke'}}>
+    {loaded && <div className='ProductContainerProductDetails'><Paper className='ProductCarousel' elevation={3}><Carousel sx={{width:"100%",height:"100%"}}>
         {product.images.map((item,i)=>{
             return <img 
             className='CarouselImage'
                 src={item.url}
                 key={i}
                 alt="image not found"
+                style={{height:"28vmax",width:"100%"}}
             />
         })}
-    </Carousel>
-    <div className='detailDiv'>
+    </Carousel></Paper>
+    <Paper className='detailDiv' sx={{minHeight:'30vmax'}}>
         <h1>{product.name}</h1>
         <h5>{product._id}</h5>
         
@@ -83,12 +85,13 @@ function ProductDetails() {
         <br />
         <br />
         <Typography>Quantity</Typography>
-        <TextField size='small' value={quantity} onChange={setOrderQuantity} />
+        <TextField size='small' value={quantity} onChange={setOrderQuantity} />&nbsp;&nbsp;&nbsp;&nbsp;
         <Button variant='outlined' onClick={cartHandler}>Add to Cart</Button>
-    </div>
+    </Paper>
     </div>}
     <ToastContainer/>
     {loaded && <div className='reviews'>
+    <hr></hr>
     <h3>Reviews</h3>
 {product.reviews.length>0?<div className='ReviewBox'>{product.reviews.map((review,i)=>{
    return <ReviewItem review={review} />

@@ -65,13 +65,13 @@ const logoutDispatcher=()=>{
         </div>
 
         <div className='secondDiv'>
-            <input className='searchBar' type="text" onChange={(e) => {
+            <input className='searchBar' type="text" placeholder="search..." onChange={(e) => {
           setKeyword(e.target.value);
-        }}/><SearchIcon fontSize="large" onClick={callAction}/>
+        }}/><SearchIcon style={{color:"#3B9AE1",backgroundColor:"white",height:"45px",width:"40px",marginTop:"0"}} fontSize="large" onClick={callAction}/>
         </div>
 
         <div className='thirdDiv'>
-            {user?<Button variant="contained" className='loginButton' onClick={()=>{setToggle(!toggle)}}>{user.name}</Button>:<Button variant="contained" onClick={()=>{navigate('/login')}}>LOGIN</Button>}
+            {user?<Button variant="contained" className='loginButton' onClick={()=>{setToggle(!toggle)}}>{user.name}</Button>:<Button sx={{fontSize:'18px'}} variant="contained" onClick={()=>{navigate('/login')}}>LOGIN</Button>}
             {toggle && <Paper className='popup'>
                 <div><PersonIcon/><Button  sx={{color:"black"}} onClick={goToProfile}>My Profile</Button></div>
                 <div><Button  sx={{color:"black"}} onClick={goToMyOrders}>My Orders</Button></div>

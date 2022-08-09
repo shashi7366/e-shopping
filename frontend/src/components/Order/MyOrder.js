@@ -82,17 +82,17 @@ const MyOrder=()=>{
         dispatch(myOrders());
     }, [dispatch, alert, error]);
     return(
-        <div className="myOrdersContainerDiv">
+        <div className="myOrdersContainerDiv" style={{backgroundColor:'whitesmoke'}}>
         <Typography variant="h5">My Orders</Typography>
 
        
        {loaded && orders.length>0?<div className="orderDetailsDiv">{orders.map((order,i)=>{
-        return <Paper className="orderDetails" key={i}>
+        return <Paper sx={{display:"flex",flexDirection:"column",alignItems:"center",padding:"3%"}} className="orderDetails" key={i}>
             <Typography>{order._id}</Typography>
             <p><b>{order.orderStatus}</b></p>
             <div style={{display:'flex',flexWrap:'wrap'}}>
             {order.orderItems.map((item,i)=>{
-                return<Paper className="smallerProductCart" key={i}>
+                return<Paper elevation={4} sx={{padding:"4%"}} className="smallerProductCart" key={i}>
                 <img src={item.image} />
                     <Typography variant="h5">{item.name}</Typography>
                 </Paper>

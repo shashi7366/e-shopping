@@ -64,9 +64,9 @@ const submitReview=()=>{
   return (
     <div className='reviewDiv'>
     <ToastContainer />
-    <Paper>
+    <Paper elevation={4}>
     <div className='searchResultProductContainer'>
-    {loaded && <Link to={`/${product._id}`}><Paper spacing={2} className='searchResultProductCard' >
+    {loaded && <Link to={`/${product._id}`}><Paper spacing={2} elevation={0} className='searchResultProductCard'>
         <img 
         className='productItemImage'
             src={product.images[0].url}
@@ -94,7 +94,7 @@ const submitReview=()=>{
         </Paper></Link>}
     </div>
     </Paper>
-        <Paper className="reviewPaper">
+        <Paper elevation={4} className="reviewPaper" sx={{width:"80vmax"}}>
         
             <div className='reviewRating'>
             <Typography>Your rating out of 5</Typography>

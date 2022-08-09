@@ -1,8 +1,8 @@
-.CarouselImage{
+/* .CarouselImage{
    padding: 0;
    width:100%;
-   height: 23vw;
-}
+   height: 10%;
+} */
 
 .ProductCarousel{
     
@@ -20,14 +20,15 @@
 .ProductContainerProductDetails{
     display: flex;
     justify-content: center;
-   
+   align-items: center;
     padding-top: 2%;;
   
     
 }
 
 .reviews{
-    margin:2%;
+   margin-top: 2%;
+    margin-bottom: 0;
 }
 
 .react-stars-wrapper{
@@ -38,7 +39,7 @@
     display: flex;
     justify-content:center;
     padding-left:2%;
-    overflow:scroll;
+    flex-wrap: wrap;
 }
 
 @media screen and (max-width:1000px) {

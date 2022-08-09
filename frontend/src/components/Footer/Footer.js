@@ -1,5 +1,5 @@
 import React from 'react';
-import {Typography} from '@mui/material';
+import {Button, Typography} from '@mui/material';
 import {useNavigate} from 'react-router-dom';
 import {useSelector} from 'react-redux';
 import {toast,ToastContainer} from 'react-toastify'
@@ -17,8 +17,8 @@ function Footer() {
             <Typography sx={{color:'white'}} variant="h5">E-Shopping</Typography>
             <Typography sx={{color:'white'}} variant="body">copyright@2022</Typography>
         </div>
-        <div className='rightFooterDiv'><Typography variant='body' sx={{color:'white'}} onClick={()=>{
-          if(user.role=='admin'){navigate('/admin')}else{toast.error("You don't have admin privillege",{position:toast.POSITION.TOP_CENTER})}}}>admin?</Typography></div>
+        <div className='rightFooterDiv'><Button sx={{color:'white'}} onClick={()=>{
+          if(user.role=='admin'){navigate('/admin')}else{toast.error("You don't have admin privillege",{position:toast.POSITION.TOP_CENTER})}}}>admin?</Button></div>
     </div>
   )
 }

@@ -33,9 +33,9 @@ function Home1() {
     //         </Link>
     //     })}</Grid>
 
-    return <div className='featuredProductContainer'>
+    return <div className='featuredProductContainer' style={{backgroundColor:"whitesmoke",paddingTop:"3vmax"}}>
     {!loading && products.length>0 && products.map((product,i)=>{
-        return<Link to={`${product._id}`}><Paper spacing={2} className='productItem' key={i}>
+        return<Link to={`${product._id}`}><Paper elevation={4} spacing={2} className='productItem' key={i} sx={{marginBottom:"3vmax"}}>
         <img 
         className='productItemImage'
             src={product.images[0].url}
@@ -51,6 +51,7 @@ function Home1() {
         activeColor="yellow"
         size={20}
          />
+         <Typography><span style={{color:"green",fontSize:'18px'}}>₹{product.price}</span>&nbsp;&nbsp;&nbsp;<span style={{textDecoration:"line-through",color:'red'}}>₹{product.price+(product.price*0.10)}</span></Typography>
         </Paper></Link>
     })}
     </div>

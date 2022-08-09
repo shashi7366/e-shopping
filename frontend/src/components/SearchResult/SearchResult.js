@@ -6,11 +6,14 @@ import ReactStars from 'react-rating-stars-component';
 import {Paper,Typography,TextField,MenuItem} from "@mui/material";
 import Slider from '@mui/material/Slider';
 import './SearchResult.css';
+import {toast,ToastContainer} from 'react-toastify'
 
 function SearchResult({products}) {
   var [price,setPrice]=useState([0,200000]);
   var [category,setCategory]=useState('');
   var [searchParams,setSearchParams]=useSearchParams();
+  var [rating,setRating]=useState(0);
+  var [noOfRatings,setNoOfRating]=useState(0);
 const handleChange=(e)=>{
 setPrice(e.target.value);
 }
@@ -18,10 +21,18 @@ setPrice(e.target.value);
 var link;
 
 const handleChangeCategory=(e)=>{
-  
-    setCategory(e.target.value)
- 
-  
+    setCategory(e.target.value);
+  }
+
+  const handleChangeRating=(e)=>{
+    if(e.target.value<0 || e.target.value>=5){
+     toast.error("rating value must be between 0 and 5",{position:toast.POSITION.TOP_CENTER});
+    }
+    else{setRating(e.target.value);}
+  }
+
+  const handleChangeNoOfReviews=(e)=>{
+    setNoOfRating(e.target.value);
   }
 
   const params=useParams();
@@ -87,7 +98,9 @@ console.log(products);
             travel
             </MenuItem>
          
-        </TextField></div></div>
+        </TextField></div>
+        
+        </div>
     {/* <div className='priceFilter'>
       <Typography>Price Range</Typography>
       <Slider

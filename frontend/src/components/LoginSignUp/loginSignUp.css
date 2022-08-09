@@ -1,24 +1,36 @@
 .LoginSignUpContainer{
     width: 100vw;
-    height: 100vh;
+    height: 90vh;
     max-width: 100%; 
     
     display: flex;
     justify-content: center;
     align-items: center;
-    background-color: white;
+    background-color: whitesmoke;
     /* position: fixed;
     top: 0%;
     left: 0%; */
 }
 
 .LoginSignUpBox{
-    margin-top: 3%;
+    margin-top: 0;
     background-color: white;
     width: 25vw;
     height: 60vh;
     box-sizing: border-box;
     overflow: hidden;
+}
+
+.signUpName{
+    margin-bottom: 4%;
+}
+
+.signUpEmail{
+    margin-bottom: 4%;   
+}
+
+.signUpPassword{
+    margin-bottom: 4%;
 }
 
 .login_signUp_toggle{
@@ -144,6 +156,10 @@
     border-radius: 4px;
     outline: none;
     box-shadow: 0 2px 5px rgba(0, 0, 0, 0.219);
+
+}
+.signUpBtn{
+    margin-top: 8%;
 }
 
 .loginBtn:hover,

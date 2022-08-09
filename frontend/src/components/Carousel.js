@@ -4,10 +4,10 @@ import Carousel from 'react-bootstrap/Carousel';
 function CarouselComponent() {
   return (
     <div>
-      <Carousel style={{height:'300px'}}>
+      <Carousel style={{height:'400px'}}>
       <Carousel.Item>
         <img
-        style={{height:'300px'}}
+        style={{height:'400px'}}
           className="d-block w-100"
           src="images/banner1.jpg"
           alt="First slide"
@@ -19,7 +19,7 @@ function CarouselComponent() {
       </Carousel.Item>
       <Carousel.Item>
         <img
-        style={{height:'300px'}}
+        style={{height:'400px'}}
           className="d-block w-100"
           src="images/beauty.jpg"
           alt="Second slide"
@@ -32,7 +32,7 @@ function CarouselComponent() {
       </Carousel.Item>
       <Carousel.Item>
         <img
-        style={{height:'300px'}}
+        style={{height:'400px'}}
           className="d-block w-100"
           src="images/travel.jpg"
           alt="Third slide"

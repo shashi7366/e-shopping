@@ -34,6 +34,7 @@ class ApiFeatures{
            
         const removalList=["keyword","page","limit"];
         let queryCopy={...this.queryString};
+        console.log(queryCopy);
         
         removalList.forEach((item)=>{delete queryCopy[item]});
        

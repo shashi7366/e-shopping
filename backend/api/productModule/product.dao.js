@@ -1,4 +1,5 @@
 const Product=require('./product.entity');
+const ErrorHandler=require('../../utils/errorhander');
 const ApiFeatures=require('../../utils/apiFeatures');
 
 const insertProduct=(product)=>{

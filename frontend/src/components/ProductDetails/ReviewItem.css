@@ -1,10 +1,11 @@
 .reviewCard{
-    width:60%;
+    width:40%;
     min-height: 10vmax;
     text-align: center;
     display: flex;
     flex-direction: column;
     justify-content: center;
+    padding:2%;
     margin:2%;
 }
 

@@ -3,9 +3,10 @@ import axios from 'axios';
 import { Paper,TextField, Typography,Button } from "@mui/material";
 import './AddReview.css';
 import {toast,ToastContainer} from 'react-toastify';
-import {useParams} from 'react-router-dom';
+import {useParams,Link} from 'react-router-dom';
 import {useSelector,useDispatch} from 'react-redux';
 import ReactStars from "react-rating-stars-component";
+import { getIndividualProduct } from '../../redux/actions/productAction';
 
 
 
@@ -16,15 +17,20 @@ function AddReview() {
         return state.user;
     });
 
-useEffect(()=>{
+    var {loaded,product}=useSelector((state)=>{
+        return state.individualProduct
+    })
 
-},[dis])
+useEffect(()=>{
+dispatch(getIndividualProduct(params.id));
+},[dispatch])
 
 var [rating,setRating]=useState(5);
 var [review,setReview]=useState('');
 
 const handleRating=(e)=>{
-    setRating(e.target.value);
+    setRating(e);
+   
 }
 
 const handleReview=(e)=>{
@@ -58,7 +64,36 @@ const submitReview=()=>{
   return (
     <div className='reviewDiv'>
     <ToastContainer />
-    <Paper></Paper>
+    <Paper>
+    <div className='searchResultProductContainer'>
+    {loaded && <Link to={`/${product._id}`}><Paper spacing={2} className='searchResultProductCard' >
+        <img 
+        className='productItemImage'
+            src={product.images[0].url}
+            alt="image not available"
+        />
+        <div className='searchResultProductDetails'>
+        <Typography variant='h5' sx={{textDecoration:"none"}}>{product.name}</Typography>
+        <ReactStars
+        edit={false}
+        count={5}
+        isHalf={true}
+        value={product.rating}
+        color="gray"
+        activeColor="yellow"
+        size={20}
+         />
+         <p style={{color:"green"}}>({product.noOfRatings} ratings)</p>
+         <p style={{textDecoration:"none"}}>{product.description}</p>
+        </div>
+        <div className='searchResultThirdDiv'>
+         <Typography variant='h5'>₹{product.price}</Typography>
+         {product.price>1000?<p style={{color:"green"}}>free delivery</p>:<p>delivery charges apply</p>}
+         </div>
+       
+        </Paper></Link>}
+    </div>
+    </Paper>
         <Paper className="reviewPaper">
         
             <div className='reviewRating'>

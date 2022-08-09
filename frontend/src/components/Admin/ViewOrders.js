@@ -10,6 +10,7 @@ import {useDispatch,useSelector} from 'react-redux';
 import { getAllOrders } from '../../redux/actions/orderAction';
 import {Button} from "@mui/material";
 import {useNavigate} from 'react-router-dom';
+import './DefaultBody.css';
 
 function ViewOrders() {
     const navigate=useNavigate();
@@ -40,6 +41,7 @@ function ViewOrders() {
           }).map((row) => {
             
            return <TableRow
+           className='tableRowAdmin'
               key={row._id}
               sx={{ '&:last-child td, &:last-child th': { border: 0 } }}
             >

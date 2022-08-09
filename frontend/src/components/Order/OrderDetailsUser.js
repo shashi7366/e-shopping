@@ -85,7 +85,7 @@ console.log(params.id);
 <Typography variant="h5">OrderItems: </Typography>
             <div style={{display:'flex',paddingLeft:'2%',flexWrap:'wrap'}}>
             {order.orderItems&&(order.orderItems).map((item,i)=>{
-                return<Paper key={i} sx={{height:'20vmax',width:'20vmax',padding:'2%',margin:'1%',textAlign:'center'}}>
+                return<Paper elevation={10} key={i} sx={{height:'20vmax',width:'20vmax',padding:'2%',margin:'1%',textAlign:'center'}}>
                 <img src={item.image} style={{height:'10vmax',width:'15vamx'}}/>
                     <Typography>{item.name}</Typography>
                     {order.orderStatus=="Delivered" || order.orderStatus=="delivered"?<Button variant="contained" onClick={()=>{navigate(`/addReview/${item.product}`)}}>Add review</Button>:<Button variant="contained" onClick={()=>{navigate(`/${item.product}`)}}>view</Button>}

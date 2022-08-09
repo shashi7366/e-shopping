@@ -39,13 +39,13 @@ const ConfirmOrder = () => {
   };
 
   return (
-    <div style={{marginTop:'2%'}}>
+    <div style={{marginTop:'2%',backgroundColor:"whitesmoke"}}>
       {/* <MetaData title="Confirm Order" /> */}
       <CheckoutSteps activeStep={1} />
       
 
-      <Paper className="containerPaper" sx={{display:"flex",justifyContent:"space-between"}}>
-        <Paper className="childPaper" >
+      <Paper className="containerPaper" sx={{display:"flex",justifyContent:"space-between",backgroundColor:"whitesmoke"}}>
+        <Paper elevation={4} className="childPaper" >
         <Typography variant="h5">Shipping Address</Typography>
         <hr style={{width:"60%",paddingLeft:"5%",height:'1vmax'}}/>
         <div style={{display:'flex'}}><Typography><b>Name: </b></Typography><Typography>{user.name}</Typography></div>
@@ -58,8 +58,8 @@ const ConfirmOrder = () => {
         <hr style={{width:"60%",paddingLeft:"5%",height:'1vmax'}}/>
         {cartItems &&
                 cartItems.map((item) => (
-                  <Paper className="orderItemPaper" key={item.product} style={{display:"flex",justifyContent:"space-between",padding:"2%",margin:"2%"}}>
-                    <img src={item.image} alt="Product" style={{width:'8vmax',height:'8vmax',borderRadius:'50%'}}/>
+                  <Paper elevation={4} className="orderItemPaper" key={item.product} style={{display:"flex",justifyContent:"space-between",padding:"2%",margin:"2%"}}>
+                    <img src={item.image} alt="Product" style={{width:'8vmax',height:'8vmax'}}/>
                     
                       <b>{item.name}</b>
                     
@@ -71,7 +71,7 @@ const ConfirmOrder = () => {
                 ))}
         </Paper>
       </Paper>
-      <Paper sx={{padding:"2%"}}>
+      <Paper elevation={4} sx={{padding:"2%"}}>
         <Typography variant="h5">Amount to be paid</Typography>
         <hr style={{width:"60%",paddingLeft:"5%",height:'1vmax'}}/>
         <div style={{display:'flex'}}><Typography><b>Subtotal: </b></Typography><Typography>₹{subtotal}</Typography></div>

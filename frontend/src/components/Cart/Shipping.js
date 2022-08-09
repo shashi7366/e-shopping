@@ -44,10 +44,10 @@ const Shipping = ({ history }) => {
       {/* <MetaData title="Shipping Details" /> */}
 
       
-
-      <div style={{marginTop:'2%'}}>
-      <CheckoutSteps activeStep={0} />
-        <Paper sx={{textAlign:'center',padding:'3vmax'}}>
+      <div style={{width:"100%",display:"flex",justifyContent:"center",}}><CheckoutSteps activeStep={0} /></div>
+      <div style={{marginTop:'2%',backgroundColor:"whitesmoke",display:"flex",flexDirection:"column",alignItems:"center"}}>
+      
+        <Paper sx={{textAlign:'center',padding:'3vmax',width:"50%",marginTop:"3%",marginBottom:"3%"}}>
           <h2 className="shippingHeading">Shipping Details</h2>
 
           <form

@@ -4,10 +4,11 @@
     background-color: rgb(255, 255, 255);
     height: 65vh;
     margin: 2vmax;
+    width:50%;
   }
   
   .paymentForm {
-    width: 22%;
+    width: 50%;
     height: 100%;
   }
   
@@ -17,7 +18,7 @@
     border-bottom: 1px solid rgba(0, 0, 0, 0.13);
     padding: 1vmax 0;
     text-align: center;
-    width: 50%;
+    width: 100%;
     margin: auto;
   }
   

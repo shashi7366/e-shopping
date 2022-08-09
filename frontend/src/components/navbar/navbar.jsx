@@ -10,6 +10,7 @@ import { logout } from '../../redux/actions/userAction';
 import PersonIcon from '@mui/icons-material/Person';
 import LogoutIcon from '@mui/icons-material/Logout';
 import ShoppingCartIcon from '@mui/icons-material/ShoppingCart';
+import LocalShippingIcon from '@mui/icons-material/LocalShipping';
 
 
 function Navbar() {
@@ -48,7 +49,12 @@ const logoutDispatcher=()=>{
 
 
   const goToMyOrders=()=>{
-    navigate('/orders');
+    if(user.role=='admin'){
+      toast.error("admin don't have order privillege",{position:toast.POSITION.TOP_CENTER})
+    }else{
+      navigate('/orders');
+    }
+    
     setToggle(!toggle);
   }
 
@@ -74,7 +80,7 @@ const logoutDispatcher=()=>{
             {user?<Button variant="contained" className='loginButton' onClick={()=>{setToggle(!toggle)}}>{user.name}</Button>:<Button sx={{fontSize:'18px'}} variant="contained" onClick={()=>{navigate('/login')}}>LOGIN</Button>}
             {toggle && <Paper className='popup'>
                 <div><PersonIcon/><Button  sx={{color:"black"}} onClick={goToProfile}>My Profile</Button></div>
-                <div><Button  sx={{color:"black"}} onClick={goToMyOrders}>My Orders</Button></div>
+                <div><LocalShippingIcon/><Button  sx={{color:"black"}} onClick={goToMyOrders}>My Orders</Button></div>
                 <div><ShoppingCartIcon/><Button  sx={{color:"black"}} onClick={goToCart}> My Cart</Button></div>
                 <div><LogoutIcon/><Button  sx={{color:"black"}} onClick={logoutDispatcher}> Logout</Button></div>
             </Paper>}

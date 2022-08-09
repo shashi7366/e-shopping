@@ -2,7 +2,7 @@ import React, { Fragment, useEffect, useRef } from "react";
 import CheckoutSteps from "../Cart/CheckoutSteps";
 import { useSelector, useDispatch } from "react-redux";
 //import MetaData from "../layout/MetaData";
-import { Typography } from "@mui/material";
+import { Paper, Typography } from "@mui/material";
 
 import {
   CardNumberElement,
@@ -113,10 +113,10 @@ const Payment = ({ history }) => {
   // }, [dispatch, error, alert]);
 
   return (
-    <div style={{marginTop:'2%'}}>
+    <div style={{marginTop:'2%',backgroundColor:"whitesmoke",display:"flex",justifyContent:"center",flexDirection:"column",alignItems:"center"}}>
   {/* //    <MetaData title="Payment" /> */}
       <CheckoutSteps activeStep={2} />
-      <div className="paymentContainer">
+      <Paper className="paymentContainer">
         <form className="paymentForm" onSubmit={(e) => submitHandler(e)}>
           <Typography>Card Info</Typography>
           <div>
@@ -139,7 +139,7 @@ const Payment = ({ history }) => {
             className="paymentFormBtn"
           />
         </form>
-      </div>
+      </Paper>
     </div>
   );
 };

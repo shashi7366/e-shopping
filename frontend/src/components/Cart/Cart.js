@@ -7,14 +7,19 @@ import { addItemsToCart, removeItemsFromCart } from '../../redux/actions/cartAct
 import { Button, Paper, Typography } from '@mui/material';
 import RemoveShoppingCartIcon from "@mui/icons-material/RemoveShoppingCart";
 import { Link, useNavigate } from "react-router-dom";
+import { getIndividualProduct } from '../../redux/actions/productAction';
+import { display } from '@mui/system';
 
 const Cart = ()=> {
   const navigate=useNavigate();
     const dispatch = useDispatch();
     const {cartItems} = useSelector((state)=>state.cart);
+    var {product}=useSelector((state)=>{
+      return state.individualProduct;
+    })
 
 //     useEffect(()=>{
-// dispatch(addItemsToCart())
+//  dispatch(getIndividualProduct(item))
 //     },[dispatch]);
 
     const increaseQuantity = (id, quantity, stock) => {
@@ -72,15 +77,22 @@ const Cart = ()=> {
                     </div>
                     <p className="cartSubtotal">{`${item.price*item.quantity}`}</p>
                 </div> */}
-                return <Paper className="cartContainer">
+                return <Paper elevation={4} className="cartContainer" sx={{paddingTop:"2%",paddingBottom:"2%",width:"97%"}}>
                     {/* <CartItem item={item} /> */}
-                    <div className='leftDisplayDiv'>
+                    <div style={{display:"flex"}} className='leftDisplayDiv'>
                       <img className="displayImage" src={item.image} alt="image not available" />
                       <div className='detailsDiv'>
-                        <Typography variant='h6'>{item.name}</Typography>
-                        <Button className='removeButtom' variant='contained' onClick={()=>{deleteCartItems(item.product)}}>Remove</Button>
+                      <div style={{display:'flex',flexDirection:"column"}}>
+                      <Typography variant='h6'><b>{item.name}</b></Typography>
+                        
+                      </div>
+                        <div>
+                      <p style={{width:"60%"}}>{item.description}</p>
+                      <Button className='removeButtom' variant='contained' onClick={()=>{deleteCartItems(item.product)}}>Remove</Button>
+                    </div>
                       </div>
                     </div>
+                    
                     <div className="cartInput">
                         <button onClick={() =>
                         decreaseQuantity(item.product, item.quantity)

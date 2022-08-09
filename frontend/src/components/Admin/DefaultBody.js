@@ -16,6 +16,7 @@ import TableContainer from '@mui/material/TableContainer';
 import TableHead from '@mui/material/TableHead';
 import TableRow from '@mui/material/TableRow';
 import Paper from '@mui/material/Paper';
+import './DefaultBody.css'
 
 
 function DefaultBody() {
@@ -84,7 +85,7 @@ console.log(`/api/products/${id}`);
 // }
 //     </div>
 
-return <div style={{minHeight:'60vmax'}}>
+return <div style={{minHeight:'35vmax'}}>
     <TableContainer component={Paper}>
       <Table sx={{ minWidth: 650 }} aria-label="simple table">
         <TableHead>
@@ -100,8 +101,9 @@ return <div style={{minHeight:'60vmax'}}>
           {!loading && products.map((row) => {
             
            return <TableRow
+           className='tableRowAdmin'
               key={row._id}
-              sx={{ '&:last-child td, &:last-child th': { border: 0 } }}
+              sx={{ '&:last-child td, &:last-child th': { border: 0 }, }}
             >
               <TableCell component="th" scope="row">
                 {row._id}

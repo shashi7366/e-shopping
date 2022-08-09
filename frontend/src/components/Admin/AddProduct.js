@@ -13,7 +13,7 @@ class AddProduct extends React.Component {
         super(props);
     }
     render() {
-        return <form onSubmit={this.props.handleSubmit}><Paper elevation={2} sx={{ mx: '10%', px: '5%', py: '5%',margin:'2%' }}>
+        return <div style={{backgroundColor:"whitesmoke",padding:"3%"}}><form onSubmit={this.props.handleSubmit}><Paper elevation={10} sx={{padding:"3%"}}>
             <Grid container spacing={2}>
                 <Grid item xs={12} lg={12}>
                     <Typography variant="h3">Add a Product</Typography>
@@ -89,7 +89,7 @@ class AddProduct extends React.Component {
                 </Grid>
             </Grid>
         </Paper>
-        </form>;
+        </form></div>;
     }
 }
 

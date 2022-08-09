@@ -71,8 +71,8 @@ function EditProduct() {
 
 
 
-    return <div>{(loaded) && (<form onSubmit={formik.handleSubmit}>
-    <Paper elevation={2} sx={{ mx: '10%', px: '5%', py: '5%', margin: '2%' }}>
+    return <div style={{backgroundColor:"whitesmoke"}}>{(loaded) && (<form onSubmit={formik.handleSubmit}>
+    <Paper elevation={10} sx={{ mx: '10%', px: '5%', py: '5%', margin: '2%' }}>
         <Grid container spacing={2}>
             <Grid item xs={12} lg={12}>
                 <Typography variant="h3">Edit {product.name}</Typography>

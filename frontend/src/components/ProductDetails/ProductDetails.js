@@ -79,7 +79,7 @@ function ProductDetails() {
          /></div>
          
         <p style={{width:'80%'}}>{product.description}</p>
-        <h4>${product.price}</h4>
+        <h4>₹{product.price}</h4>
         <br></br>
         {product.stock?<b style={{color:'green'}}>in stock</b>:<b style={{color:'red'}}>out of stock</b>}
         <br />

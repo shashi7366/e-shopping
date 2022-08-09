@@ -13,6 +13,7 @@ console.log(data);
             price : data.product.price,
             image : data.product.images[0].url,
             stock : data.product.stock,
+            description:data.product.description,
             quantity
         },
     });

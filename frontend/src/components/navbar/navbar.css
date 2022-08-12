@@ -26,6 +26,7 @@ width:33%;
 display: flex;
 flex-direction: column;
 align-items: center;
+justify-content: center;
 }
 
 .searchBar{
@@ -52,6 +53,7 @@ align-items: center;
 /* sx={{position:'absolute',left:"75%",display:'flex',flexDirection:'column',justifyContent:'center',width:'10%',borderLeft:"1px solid black",borderRight:"1px solid black",borderBottom:"1px solid black",marginTop:"1%"}} */
 .popup{
     position:absolute;
+    top:4%;
     display:flex;
     flex-direction: column;
     align-items: center;
@@ -63,14 +65,33 @@ align-items: center;
 .popupOptions{
     color:black;
 }
+
+.loginBttn{
+    font-size: 18px;
+}
+
+
+/* style={{color:"#3B9AE1",backgroundColor:"white",height:"45px",width:"40px",marginTop:"0"}}  */
+.searchIcon{
+    color:#3B9AE1;
+    background-color:white;
+    height:45px;
+    width:40px;
+    margin-top:0;
+}
 @media screen and (max-width:600px){
+
+    *{
+        font-size: small;
+    }
     .searchBar{
-        width:10vmax;
+        width:9vmax;
+        padding-left:3px;
     }
 
     .loginButton{
-        width:10vmax;
-        height:3vmax;
+        width:5vmax;
+        height:2vmax;
     }
 
     .logoButton{
@@ -79,11 +100,57 @@ align-items: center;
     .parentDiv{
         padding-top: 3%;
         padding-bottom:3%;
+        padding-right: 3%;
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
     }
 
     .firstDiv{
         display: flex;
         flex-direction: column;
         align-items: center;
+        width:20%;
+        font-size: smaller;
+    }
+
+    .secondDiv{
+        width:50%;
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+    }
+
+    .thirdDiv{
+        width:20%;
+    }
+
+    .loginBttn{
+        font-size: 9px;
+        width:100%;
+        
+    }
+
+
+    .searchIcon{
+        color:#3B9AE1;
+        background-color:white;
+        height:45px;
+        width:40px;
+        margin-top:0;
+        border-radius: 10px;
+    }
+
+    .popup{
+        font-size: small;
+        position:absolute;
+        top:3%;
+        right:5%;
+        display:flex;
+        flex-direction: column;
+        align-items: center;
+        width:30%;
+        margin-top: 10%;
+        z-index: 5;
     }
 }

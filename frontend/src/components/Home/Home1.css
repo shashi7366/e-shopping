@@ -79,3 +79,26 @@ align-items: center;
     flex-wrap: wrap;
     justify-content: center;
 }
+
+.categoryTab{
+    margin-top:2%;
+    margin-bottom: 2%;
+}
+
+@media screen and (max-width:600px){
+
+    .productItem{
+        width:35vmax;
+        height:35vmax;
+    }
+
+    .featuredSectionText{
+        font-size: small;
+    }
+
+    .categoryItem{
+        margin-right: 4%;
+        width:10vmax;
+        padding: 2%;
+    }
+}

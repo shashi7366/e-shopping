@@ -15,8 +15,8 @@ function Home() {
 
 
   return (
-    <div>
-<Paper elevation={0} sx={{ display: 'flex', height: '100px', alignItems: 'center', justifyContent: 'center',paddingTop:'20px',overflow:'auto',overflowY:'hidden',margin:'1%'}}>
+    <div data-testid="homeDiv">
+<Paper className="categoryTab" elevation={0} sx={{ display: 'flex', height: '100px', alignItems: 'center', justifyContent: 'center',paddingTop:'20px',overflow:'auto',overflowY:'hidden',margin:'1%'}}>
                 <Paper elevation={3} className='categoryItem' sx={{backgroundColor:'whitesmoke'}}>
                 <img className="categoryImage" src='./images/electronics.jpg' alt="alt-desc"/>
                     <Typography className="categoryText" variant='body1'><Link to='categorySearch?category=electronics' style={{textDecoration:"none",color:'black'}}>electronics</Link></Typography>
@@ -57,7 +57,7 @@ function Home() {
            
             <CarouselComponent />
             <hr style={{width:"60%",paddingLeft:"5%",height:'1vmax',marginLeft:'20%'}}/>
-            <h1 style={{textAlign:'center'}}>featured products</h1>
+            <h1 style={{textAlign:'center'}} className="featuredSectionText">featured products</h1>
             <hr style={{width:"60%",paddingLeft:"5%",height:'1vmax',marginLeft:'20%'}}/>
             
             <Home1 />

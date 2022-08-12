@@ -5,10 +5,6 @@ class ApiFeatures{
     }
 
     async search(){
-        console.log(this.queryString);
-
-        
-
         if (typeof this.queryString.keyword == 'undefined'){
             var key={};
         }
@@ -21,7 +17,7 @@ class ApiFeatures{
         }:{};
     }
         
-        console.log(key);
+       
      this.query=this.query.find({...key});
 
      return this;
@@ -34,7 +30,7 @@ class ApiFeatures{
            
         const removalList=["keyword","page","limit"];
         let queryCopy={...this.queryString};
-        console.log(queryCopy);
+        
         
         removalList.forEach((item)=>{delete queryCopy[item]});
        
@@ -43,7 +39,7 @@ class ApiFeatures{
         queryCopy=JSON.parse(queryString);
         
         this.query=this.query.find(queryCopy);
-console.log('hi');
+
         return this;
 
         

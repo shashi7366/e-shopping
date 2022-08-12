@@ -1,0 +1,23 @@
+/* sx={{margin: '2%',padding:"2%",height:"25vmax"}} */
+.updateProfileFormPaper{
+    margin:2%;padding:2%;height:25vmax;
+}
+
+@media screen and (max-width:600px){
+    .updateProfileHeading{
+        font-size: 36px;
+        font-weight: 500;
+    }
+    .updateProfileFormPaper{
+        height:40vmax;
+    }
+
+    .updateProfilebttn{
+        font-size: 10px;
+    }
+
+    .updateProfileButton{
+        padding: 0;
+        width:20vmax;
+    }
+}

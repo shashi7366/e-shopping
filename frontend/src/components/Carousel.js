@@ -1,14 +1,16 @@
 import React from 'react';
 import Carousel from 'react-bootstrap/Carousel';
+import './carousel.css';
+
 
 function CarouselComponent() {
   return (
-    <div>
-      <Carousel style={{height:'400px'}}>
-      <Carousel.Item>
+    <div style={{marginTop:'3%'}}>
+      <Carousel className='carouselContainer'>
+      <Carousel.Item className="carouselItem">
         <img
-        style={{height:'400px'}}
-          className="d-block w-100"
+        
+          className="d-block w-100 carouselImage"
           src="images/banner1.jpg"
           alt="First slide"
         />
@@ -17,10 +19,10 @@ function CarouselComponent() {
           <p>Nulla vitae elit libero, a pharetra augue mollis interdum.</p>
         </Carousel.Caption>
       </Carousel.Item>
-      <Carousel.Item>
+      <Carousel.Item className="carouselItem">
         <img
-        style={{height:'400px'}}
-          className="d-block w-100"
+        
+          className="d-block w-100 carouselImage"
           src="images/beauty.jpg"
           alt="Second slide"
         />
@@ -30,10 +32,9 @@ function CarouselComponent() {
           <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit.</p>
         </Carousel.Caption>
       </Carousel.Item>
-      <Carousel.Item>
+      <Carousel.Item className="carouselItem">
         <img
-        style={{height:'400px'}}
-          className="d-block w-100"
+          className="d-block w-100 carouselImage"
           src="images/travel.jpg"
           alt="Third slide"
         />

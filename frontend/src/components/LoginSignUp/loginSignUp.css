@@ -19,6 +19,7 @@
     height: 60vh;
     box-sizing: border-box;
     overflow: hidden;
+    padding-top: 2%;
 }
 
 .signUpName{
@@ -185,12 +186,16 @@
 
 @media screen and (max-width: 600px){
     .LoginSignUpContainer{
-        background-color: white;
+        background-color: whitesmoke;
+        padding-top: 5%;
+        padding-bottom: 5%;
+        padding-top: 5%;
+        padding-bottom: 5%;
     }
 
     .LoginSignUpBox{
-        width: 100vw;
-        height: 95vh;
+        width: 90%;
+        margin-top: 4%;
     }
 
     .login_signUp_toggle{

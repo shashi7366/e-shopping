@@ -11,14 +11,14 @@ const handleChange=(e)=>{
     setEmail(e.target.value);
 }
   return (
-    <div style={{padding:"5%",display:'flex',flexDirection:"column",alignItems:"center",backgroundColor:"whitesmoke"}}>
+    <div className="forgotPasswordMainDiv">
     
-    <Paper elevation={5} sx={{width:"40%",display:"flex",flexDirection:"column",alignItems:"center",padding:"3%",height:"18vmax"}}>
+    <Paper className="forgotPasswordFormPaper" elevation={5}>
     <Typography variant="h5">Forgot Password</Typography>
     <br/>
     <br/>
-    <div style={{display:'flex',alignItems:"center"}}>
-    <Typography variant="h6" >Enter your email  :</Typography>
+    <div style={{display:'flex',alignItems:"center",justifyContent:"space-between"}}>
+    <Typography className="labelTeaxt">Enter your email  :</Typography>
     <TextField
 label="your registered email ..."
     size="small"

@@ -16,9 +16,9 @@ router
 
 router
   .route("/admin/order/:id")
-  .put(isAuthenticatedUser, authorizeRoles("admin"), dao.updateOrder)
+  .put(isAuthenticatedUser, dao.updateOrder)
   .delete(isAuthenticatedUser, authorizeRoles("admin"), dao.deleteOrder);
 
-
+router.route('/test/admin/order/:id').delete(dao.deleteOrder);
 
 module.exports = router;

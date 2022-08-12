@@ -11,8 +11,8 @@ function Profile() {
         return state.user;
     })
   return (
-<div style={{backgroundColor:"whitesmoke",display:"flex",justifyContent:"center",paddingTop:"4%",paddingBottom:"4%"}}>
-<Paper elevation={10} sx={{width:"50%",display:"flex",flexDirection:"column",alignItems:"center",justifyContent:"center",paddingBottom:"4%"}}>
+<div className="profileMainDiv" >
+<Paper className="profilePaperForm" elevation={10} >
         <div className='profileImageDiv'>
         <img
         className='profileImage'
@@ -29,7 +29,7 @@ function Profile() {
 
         <div className='profileEmailDiv'>
         <h2>email:</h2>
-            <p style={{fontSize:"20px"}}>{user.email}</p>
+            <p className='paragraphEmail'>{user.email}</p>
         </div> 
         <div style={{display:"flex",alignItems:"center",justifyContent:"space-between",width:"100%"}}>
         <Button variant='contained' onClick={()=>{navigate('/orders')}}>My Orders</Button>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;

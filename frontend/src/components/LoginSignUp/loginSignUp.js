@@ -115,7 +115,7 @@ navigate('/');
         <Fragment>
            <ToastContainer/>
             <div className="LoginSignUpContainer">
-                <Paper elevation={5} className="LoginSignUpBox" sx={{paddingTop:'2%'}}>
+                <Paper elevation={5} className="LoginSignUpBox" >
                     <div>
                         <div className="login_signUp_toggle">
                             <p onClick={(e)=>switchTabs(e,"login")}>LOGIN</p>

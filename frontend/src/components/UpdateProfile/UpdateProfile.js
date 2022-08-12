@@ -6,7 +6,7 @@ import { Button } from "@mui/material";
 import { useFormik } from "formik";
 import * as yup from "yup";
 import { useDispatch, useSelector } from 'react-redux';
-
+import './UpdateProfile.css'
 import {useNavigate } from 'react-router-dom';
 
 import { updateProfile } from "../../redux/actions/userAction";
@@ -50,10 +50,10 @@ function UpdateProfile() {
 
 
     return <div style={{backgroundColor:"whitesmoke",display:"flex",justifyContent:"center",alignItems:"center",paddingTop:"5%",paddingBottom:"5%"}}><form  onSubmit={formik.handleSubmit}>
-    <Paper elevation={10} sx={{margin: '2%',padding:"2%",height:"25vmax"}}>
+    <Paper className="updateProfileFormPaper" elevation={10} >
         <Grid container spacing={2}>
             <Grid item xs={12} lg={12}>
-                <div style={{textAlign:"center",width:"100%"}}><Typography variant="h3">Edit Profile</Typography></div>
+                <div style={{textAlign:"center",width:"100%"}}><Typography variant="h3"><span className="updateProfileHeading">Edit Profile</span></Typography></div>
             </Grid>
             <Grid item xs={12} lg={12}>
             <Typography variant="h6">Name</Typography>
@@ -75,9 +75,9 @@ function UpdateProfile() {
                     helperText={formik.touched.description && formik.errors.description} />
             </Grid>
 
-            <Grid item xs={2} lg={12}>
-                <div style={{textAlign:"center",width:"100%"}}><br/><br/><Button variant="contained" type='submit'>
-                    Update Profile
+            <Grid item xs={12} lg={12}>
+                <div style={{textAlign:"center",width:"100%"}}><br/><br/><Button className="updateProfileButton" variant="contained" type='submit'>
+                   <span className="updateProfilebttn"> Update Profile</span>
                 </Button></div>
             </Grid>
         </Grid>

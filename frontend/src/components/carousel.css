@@ -1,0 +1,26 @@
+.carouselContainer{
+    height: 400px;
+}
+
+.carouselImage{
+    height: 400px;
+}
+
+.carouselItem{
+    height: 400px;
+}
+
+@media screen and (max-width:600px){
+    .carouselContainer{
+        height: 200px;
+    }
+    
+    .carouselImage{
+        height: 200px;
+    }
+    
+    .carouselItem{
+        height: 200px;
+    }
+
+}

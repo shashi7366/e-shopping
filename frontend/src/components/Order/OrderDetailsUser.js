@@ -5,8 +5,11 @@ import { useSelector, useDispatch } from "react-redux";
 import { Link,useNavigate,useParams } from "react-router-dom";
 import { Button, Paper, Typography } from "@mui/material";
 import { getOrderDetails, clearErrors } from "../../redux/actions/orderAction";
-// import Loader from "../layout/Loader/Loader";
-// import { useAlert } from "react-alert";
+import {toast,ToastContainer} from 'react-toastify';
+import axios from "axios";
+
+
+
 
 const OrderDetailsUser=()=>{
   var navigate=useNavigate();
@@ -16,7 +19,17 @@ const OrderDetailsUser=()=>{
 
     const dispatch = useDispatch();
     // const alert = useAlert();
-
+    const confirmationComponent=({id})=>{
+      return <Paper sx={{padding:"3%",display:"flex",flexDirection:"column",alignItems:"center"}}>
+      <Typography>Sure want to cancel order</Typography>
+      <Button color="error" onClick={()=>{
+        axios.put(`/api/orders/admin/order/${id}`,{status:"cancelled"}).then((res)=>{
+          toast.success("order cancelled succesfully");
+          navigate('/orders');
+        });
+      }}>Cancel order</Button>
+    </Paper>
+    }
     useEffect(() => {
        
 console.log(params.id);
@@ -26,6 +39,7 @@ console.log(params.id);
 
     return(
         <>
+        <ToastContainer/>
         {order && <Paper sx={{minHeight:'60vmax'}}>
           <div className="orderDetailsPage">
             <div className="orderDetailsContainer">
@@ -58,6 +72,9 @@ console.log(params.id);
               <p style={order.orderStatus=="delivered"?{color:'green'}:{color:'red'}}><b>{order.orderStatus}</b></p>
               </div>
               
+              {order.orderStatus!="Delivered" && order.orderStatus!="cancelled" ?<Button onClick={()=>{
+                toast.warning(confirmationComponent({id:order._id}),{position:toast.POSITION.TOP_CENTER})
+              }}>Cancel Order</Button>:<div></div>}
 
                 
               </div>

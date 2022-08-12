@@ -16,7 +16,7 @@ const showProducts=async (req,res,next)=>{
         message:'no product found'
     })
    }else{
-    res.status(403).json({
+    res.status(200).json({
         message:'success',
         products
     })
@@ -84,10 +84,10 @@ const showSearchProducts=async (req,res,next)=>{
     
 
     apiFeatures.search().then((result)=>{
-        console.log('search called');
+        
         return result.filter();
     }).then(async (result2)=>{
-        console.log('filter called');
+       
        let data=(await result2.query);
         res.status(200).json({
             message:"success",

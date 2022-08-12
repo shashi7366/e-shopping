@@ -52,14 +52,14 @@ var {user}=useSelector((state)=>{
 
 
   return (
-    <div style={{backgroundColor:"whitesmoke",padding:"10%",paddingTop:"5%",display:"flex",justifyContent:"center"}}>
+    <div className="changePasswordMainDiv">
     
-    <Paper elevation={4} sx={{display:"flex",flexDirection:"column",alignItems:"flex-start",padding:"3%",width:"40%"}}>
+    <Paper className="changePasswordFormPaper" elevation={4}>
     <div style={{display:"flex",justifyContent:"center",width:"100%"}}><Typography variant="h5">Change Password</Typography></div>
     <br/>
     <br/>
     <div className='emailContainer'>
-    <Typography>Old password  :</Typography>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+    <Typography><span className='changePasswordText'>Old password  :</span></Typography>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
     <TextField
     type="password"
     label="your current password"
@@ -71,6 +71,7 @@ var {user}=useSelector((state)=>{
     <div className='emailContainer'>
     <Typography>New Password  :</Typography>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
     <TextField
+    className='changePasswordInput'
     type="password"
     label="new password...."
     size="small"

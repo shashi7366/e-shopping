@@ -25,7 +25,7 @@ router.route('/addReview/:id').put(dao.addReview);
 
                   
 router.route('/:id').put( isAuthenticatedUser, authorizeRoles("admin"), dao.updateProduct).delete(isAuthenticatedUser,authorizeRoles("admin"),  dao.deleteProduct).get( dao.getIndividualProduct);
-// router.route('/:id').put(dao.updateProduct).delete(dao.deleteProduct).get( dao.getIndividualProduct);
+router.route('/test/:id').put(dao.updateProduct).delete(dao.deleteProduct).get( dao.getIndividualProduct);
                        
 module.exports=router;
                             

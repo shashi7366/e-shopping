@@ -4,7 +4,7 @@
   "description": "",
   "main": "backend/app.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1",
+    "test": "mocha backend/test",
     "start": "node backend/bin/www.js",
     "dev": "nodemon backend/bin/www.js --ignore ./frontend"
   },
@@ -21,5 +21,10 @@
     "nodemailer": "^6.7.7",
     "stripe": "^10.0.0",
     "validator": "^13.7.0"
+  },
+  "devDependencies": {
+    "chai": "^4.3.6",
+    "chai-http": "^4.3.0",
+    "mocha": "^10.0.0"
   }
 }

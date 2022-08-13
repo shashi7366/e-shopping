@@ -37,10 +37,16 @@ function ProductDetails() {
     })
 
     const cartHandler = () => {
-        if(user.role!='admin'){
+        if(!user){
+        // dispatch(addItemsToCart(id,quantity));
+        // toast.success("item added to cart",{position:toast.POSITION.TOP_CENTER})
+        toast.error("Please Login",{position:toast.POSITION.TOP_CENTER})
+    }
+    else if(user.role!='admin'){
         dispatch(addItemsToCart(id,quantity));
         toast.success("item added to cart",{position:toast.POSITION.TOP_CENTER})
-    }else{
+    }
+    else{
         
         toast.error("admin can't add product",{position:toast.POSITION.TOP_CENTER})
     }

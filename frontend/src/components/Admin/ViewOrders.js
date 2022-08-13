@@ -37,7 +37,7 @@ function ViewOrders() {
         </TableHead>
         <TableBody>
           {loaded && orders.filter((row)=>{
-            return row.orderStatus!="Delivered" && row.orderStatus!="delivered";
+            return row.orderStatus!="Delivered" && row.orderStatus!="cancelled" && row.orderStatus!="delivered";
           }).map((row) => {
             
            return <TableRow

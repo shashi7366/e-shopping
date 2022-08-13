@@ -84,7 +84,7 @@ const Payment = ({ history }) => {
       if (result.error) {
         payBtn.current.disabled = false;
 
-        alert.error(result.error.message);
+        console.log(result.error.message);
       } else {
         if (result.paymentIntent.status === "succeeded") {
           order.paymentInfo = {
@@ -96,18 +96,18 @@ const Payment = ({ history }) => {
 
         navigate('/success');
         } else {
-          alert.error("There's some issue while processing payment ");
+          console.log("There's some issue while processing payment ");
         }
       }
     } catch (error) {
       payBtn.current.disabled = false;
-      alert.error(error.response.data.message);
+      console.log(error.response.data.message);
     }
   };
 
   // useEffect(() => {
   //   if (error) {
-  //     alert.error(error);
+  //     console.log(error);
   //     dispatch(clearErrors());
   //   }
   // }, [dispatch, error, alert]);

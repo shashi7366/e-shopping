@@ -14,9 +14,10 @@ function CategorySearch() {
     var [searchParams,setSearchParams]=useSearchParams();
 
     useEffect(() => {
-      let link=`/api/products/searchProduct?category=${searchParams.get('category')}`;
+     
+      let link=`/api/products/searchProduct?category=${searchParams.get('category')}&price[gte]=${price[0]}&price[lte]=${price[1]}`;
         dispatch(getSearchProduct(link));
-    }, [dispatch]);
+    }, [dispatch,price]);
 
     const handleChange=(e)=>{
       setPrice(e.target.value);

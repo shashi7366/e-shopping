@@ -9,10 +9,12 @@ import {useDispatch,useSelector} from 'react-redux';
 import {useNavigate} from 'react-router-dom'
 
 // import '../Component/LoginSignUp.css';
-
+import { REGISTER_SUCCESS,REGISTER_FAIL,REGISTER_REQUEST } from "../../redux/constants/userConstants";
+import { LOGIN_SUCCESS,LOGIN_REQUEST,LOGIN_FAIL } from "../../redux/constants/userConstants";
 import './loginSignUp.css'
 import { Paper } from "@mui/material";
 import { toast,ToastContainer } from "react-toastify";
+import axios from 'axios';
 
 
 
@@ -47,14 +49,25 @@ const LoginSignUp =()=>{
 
     const loginSubmit = (e)=>{
         e.preventDefault();
-        dispatch(getUser(loginEmail,loginPassword));
-        navigate('/');
+        axios.post('/api/users/login',{
+            email:loginEmail,
+            password:loginPassword
+        }).then((result)=>{
+            toast.success("login success!",{position:toast.POSITION.TOP_CENTER});
+            dispatch({type:LOGIN_SUCCESS,payload:result.data.user});
+            navigate('/');
+        }).catch((err)=>{
+            toast.error("invalid username or password",{position:toast.POSITION.TOP_CENTER});
+            
+        })
+        // dispatch(getUser(loginEmail,loginPassword));
+        
         // console.log("Login Form Submitted");
     };
 
     const registerSubmit = (e)=>{
+        
         e.preventDefault();
-
         const myForm = new FormData();
 
         myForm.set("name",name);
@@ -62,9 +75,24 @@ const LoginSignUp =()=>{
         myForm.set("password",password);
         myForm.set("avatar",avatar);
         console.log("submitted");
-        console.log(name,email,password);
-dispatch(registerUser(name,email,password));
-navigate('/');
+        console.log(name,email,password)
+
+        if(password.length<8){
+            toast.error("password must be at least 8 characters long",{position:toast.POSITION.TOP_CENTER});
+        }
+
+        else{
+            axios.post('/api/users/register',{name,email,password}).then((result)=>{
+                dispatch({type:REGISTER_SUCCESS,payload:result.data.user});
+                navigate("/");
+            }).catch((err)=>{
+                toast.error("registeration failed:-email already taken",{position:toast.POSITION.TOP_CENTER});
+                dispatch({type:REGISTER_FAIL,payload:err});
+            })
+        }
+
+// dispatch(registerUser(name,email,password));
+// navigate('/');
     }
 
     const registerDataChange = (e) =>{

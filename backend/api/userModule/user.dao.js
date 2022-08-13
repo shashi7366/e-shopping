@@ -10,7 +10,7 @@ const registerUser = async (req,res,next)=>
     console.log(req.body);
     const{ name, email, password} =req.body;
     
-    const user=await User.create({
+    const user=User.create({
         name,
         email,
         password,
@@ -18,10 +18,15 @@ const registerUser = async (req,res,next)=>
             public_id :"This is a sample id",
             url:    "ProfilepicUrl",
         },
-    });
+    }).then((result)=>{
+      console.log(result);
+      sendToken(result,201,res);
+    }).catch((err)=>{
+      next(new ErrorHander("email already taken",403));
+    })
  
 
-    sendToken(user,201,res);
+    // sendToken(user,201,res);
 
 };
 

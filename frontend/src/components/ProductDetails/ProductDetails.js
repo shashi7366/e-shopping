@@ -90,8 +90,8 @@ function ProductDetails() {
         {product.stock?<b style={{color:'green'}}>in stock</b>:<b style={{color:'red'}}>out of stock</b>}
         <br />
         <br />
-        <Typography>Quantity</Typography>
-        <TextField size='small' value={quantity} onChange={setOrderQuantity} />&nbsp;&nbsp;&nbsp;&nbsp;
+        {/* <Typography>Quantity</Typography>
+        <TextField readonly size='small' value={quantity} onChange={setOrderQuantity} />&nbsp;&nbsp;&nbsp;&nbsp; */}
         <Button variant='outlined' onClick={cartHandler}>Add to Cart</Button>
     </Paper>
     </div>}

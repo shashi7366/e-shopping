@@ -60,6 +60,7 @@ const logoutDispatcher=()=>{
 
   const callAction = () => {
     navigate(`search?keyword=${keyword}`);
+document.getElementById("searchBox").value='';
   }
 
 
@@ -71,7 +72,7 @@ const logoutDispatcher=()=>{
         </div>
 
         <div className='secondDiv'>
-            <input className='searchBar' type="text" placeholder="search..." onChange={(e) => {
+            <input id="searchBox" className='searchBar' type="text" placeholder="search..." onChange={(e) => {
           setKeyword(e.target.value);
         }}/><SearchIcon className="searchIcon" fontSize="large" onClick={callAction}/>
         </div>

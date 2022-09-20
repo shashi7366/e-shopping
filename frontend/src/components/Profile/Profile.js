@@ -2,7 +2,8 @@ import { Button,Paper} from '@mui/material'
 import React from 'react';
 import { useSelector } from 'react-redux';
 import { useNavigate } from 'react-router-dom';
-import './Profile.css'
+import './Profile.css';
+import {toast,ToastContainer} from 'react-toastify'
 
 
 function Profile() {
@@ -12,6 +13,7 @@ function Profile() {
     })
   return (
 <div className="profileMainDiv" >
+<ToastContainer/>
 <Paper className="profilePaperForm" elevation={10} >
         <div className='profileImageDiv'>
         <img
@@ -32,7 +34,7 @@ function Profile() {
             <p className='paragraphEmail'>{user.email}</p>
         </div> 
         <div style={{display:"flex",alignItems:"center",justifyContent:"space-between",width:"100%"}}>
-        <Button variant='contained' onClick={()=>{navigate('/orders')}}>My Orders</Button>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+        <Button variant='contained' onClick={()=>{user.role!='admin'?navigate('/orders'):toast.error("you are admin you cant access orders",{position:toast.POSITION.TOP_CENTER})}}>My Orders</Button>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
         <Button variant='contained' onClick={()=>{navigate('/password/update')}}>Change Password</Button>
         </div>  
         </div>
